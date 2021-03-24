@@ -13,7 +13,7 @@ If you are package collaborator
 
 ```{r, eval=FALSE}
 # (if you do not have devtools, install it) 
-devtools::install_github("karlropkins/AQEval", subdir="AQEval", 
+devtools::install_github("karlropkins/AQEval", 
           auth_token = "[your-token-here]")
 ```
 

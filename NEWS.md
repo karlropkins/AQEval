@@ -67,4 +67,13 @@
 * set main functions to leeds defaults [2020-06-03] 
 * rebuild for R4  [2020-06-07] 
 
+## v 0.1.7 - updates 
+
+* various updates [2020-12-07]
+
+## v 0.2.0 - updates 
+
+* rebuild for AQeval/AQEvalTools split [2021-03-24]
+
+
 
