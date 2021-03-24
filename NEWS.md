@@ -1,0 +1,70 @@
+## v 0.0.0 - Updates
+
+* Package splatted into existance [2019-07-22] 
+* Added tmap_polarPlot [2019-07-23] 
+* Package imports: sf, tmap, openair [2019-07-23] 
+* Rebuilt tmap_polarPlot [2019-08-20] 
+* added findBreakPoints01 and quantBreaks01, imports strucchange [2019-09-01] 
+* added quantBreaks02 [2019-09-11] 
+* imports lattice and ggplot2, (keep options open re plot outputs) [2019-09-15] 
+* added spectralFrequency re background characterisation (might not be staying) [2019-10-05] 
+* added importSouthamptonAQ (might not be staying) [2019-10-12] 
+* added importLeedsAQ (might not be staying) [2019-10-15]
+* added importBirminghamAQ (might not be staying) [2019-10-15]
+
+## v 0.0.1 - Updates
+
+* findBreakPoints01 -> findBreakPoints; prior as wrapper for now [2019-11-17]
+* tidied findBreakPoints [2019-11-19] 
+* quantBreaks02 -> quantBreakPoints; prior as wrapper for now [2019-11-23]  
+* tidied findBreakPoints [2019-11-24] 
+* moved import... functions out package (going in AQEvalTools) [2019-11-27]
+
+## v 0.0.2 - Updates 
+
+* started documented v. 0.0.1, pre-share [2019-12-10]  
+* added setup_AQEval, pre-share [2019-12-16] 
+
+## v 0.0.3 - Updates 
+
+* added segmented as import [2019-12-21] 
+* added quantSegments01 and quantSegments02 [2019-12-21] 
+* added quantBreakSegments [2019-12-22]
+ 
+## v 0.0.4 - Updates
+
+* added isolateContribution [2020-01-07] 
+* documented package [2020-01-10] 
+* built AQEValTools as part of private github migrate; exported importSouthamptonAQ, importLeedsAQ, importBirminghamAQ  [2019-11-12]
+* private github post [2020-01-16]
+
+## v 0.0.5 - Updates
+
+* removed tmap and sf code and dependence [2020-01-21] 
+* removed makeKRModel01 and 02 [2020-03-16] 
+* removed quantBreaks01 and 02 [2020-03-18]
+* removed findBreakPoints01 [2020-03-19] 
+
+## v 0.0.6 - Updates 
+
+* added findNearSites function [2020-03-20] 
+* added fitNearSiteModel function [2020-03-22] 
+* added testBreakPoints function [2020-03-24] 
+* updated spectralFrequency [2020-03-26]
+* removed lattice dependence [2020-03-26] 
+
+## v 0.0.7 - Updates 
+
+* rebuilds following source data changes [2020-04-15] 
+* updates for shorter time duration applications [2020-04-27] 
+
+## v 0.0.8 - Updates 
+
+* further rebuilds [2020-05-15]
+
+## v 0.1.0 - updates 
+
+* set main functions to leeds defaults [2020-06-03] 
+* rebuild for R4  [2020-06-07] 
+
+

@@ -1,0 +1,18 @@
+Package: AQEval
+Title: Air Quality Evaluation
+Version: 0.1.7
+Date: 2020-12-07
+Description: Pre-release package for R code for Air Quality
+       Evaluation.
+Authors@R: c(person(given = "Karl", family = "Ropkins", role =
+       c("aut", "cre"), email = "karl.ropkins@gmail.com",
+       comment = c(ORCID = "0000-0002-0294-6997")),
+       person(given = "Anthony", family = "Walker", role =
+       c("ctb")), person(given = "James", family = "Tate",
+       role = c("ctb")))
+License: GLP-3
+Encoding: UTF-8
+LazyData: true
+Imports: openair, dplyr, loa, readr, ggplot2, strucchange,
+       segmented, mgcv, tidyr, lubridate, purrr
+RoxygenNote: 7.1.1

@@ -1,0 +1,20 @@
+citHeader("To cite 'AQEval' package in publications use:")
+
+citEntry(entry="Manual",
+         title = "AQEval: Air Quality Evaluation",
+         author = personList(as.person("Karl Ropkins"),
+                             as.person("Anthony Walker"),
+                             as.person("James Tate")),
+         year = "2020",
+         note = paste("R package version ",
+                    packageDescription("AQEval",
+                                 fields = c("Version"))[1], sep=""),
+         textVersion = paste("Karl Ropkins, Anthony Walker, James Tate (2020) ",
+                    "AQEval: Air Quality Evaluation, ",
+                    "R package version ",
+                    packageDescription("AQEval",
+                         fields = c("Version"))[1],".", sep=""))
+
+citFooter("Please cite both 'AQEval' and R ",
+          "when using 'AQEval'.",
+          "For R citation, see ", sQuote("citation()"))
