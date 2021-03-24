@@ -73,7 +73,7 @@
 
 ## v 0.2.0 - updates 
 
-* rebuild for AQeval/AQEvalTools split [2021-03-24] 
+* rebuild for AQeval/AQEvalTools split [2021-03-24]
 
 
 
