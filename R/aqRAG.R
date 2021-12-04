@@ -198,7 +198,8 @@ aqiRAG <- function(data, pollutant="no2",
   temp <- temp * 1.5
   results[,5] <- results[,4] + temp
 
-  ref <- calcRollingDateRangeStat(data, pollutant = pollutant,
+#need to look at this
+  ref <- calcRollingDateRangeStat(data, #pollutant = pollutant,
                                   ...)
 
   out <- list(data=data, pollutant=pollutant,

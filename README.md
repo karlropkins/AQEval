@@ -6,7 +6,7 @@ Pre-release packages of R code for Air Quality Evaluation.
 
 **AQEval**:
 
-If you are package collaborator
+If you are a package collaborator
 
 1. create [personal token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
 2. then in R 
