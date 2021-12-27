@@ -35,7 +35,7 @@
 ###################################
 #to do
 ###################################
-#remove rag03? (testing)
+#remove rag03?
 #confirm naming convention for unexported functions?
 #check mgcv gam + predict handling for unexported
 #     function aqe_fitRAGModel
