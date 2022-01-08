@@ -267,7 +267,7 @@ aqeval_summariseBreakPointsReport <- function(report){
           ";", report[i, 10], " (", report[i, 11],
           "%)\n", sep = "")
       cat("[Lower]", report[i, 12], "->",
-          report[i, 13], ";", report[i, 15], " (",
+          report[i, 13], ";", report[i, 14], " (",
           report[i, 15],
           "%)\n", sep = "")
     }
