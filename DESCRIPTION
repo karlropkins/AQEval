@@ -1,6 +1,6 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.2.1
+Version: 0.2.2
 Date: 2022-01-17
 Description: Pre-release package for R code for Air
       Quality Evaluation.
