@@ -74,6 +74,13 @@
 ## v 0.2.0 - updates 
 
 * rebuild for AQeval/AQEvalTools split [2021-03-24]
+* updates and rebuilds AQeval [last 2021-12-30] 
+
+## v. 0.2.1 - fixes
+
+* fix for break point report issue [2022-01-08]
+* move other rfs to tools [2022-01-17]
+
 
 
 

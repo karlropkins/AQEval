@@ -7,7 +7,7 @@
 \description{
 Pre-release package for R code for Air Quality Evaluation.
 }
-\section{package functions}{
+\section{main package functions}{
 
 findBreakPoints, quantBreakPoints, quantBreakSegments
 }
