@@ -62,9 +62,9 @@ spectralFrequency <-
 ######################
     ################
     #cut data back to just needed data
-    data <- aqeval_prepData(data, pollutant)
+    data <- aqe_prepData(data, pollutant)
     #tidy data (regularise and holefill)
-    data <- aqeval_tidySpectralData(data)
+    data <- aqe_tidySpectralData(data)
     #not tracking by at moment
     mypol <- unlist(data[, pollutant])
     #could use align to do this - might be faster but ws/wd bad?
@@ -170,12 +170,12 @@ spectralFrequency <-
 #internal functions
 #######################
 
-#aqeval_prepData
+#aqe_prepData
 #kr v.0.0.1  2019/11/15
 #checks all expected data there
 #stops if not
 #send back only what is needed
-aqeval_prepData<- function(data, pollutant, ...){
+aqe_prepData<- function(data, pollutant, ...){
    temp <- unique(c("date", pollutant))
    if(!all(temp %in% names(data))){
      stop(paste("Expected data missing (",
@@ -187,11 +187,11 @@ aqeval_prepData<- function(data, pollutant, ...){
 }
 
 
-#aqeval_tidySpectralData
+#aqe_tidySpectralData
 #kr v.0.0.1  2019/11/02
 #might be better option via align
 #but need to think about ws,wd handling
-aqeval_tidySpectralData<- function(data, by = "hour", ...){
+aqe_tidySpectralData<- function(data, by = "hour", ...){
   ######################
   #to think about
   #this currently holefills/regularises all columns

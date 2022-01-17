@@ -58,9 +58,9 @@ quantBreakSegments <-
   ##########################
 
   #breaks setup
-  #aqeval_buildBreaks in quantBreakPoints
+  #buildBreaks in quantBreakPoints
   if(missing(breaks)){
-    breaks <- aqeval_buildBreaks(data, pollutant,...)
+    breaks <- aqe_buildBreaks(data, pollutant,...)
   }
 
   #model
@@ -72,7 +72,7 @@ quantBreakSegments <-
   #seg.models confirmed
   #######################################
   if(seg.method==1){
-    mod <- aqeval_fitBreakSegmentsModel01(data, pollutant, breaks)
+    mod <- aqe_fitBreakSegmentsModel01(data, pollutant, breaks)
     data2 <- data[,c("date", pollutant)]
     data2$pred <- rep(NA, nrow(data2))
     data2$err <- data2$pred
@@ -81,16 +81,16 @@ quantBreakSegments <-
     data2$err[as.numeric(names(ans$fit))] <- ans$se.fit
     #segments
     #this needs to be tidied once methods finalised
-    segments <- aqeval_makeSegmentsFromBreaks01(breaks)
+    segments <- aqe_makeSegmentsFromBreaks01(breaks)
     #report
     #this needs to be tidied once methods finalised
-    report <- aqeval_makeBreakSegmentsReport(data2, segments)
+    report <- aqe_makeBreakSegmentsReport(data2, segments)
     if ("report" %in% show) {
-      aqeval_summariseBreakSegmentsReport(report)
+      aqe_summariseBreakSegmentsReport(report)
     }
     #plot
     #this needs to be tidied once methods finalised
-    plt <- aqeval_plotQuantBreakSegments01(data2, pollutant,
+    plt <- aqe_plotQuantBreakSegments01(data2, pollutant,
                                     segments,
                                     pt.col=pt.col,
                                     break.col = break.col, line.col = line.col,
@@ -101,7 +101,7 @@ quantBreakSegments <-
   }
   if(seg.method==2){
     data2 <- data[,c("date", pollutant)]
-    ls.mod <- aqeval_fitBreakSegmentsModel02(data2, pollutant, breaks)
+    ls.mod <- aqe_fitBreakSegmentsModel02(data2, pollutant, breaks)
     mod <- ls.mod$mod
     data2$pred <- rep(NA, nrow(data2))
     data2$err <- data2$pred
@@ -122,15 +122,15 @@ quantBreakSegments <-
 
     #report
     #this needs to be tidied once methods finalised
-    report <- aqeval_makeBreakSegmentsReport(data2, segments)
+    report <- aqe_makeBreakSegmentsReport(data2, segments)
     if ("report" %in% show) {
-      aqeval_summariseBreakSegmentsReport(report)
+      aqe_summariseBreakSegmentsReport(report)
     }
 
     #plot
     #this needs to be tidied once methods finalised
     ##plt <- NULL
-    plt <- aqeval_plotQuantBreakSegments02(data2, pollutant,
+    plt <- aqe_plotQuantBreakSegments02(data2, pollutant,
                                          segments,
                                          pt.col=pt.col,
                                          break.col = break.col, line.col = line.col,
@@ -145,7 +145,7 @@ quantBreakSegments <-
                         plot = plt, report = report, model = mod)))
 }
 
-aqeval_makeBreakSegmentsReport <- function(data, segments){
+aqe_makeBreakSegmentsReport <- function(data, segments){
   if(!is.null(segments) && nrow(segments)>0){
     #this needs tidying
     #err ranges need calculating
@@ -171,13 +171,13 @@ aqeval_makeBreakSegmentsReport <- function(data, segments){
 
 
 
-aqeval_plotQuantBreakSegments01 <- function(data, name.pol, segments,
+aqe_plotQuantBreakSegments01 <- function(data, name.pol, segments,
                                             ylab = NULL, xlab = NULL,
                                             pt.col = c("lightgrey", "darkgrey"),
                                             line.col = "red", break.col ="blue",
                                             scalelabs = c("data", "trend",
                                                           "change")){
-  #using aqeval_plotQuantBreakPoints
+  #using plotQuantBreakPoints
   if(!is.null(segments) && nrow(segments)>0){
     temp <- segments[,4:6]
     names(temp) <- names(segments[,1:3])
@@ -191,7 +191,7 @@ aqeval_plotQuantBreakSegments01 <- function(data, name.pol, segments,
               call.=FALSE)
     }
   }
-  aqeval_plotQuantBreakPoints(data, name.pol, segments,
+  aqe_plotQuantBreakPoints(data, name.pol, segments,
                               ylab = ylab, xlab = xlab,
                               pt.col = pt.col, line.col = line.col,
                               break.col = break.col,
@@ -200,13 +200,13 @@ aqeval_plotQuantBreakSegments01 <- function(data, name.pol, segments,
 
 
 
-aqeval_plotQuantBreakSegments02 <- function(data, name.pol, segments,
+aqe_plotQuantBreakSegments02 <- function(data, name.pol, segments,
                                         ylab = NULL, xlab = NULL,
                                         pt.col = c("lightgrey", "darkgrey"),
                                         line.col = "red", break.col ="blue",
                                         scalelabs = c("data", "trend",
                                                       "change")){
-  #using aqeval_plotQuantBreakPoints
+  #using plotQuantBreakPoints
   if(!is.null(segments) && nrow(segments)>0){
     segments <- segments[2:nrow(segments),1:3]
     names(segments) <- c("lower", "bpt", "upper")
@@ -232,7 +232,7 @@ aqeval_plotQuantBreakSegments02 <- function(data, name.pol, segments,
               call.=FALSE)
     }
   }
-  aqeval_plotQuantBreakPoints(data, name.pol, segments,
+  aqe_plotQuantBreakPoints(data, name.pol, segments,
                               ylab = ylab, xlab = xlab,
                               pt.col = pt.col, line.col = line.col,
                               break.col = break.col,
@@ -240,7 +240,7 @@ aqeval_plotQuantBreakSegments02 <- function(data, name.pol, segments,
 }
 
 
-aqeval_summariseBreakSegmentsReport <- function(report){
+aqe_summariseBreakSegmentsReport <- function(report){
   if (is.null(report)) {
     cat("no change ranges declared...\n")
   }
@@ -262,9 +262,9 @@ aqeval_summariseBreakSegmentsReport <- function(report){
 }
 
 
-aqeval_fitBreakSegmentsModel01 <- function(data, name.pol, breaks){
+aqe_fitBreakSegmentsModel01 <- function(data, name.pol, breaks){
   #function in quantBreakPoints
-  mod <- aqeval_fitBreakPointsModel(data, name.pol, breaks)
+  mod <- aqe_fitBreakPointsModel(data, name.pol, breaks)
   data$pred <- rep(NA, nrow(data))
   data$err <- data$pred
   ans <- predict(mod, se.fit = TRUE)
@@ -283,7 +283,7 @@ aqeval_fitBreakSegmentsModel01 <- function(data, name.pol, breaks){
   lm(ff, data=data)
 }
 
-aqeval_makeSegmentsFromBreaks01 <- function(breaks){
+aqe_makeSegmentsFromBreaks01 <- function(breaks){
 
   #make segments
   segments <- NULL
@@ -301,8 +301,8 @@ aqeval_makeSegmentsFromBreaks01 <- function(breaks){
   segments
 }
 
-#aqeval_fitBreakSegmentsModel02
-aqeval_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
+#fitBreakSegmentsModel02
+aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
   #reinstate iterative segmented as method 02
   #(needs extra stops for out of range cases)
   #(might need change of outputs for method 01)

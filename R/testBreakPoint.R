@@ -24,9 +24,9 @@ testBreakPoints <-
   {
     #test identified break points
     #test zero breaks model...
-    mod <- aqeval_fitBreakPointsModel(data, pollutant,
+    mod <- aqe_fitBreakPointsModel(data, pollutant,
                                       breaks=NULL)
-    ans <- aqeval_makeBreakPointTestReport(mod, 0, NA)
+    ans <- aqe_makeBreakPointTestReport(mod, 0, NA)
     #if breaks check each model
 #print("here")
     if(!is.null(breaks) && nrow(breaks)>0){
@@ -34,9 +34,9 @@ testBreakPoints <-
         temp <- combn(1:nrow(breaks), i,
                       simplify = FALSE)
         for(j in 1:length(temp)){
-          mod <- aqeval_fitBreakPointsModel(data,
+          mod <- aqe_fitBreakPointsModel(data,
                       pollutant, breaks=breaks[temp[[j]],])
-          ans <- bind_rows(aqeval_makeBreakPointTestReport(
+          ans <- bind_rows(aqe_makeBreakPointTestReport(
                       mod, i, temp[[j]]), ans)
         }
       }
@@ -53,7 +53,7 @@ testBreakPoints <-
 
 
 #local function
-aqeval_makeBreakPointTestReport <-
+aqe_makeBreakPointTestReport <-
   function(mod, elements, breaks){
     signif <- all(summary(mod)$coefficients[,4]<0.05)
     breaks <- paste(breaks, sep="", collapse = "+")

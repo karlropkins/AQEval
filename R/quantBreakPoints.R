@@ -51,12 +51,12 @@ quantBreakPoints <-
     if(missing(breaks)){
       #if breaks missing build assuming
       #what sent plus defaults
-      breaks <- aqeval_buildBreaks(data, name.pol, ...)
+      breaks <- aqe_buildBreaks(data, name.pol, ...)
     }
 #print("fit")
 ################
     data2 <- data[,c("date", name.pol)]
-    mod <- aqeval_fitBreakPointsModel(data2, name.pol, breaks)
+    mod <- aqe_fitBreakPointsModel(data2, name.pol, breaks)
 ################
     data2$pred <- rep(NA, nrow(data2))
     data2$err <- data2$pred
@@ -65,15 +65,15 @@ quantBreakPoints <-
     data2$err[as.numeric(names(ans$fit))] <- ans$se.fit
 #print("report")
 ################
-    report <- aqeval_makeBreakPointsReport(data2, breaks)
+    report <- aqe_makeBreakPointsReport(data2, breaks)
 #################
 #################
     if ("report" %in% show) {
-      aqeval_summariseBreakPointsReport(report)
+      aqe_summariseBreakPointsReport(report)
     }
 #print("plot")
 ######
-    plt <- aqeval_plotQuantBreakPoints(data2, name.pol, breaks,
+    plt <- aqe_plotQuantBreakPoints(data2, name.pol, breaks,
                   xlab=xlab, ylab=ylab, pt.col=pt.col,
                   line.col=line.col, break.col=break.col)
     if ("plot" %in% show) {
@@ -93,7 +93,7 @@ quantBreakPoints <-
 #not exported
 #may change if methods change
 
-aqeval_buildBreaks <- function(data, name.pol, ...){
+aqe_buildBreaks <- function(data, name.pol, ...){
   breaks <- findBreakPoints(data, name.pol, ...)
   x.args <- list(...)
   if("test" %in% names(x.args) && !x.args$test){
@@ -114,7 +114,7 @@ aqeval_buildBreaks <- function(data, name.pol, ...){
   }
 }
 
-aqeval_plotQuantBreakPoints <- function(data, name.pol, breaks,
+aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
                                         ylab = NULL, xlab = NULL,
                                         pt.col = c("lightgrey", "darkgrey"),
                                         line.col = "red", break.col ="blue",
@@ -191,7 +191,7 @@ aqeval_plotQuantBreakPoints <- function(data, name.pol, breaks,
 }
 
 
-aqeval_fitBreakPointsModel <- function(data, name.pol, breaks){
+aqe_fitBreakPointsModel <- function(data, name.pol, breaks){
   bpts <- breaks$bpt
   #############################
   #this needs thinking about
@@ -216,7 +216,7 @@ aqeval_fitBreakPointsModel <- function(data, name.pol, breaks){
 }
 
 
-aqeval_makeBreakPointsReport <- function(data, breaks){
+aqe_makeBreakPointsReport <- function(data, breaks){
   bpts <- breaks$bpt
   if (length(bpts) > 0) {
     ls <- lapply(1:length(bpts), function(i) {
@@ -251,7 +251,7 @@ aqeval_makeBreakPointsReport <- function(data, breaks){
   }
 }
 
-aqeval_summariseBreakPointsReport <- function(report){
+aqe_summariseBreakPointsReport <- function(report){
   if (is.null(report)) {
     cat("no breakpoints declared...\n")
   }

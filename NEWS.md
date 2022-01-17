@@ -80,6 +80,7 @@
 
 * fix for break point report issue [2022-01-08]
 * move other rfs to tools [2022-01-17]
+* standardise internal function naming [2022-01-17]
 
 
 

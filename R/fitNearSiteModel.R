@@ -39,10 +39,10 @@ fitNearSiteModel <-
            elements = NULL, ...){
     #setup
     x.args <- list(...)
-    data <- aqeval_checkData(data,
-                             unique(c("date", "code",
-                                      pollutant)),
-                             "fitNearSiteModel(data,...)")
+    data <- aqe_checkData(data,
+                          unique(c("date", "code",
+                                  pollutant)),
+                          "fitNearSiteModel(data,...)")
     data <- tidyr::spread(data, "code", pollutant)
     #think I have to do this to make gams work...
     #tibbles names confusing things
@@ -133,7 +133,7 @@ fitNearSiteModel <-
   }
 
 
-aqeval_checkData <-
+aqe_checkData <-
   function(data, names, fun.name = "AQEval", tidy = TRUE){
     temp <- names[!names %in% names(data)]
     if(length(temp)>0){
