@@ -82,6 +82,15 @@
 * move other rfs to tools [2022-01-17]
 * standardise internal function naming [2022-01-17]
 
+## v. 0.2.2 - updates
+
+* various pre-release updates [2022-01-20]
+
+## v. 0.2.3 - updates
+
+* added aq.my1, ae.ea2 and ae.kc1 datasets [2022-01-26] 
+* added met.lhr datasets, removed aq. datasets met [2022-02-01] 
+
 
 
 

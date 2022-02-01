@@ -160,3 +160,137 @@ calcRollingDateRangeStat <-
                       pollutant,
                       method=method, ...)
   }
+
+
+
+############################################
+#unexported code 
+
+#could be using a few of these elsewhere?
+#would standardise handling of same name args...
+
+aqe_prepFromDate <- function(from=NULL, data){
+  if(is.null(from)){
+    from <- min(data$date, na.rm=TRUE)
+  }
+  if(is.numeric(from)){
+    #allowed numeric year
+    from <- paste(from, "-01-01", sep="")
+  }
+  #assuming character from here
+  test <- attributes(data$date)$tzone
+  from <- if(is.null(test)){
+    as.POSIXct(from, "%Y-%m-%d")
+  } else {
+    as.POSIXct(from, "%Y-%m-%d", tz=test)
+  }
+  from
+}
+
+aqe_prepToDate <- function(to=NULL, data){
+  if(is.null(to)){
+    to <- max(data$date, na.rm=TRUE)
+  }
+  if(is.numeric(to)){
+    #allowed numeric year
+    to <- paste(to, "-12-31 23:59:59", sep="")
+  }
+  #assuming character from here
+  test <- attributes(data$date)$tzone
+  to <- if(is.null(test)){
+    as.POSIXct(to, "%Y-%m-%d %H:%M:%S")
+  } else {
+    as.POSIXct(to, "%Y-%m-%d %H:%M:%S", tz=test)
+  }
+  to
+}
+
+aqe_prepXArgs <- function(x.args, data, mod){
+  if(is.null(x.args)){
+    x.args <- if(is.null(mod)){
+      c("date", "wd", "ws", "air_temp")
+    } else {
+      temp <- as.formula(paste("~", mod, sep=""))
+      temp <- all.vars(temp[[2]])
+      temp <- temp[!temp %in% c("year.day", "week.day",
+                                "hour.day", "count")]
+      temp <- unique(c("date", temp))
+      temp
+    }
+  }
+  x.args
+}
+
+aqe_prepPadData <- function(pad.data, data){
+  if(is.null(pad.data)){
+    stop("missing pad.data")
+  }
+  if(is.numeric(pad.data)){
+    #allowed numeric year taken from data
+    pad.data <- data[format(data$date, "%Y") %in%
+                       pad.data,]
+  }
+  pad.data
+}
+
+aqe_padData <- function(from, to, data, pad.data, x.args,
+                        diagnostic=FALSE){
+  #x.args
+  local.args <- x.args[x.args %in% names(pad.data)]
+  #could check length of x.args?
+  pad.data <- pad.data[local.args[local.args %in%
+                                    names(pad.data)]]
+  pad.data$padded <- TRUE
+  data$padded <- FALSE
+  #to do
+  ####################################
+  #pad from
+
+  #pad to
+  #note
+  #this does not work if ref data is one year but not 2...
+  #sort or or prevent?
+  if(to > max(data$date, na.rm=TRUE)){
+    if(diagnostic){
+      print("padding end")
+    }
+    .year <- as.numeric(format(max(data$date,
+                                   na.rm=TRUE),
+                               "%Y"))
+    pad <- TRUE
+    while(as.numeric(pad)==1){
+
+      ref <- pad.data
+      t2 <- as.numeric(pad.data$date)
+      t2 <- t2 - min(t2, na.rm=TRUE)
+      t1 <- as.POSIXct(paste(.year, "-",
+                             format(pad.data$date[1],
+                                    "%m-%d %H:%M:%S"),
+                             sep=""),
+                       "%Y-%m-%d %H:%M:%S",
+                       tz= attr(pad.data$date[1], "tzone"))
+      ref$date <- t1 + t2
+      ref0 <- filter(ref, date > max(data$date,
+                                     na.rm=TRUE))
+      #print(dim(ref))
+      if(nrow(ref0)>0){
+        data <- bind_rows(data, ref0)
+      }
+      if(to < max(data$date, na.rm=TRUE)){
+        data <- filter(data, date <= to)
+      }
+      .year <- .year + 1
+      test <- as.numeric(format(max(data$date,
+                                    na.rm=TRUE),
+                                "%Y"))
+      if(test > .year) .year <- test
+
+      if(to < max(ref$date, na.rm=TRUE)){
+        pad <- FALSE
+      }
+    }
+  }
+  #out
+  data
+}
+
