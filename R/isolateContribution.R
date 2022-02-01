@@ -24,6 +24,7 @@
 ##################################
 #to do
 ##################################
+#test
 #tidy code - quick package for work Anthony is doing
 #     move any common elements to sub functions
 #check alternative to mgcv - might be stuck with it but
