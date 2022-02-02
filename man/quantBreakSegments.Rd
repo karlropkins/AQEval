@@ -54,6 +54,6 @@ transitions about declared break points in supplied data.
 }
 \note{
 quantBreakSegments is the default version of this function;
-quantSegments01 and quantSegmentss02 were early versions used in testing
+quantSegments01 and quantSegments02 were early versions used in testing
 and optimisation work.
 }

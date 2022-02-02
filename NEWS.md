@@ -91,6 +91,14 @@
 * added aq.my1, ae.ea2 and ae.kc1 datasets [2022-01-26] 
 * added met.lhr datasets, removed aq. datasets met [2022-02-01] 
 
+## v. 0.2.4 - updates 
+
+* standardise quantBreakPoints and quantBreakSegments 
+console reports [2022-02-01] 
+* added ggtext quickText alternative (CWO) [2022-02-01] 
+* added plot auto.text (CWO) [2022-02-02] 
+
+
 
 
 

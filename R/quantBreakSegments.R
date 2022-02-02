@@ -24,7 +24,7 @@
 #' quantification mode, by default plot and report.
 #' @param ... other parameters
 #' @note quantBreakSegments is the default version of this function;
-#' quantSegments01 and quantSegmentss02 were early versions used in testing
+#' quantSegments01 and quantSegments02 were early versions used in testing
 #' and optimisation work.
 
 #quantBreakSegments
@@ -37,10 +37,10 @@
 #tidy code
 #recent rebuild to isolate model prediction
 #     most local functions using data2 rather than data
-#diagnostic plot needed
+#diagnostic plot needed?
 #subfunctions structure to setup?
 #calculate uncertainties and report these?
-
+#decision regarding seg.method 1
 
 #splatted function
 #' @export
@@ -63,13 +63,16 @@ quantBreakSegments <-
     breaks <- aqe_buildBreaks(data, pollutant,...)
   }
 
+  x.args <- list(...)
+
   #model
   if(!seg.method %in% 1:2){
     stop("Unknown seg.method requested", call.=FALSE)
   }
   #######################################
-  #should be able to simplify this once
-  #seg.models confirmed
+  #should be able to simplify this or
+  #drop it once seg.models confirmed
+  #see optimisation notes
   #######################################
   if(seg.method==1){
     mod <- aqe_fitBreakSegmentsModel01(data, pollutant, breaks)
@@ -90,11 +93,15 @@ quantBreakSegments <-
     }
     #plot
     #this needs to be tidied once methods finalised
+    auto.text <- if("auto.text" %in% names(x.args)){
+      x.args$auto.text
+    } else { TRUE }
     plt <- aqe_plotQuantBreakSegments01(data2, pollutant,
                                     segments,
                                     pt.col=pt.col,
                                     break.col = break.col, line.col = line.col,
-                                    ylab=ylab, xlab=xlab)
+                                    ylab=ylab, xlab=xlab,
+                                    auto.text = auto.text)
     if ("plot" %in% show) {
       plot(plt)
     }
@@ -130,11 +137,15 @@ quantBreakSegments <-
     #plot
     #this needs to be tidied once methods finalised
     ##plt <- NULL
+    auto.text <- if("auto.text" %in% names(x.args)){
+      x.args$auto.text
+    } else { TRUE }
     plt <- aqe_plotQuantBreakSegments02(data2, pollutant,
                                          segments,
                                          pt.col=pt.col,
                                          break.col = break.col, line.col = line.col,
-                                         ylab=ylab, xlab=xlab)
+                                         ylab=ylab, xlab=xlab,
+                                        auto.text = auto.text)
     if ("plot" %in% show) {
       plot(plt)
     }
@@ -176,7 +187,8 @@ aqe_plotQuantBreakSegments01 <- function(data, name.pol, segments,
                                             pt.col = c("lightgrey", "darkgrey"),
                                             line.col = "red", break.col ="blue",
                                             scalelabs = c("data", "trend",
-                                                          "change")){
+                                                          "change"),
+                                         auto.text=TRUE){
   #using plotQuantBreakPoints
   if(!is.null(segments) && nrow(segments)>0){
     temp <- segments[,4:6]
@@ -195,7 +207,8 @@ aqe_plotQuantBreakSegments01 <- function(data, name.pol, segments,
                               ylab = ylab, xlab = xlab,
                               pt.col = pt.col, line.col = line.col,
                               break.col = break.col,
-                              scalelabs = scalelabs)
+                              scalelabs = scalelabs,
+                           auto.text=auto.text)
 }
 
 
@@ -205,7 +218,8 @@ aqe_plotQuantBreakSegments02 <- function(data, name.pol, segments,
                                         pt.col = c("lightgrey", "darkgrey"),
                                         line.col = "red", break.col ="blue",
                                         scalelabs = c("data", "trend",
-                                                      "change")){
+                                                      "change"),
+                                        auto.text=TRUE){
   #using plotQuantBreakPoints
   if(!is.null(segments) && nrow(segments)>0){
     segments <- segments[2:nrow(segments),1:3]
@@ -236,7 +250,8 @@ aqe_plotQuantBreakSegments02 <- function(data, name.pol, segments,
                               ylab = ylab, xlab = xlab,
                               pt.col = pt.col, line.col = line.col,
                               break.col = break.col,
-                              scalelabs = scalelabs)
+                              scalelabs = scalelabs,
+                           auto.text=auto.text)
 }
 
 
@@ -245,18 +260,21 @@ aqe_summariseBreakSegmentsReport <- function(report){
     cat("no change ranges declared...\n")
   }
   else {
+    cat("building ", nrow(report), " segments\n")
     for (i in 1:nrow(report)) {
       cat("\n", as.character(report[i, 1]), " to ",
           as.character(report[i, 2]), " (",
           as.character(report[i, 3]), ")\n",
           sep = "")
-      cat(report[i, 4], "->", report[i, 5], ";",
-          report[i, 6], " (", report[i, 7], "%)\n", sep = "")
+      cat(signif(report[i, 4], 4), "->",
+          signif(report[i, 5], 4), ";",
+          signif(report[i, 6], 4), " (",
+          signif(report[i, 7], 4), "%)\n", sep = "")
       #########################
       #to do
       #########################
       #report confidences and diffs?
-      #when calculated
+      #need to agree method...
     }
   }
 }

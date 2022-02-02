@@ -53,6 +53,7 @@ quantBreakPoints <-
       #what sent plus defaults
       breaks <- aqe_buildBreaks(data, name.pol, ...)
     }
+    x.args <- list(...)
 #print("fit")
 ################
     data2 <- data[,c("date", name.pol)]
@@ -73,9 +74,17 @@ quantBreakPoints <-
     }
 #print("plot")
 ######
+    ####################
+    #not sure this is best way to handle
+    #auto.text=FALSE...
+    #####################
+    auto.text <- if("auto.text" %in% names(x.args)){
+      x.args$auto.text
+    } else { TRUE }
     plt <- aqe_plotQuantBreakPoints(data2, name.pol, breaks,
                   xlab=xlab, ylab=ylab, pt.col=pt.col,
-                  line.col=line.col, break.col=break.col)
+                  line.col=line.col, break.col=break.col,
+                  auto.text=auto.text)
     if ("plot" %in% show) {
       plot(plt)
     }
@@ -114,12 +123,15 @@ aqe_buildBreaks <- function(data, name.pol, ...){
   }
 }
 
+
+#this needs tidying
 aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
                                         ylab = NULL, xlab = NULL,
                                         pt.col = c("lightgrey", "darkgrey"),
                                         line.col = "red", break.col ="blue",
                                         scalelabs =c("data", "trend",
-                                                     "break")){
+                                                     "break"),
+                                        auto.text = TRUE){
   #think about default declarations...
   #   have to match these and those in main function at moment...
   if(is.null(ylab)) ylab <- name.pol
@@ -160,8 +172,8 @@ aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
     ggplot2::geom_ribbon(ggplot2::aes(fill = "  confidence"),
                        alpha = 0.25) +
     ggplot2::geom_path(ggplot2::aes(y = pred, col = "  trend")) +
-    ggplot2::ylab(openair::quickText(ylab)) +
-    ggplot2::xlab(openair::quickText(xlab)) +
+    ggplot2::ylab(aqe_quickText(ylab, auto.text)) +
+    ggplot2::xlab(aqe_quickText(xlab, auto.text)) +
     ggplot2::scale_shape_manual(name="",
                               values=c(21),
                               labels=c(scalelabs[1]))+
@@ -185,7 +197,9 @@ aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
     ) +
     ggplot2::theme_bw() +
     ggplot2::theme(legend.position="top",
-                 legend.spacing.x = ggplot2::unit(0, 'cm'))
+                 legend.spacing.x = ggplot2::unit(0, 'cm'),
+                 axis.title.y = ggtext::element_markdown(),
+                 axis.title.x = ggtext::element_markdown())
   #output
   plt
 }
@@ -251,7 +265,32 @@ aqe_makeBreakPointsReport <- function(data, breaks){
   }
 }
 
+
 aqe_summariseBreakPointsReport <- function(report){
+  if (is.null(report)) {
+    cat("no break points declared...\n")
+  }
+  else {
+    for (i in 1:nrow(report)) {
+      cat("\n", as.character(report[i, 1]), " (",
+          as.character(report[i, 2]), " to ",
+          as.character(report[i, 3]), ")\n",
+          sep = "")
+      cat(report[i, 4], "->", report[i, 5], ";",
+          report[i, 6], " (", report[i, 7], "%)\n", sep = "")
+      #########################
+      #to do
+      #########################
+      #include option for old update
+    }
+  }
+}
+
+#this is older version of above
+#replace to make outputs more consistent
+#but could re-introduce but would probably
+#want to have similar option for quantBreakSegments
+aqe_summariseBreakPointsReport.old <- function(report){
   if (is.null(report)) {
     cat("no breakpoints declared...\n")
   }
@@ -274,14 +313,33 @@ aqe_summariseBreakPointsReport <- function(report){
   }
 }
 
+
+##############################
+#new / not fully tested
+#this is local alternative to my openair::quickText
+#needed this because that does not play nicely with
+#multi-line axis labels and ggplot2
+#(folks seem to want both...)
+#
+#notes
+#this needs ggtext::element_markdown() in ggplot theme
+#or similar..
+#seems to be a character spacing issue in rstudio
+#console outputs but not r console or studio
+#markdown...
+#raised with ggtext admin
+#[link]
+#needs graphics drivers sorted... IT for admin systems...
+##############################
+
 aqe_quickText <- function (text, auto.text = TRUE)
 {
-
 
   #openair::quicktext alternative for aqe
 
   #needed because (1) openair quicktext cannot cope
   #with super and subscripts and multiple lines of text
+  #in ggplots...
   #and we are regularly going to three lines for
   #some report figures
 
@@ -296,158 +354,125 @@ aqe_quickText <- function (text, auto.text = TRUE)
 
     if (!auto.text)
       return(ans <- text)
-    if (is.expression(text))
-      return(ans <- text)
-    ans <- paste("expression(paste('", text, " ",
-                 sep = "")
-    ans <- gsub("NO2", "' 'NO' [2] * '", ans)
-    ans <- gsub("no2", "' 'NO' [2] * '", ans)
-    ans <- gsub("NOX", "' 'NO' [x] * '", ans)
-    ans <- gsub("nox", "' 'NO' [x] * '", ans)
-    ans <- gsub("NOx", "' 'NO' [x] * '", ans)
-    ans <- gsub("NH3", "' 'NH' [3] * '", ans)
-    ans <- gsub("nh3", "' 'NH' [3] * '", ans)
-    ans <- gsub("co ", "' 'CO ' '", ans)
-    ans <- gsub("co,", "' 'CO,' '", ans)
-    ans <- gsub("nmhc", "' 'NMHC' '", ans)
+    #currently based on openair quicktext
+    ans <- text
+    ans <- gsub("NO2", "NO<sub>2</sub>", ans)
+    ans <- gsub("no2", "NO<sub>2</sub>", ans)
+    ans <- gsub("NOX", "NO<sub>x</sub>", ans)
+    ans <- gsub("nox", "NO<sub>x</sub>", ans)
+    ans <- gsub("NOx", "NO<sub>x</sub>", ans)
+    ans <- gsub("NH3", "NH<sub>3</sub>", ans)
+    ans <- gsub("nh3", "NH<sub>3</sub>", ans)
+    ans <- gsub("co ", "CO ", ans)
+    ans <- gsub("co,", "CO,", ans)
+    ans <- gsub("nmhc", "NHHC", ans)
     ans <- if (nchar(as.character(text)) == 2 && length(grep("ws",
                                                              text)) > 0) {
-      gsub("ws", "' 'wind spd.' '", ans)
+      gsub("ws", "wind spd.", ans)
     }
     else {
       ans
     }
-    ans <- gsub("wd", "' 'wind dir.' '", ans)
-    ans <- gsub("rh ", "' 'relative humidity' '",
+    ans <- gsub("wd", "wind dir.", ans)
+    ans <- gsub("rh ", "relative humidity ",
                 ans)
-    ans <- gsub("PM10", "' 'PM' [10] * '", ans)
-    ans <- gsub("pm10", "' 'PM' [10] * '", ans)
-    ans <- gsub("pm1", "' 'PM' [1] * '", ans)
-    ans <- gsub("PM1", "' 'PM' [1] * '", ans)
-    ans <- gsub("PM4", "' 'PM' [4] * '", ans)
-    ans <- gsub("pm4", "' 'PM' [4] * '", ans)
-    ans <- gsub("PMtot", "' 'PM' [total] * '", ans)
-    ans <- gsub("pmtot", "' 'PM' [total] * '", ans)
-    ans <- gsub("pmc", "' 'PM' [coarse] * '", ans)
-    ans <- gsub("pmcoarse", "' 'PM' [coarse] * '",
+    ans <- gsub("PM10", "PM<sub>10</sub>", ans)
+    ans <- gsub("pm10", "PM<sub>10</sub>", ans)
+    ans <- gsub("pm1", "PM<sub>1</sub>", ans)
+    ans <- gsub("PM1", "PM<sub>1</sub>", ans)
+    ans <- gsub("PM4", "PM<sub>4</sub>", ans)
+    ans <- gsub("pm4", "PM<sub>4</sub>", ans)
+    ans <- gsub("PMtot", "PM<sub>total</sub>", ans)
+    ans <- gsub("pmtot", "PM<sub>total</sub>", ans)
+    ans <- gsub("pmc", "PM<sub>coarse</sub>", ans)
+    ans <- gsub("pmcoarse", "PM<sub>coarse</sub>",
                 ans)
-    ans <- gsub("PMc", "' 'PM' [coarse] * '", ans)
-    ans <- gsub("PMcoarse", "' 'PM' [coarse] * '",
+    ans <- gsub("PMc", "PM<sub>coarse</sub>", ans)
+    ans <- gsub("PMcoarse", "PM<sub>coarse</sub>",
                 ans)
-    ans <- gsub("pmf", "' 'PM' [fine] * '", ans)
-    ans <- gsub("pmfine", "' 'PM' [fine] * '", ans)
-    ans <- gsub("PMf", "' 'PM' [fine] * '", ans)
-    ans <- gsub("PMfine", "' 'PM' [fine] * '", ans)
-    ans <- gsub("PM2.5", "' 'PM' [2.5] * '", ans)
-    ans <- gsub("pm2.5", "' 'PM' [2.5] * '", ans)
-    ans <- gsub("pm25", "' 'PM' [2.5] * '", ans)
-    ans <- gsub("PM2.5", "' 'PM' [2.5] * '", ans)
-    ans <- gsub("PM25", "' 'PM' [2.5] * '", ans)
-    ans <- gsub("pm25", "' 'PM' [2.5] * '", ans)
-    ans <- gsub("O3", "' 'O' [3] * '", ans)
-    ans <- gsub("o3", "' 'O' [3] * '", ans)
-    ans <- gsub("ozone", "' 'O' [3] * '", ans)
-    ans <- gsub("CO2", "' 'CO' [2] * '", ans)
-    ans <- gsub("co2", "' 'CO' [2] * '", ans)
-    ans <- gsub("SO2", "' 'SO' [2] * '", ans)
-    ans <- gsub("so2", "' 'SO' [2] * '", ans)
-    ans <- gsub("H2S", "' 'H' [2] * 'S''", ans)
-    ans <- gsub("h2s", "' 'H' [2] * 'S''", ans)
-    ans <- gsub("CH4", "' 'CH' [4] * '", ans)
-    ans <- gsub("ch4", "' 'CH' [4] * '", ans)
-    ans <- gsub("dgrC", "' * degree * 'C' '", ans)
-    ans <- gsub("degreeC", "' * degree * 'C' '",
+    ans <- gsub("pmf", "PM<sub>fine</sub>", ans)
+    ans <- gsub("pmfine", "PM<sub>fine</sub>", ans)
+    ans <- gsub("PMf", "PM<sub>fine</sub>", ans)
+    ans <- gsub("PMfine", "PM<sub>fine</sub>", ans)
+    ans <- gsub("PM2.5", "PM<sub>2.5</sub>", ans)
+    ans <- gsub("pm2.5", "PM<sub>2.5</sub>", ans)
+    ans <- gsub("pm25", "PM<sub>2.5</sub>", ans)
+    ans <- gsub("PM2.5", "PM<sub>2.5</sub>", ans)
+    ans <- gsub("PM25", "PM<sub>2.5</sub>", ans)
+    ans <- gsub("pm25", "PM<sub>2.5</sub>", ans)
+    ans <- gsub("O3", "O<sub>3</sub>", ans)
+    ans <- gsub("o3", "O<sub>3</sub>", ans)
+    ans <- gsub("ozone", "O<sub>3</sub>", ans)
+    ans <- gsub("CO2", "CO<sub>2</sub>", ans)
+    ans <- gsub("co2", "CO<sub>2</sub>", ans)
+    ans <- gsub("SO2", "SO<sub>2</sub>", ans)
+    ans <- gsub("so2", "SO<sub>2</sub>", ans)
+    ans <- gsub("H2S", "H<sub>2</sub>S", ans)
+    ans <- gsub("h2s", "H<sub>2</sub>S", ans)
+    ans <- gsub("CH4", "CH<sub>4</sub>", ans)
+    ans <- gsub("ch4", "CH<sub>4</sub>", ans)
+    ans <- gsub("dgrC", "<sup>o</sup>C", ans)
+    ans <- gsub("degreeC", "<sup>o</sup>C",
                 ans)
-    ans <- gsub("deg. C", "' * degree * 'C' '", ans)
-    ans <- gsub("degreesC", "' * degree * 'C' '",
+    ans <- gsub("deg. C", "<sup>o</sup>C", ans)
+    ans <- gsub("degreesC", "<sup>o</sup>C",
                 ans)
-    ans <- gsub("degrees", "' * degree *'", ans)
-    ans <- gsub("Delta", "' * Delta *'", ans)
-    ans <- gsub("delta", "' * Delta *'", ans)
-    ans <- gsub("ug/m3", "' * mu * 'g m' ^-3 *'",
+#    ans <- gsub("degrees", "' * degree *'", ans)
+#    ans <- gsub("Delta", "' * Delta *'", ans)
+#    ans <- gsub("delta", "' * Delta *'", ans)
+    ans <- gsub("ug/m3", "&mu;g.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ug.m-3", "' * mu * 'g m' ^-3 *'",
+    ans <- gsub("ug.m-3", "&mu;g.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ug m-3", "' * mu * 'g m' ^-3 *'",
+    ans <- gsub("ug m-3", "&mu;g.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ugm-3", "' * mu * 'g m' ^-3 *'",
+    ans <- gsub("ugm-3", "&mu;g.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("mg/m3", "' * 'm' * 'g m' ^-3 *'",
+    ans <- gsub("mg/m3", "mg.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("mg.m-3", "' * 'm' * 'g m' ^-3 *'",
+    ans <- gsub("mg.m-3", "mg.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("mg m-3", "' * 'm' * 'g m' ^-3 *'",
+    ans <- gsub("mg m-3", "mg.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("mgm-3", "' * 'm' * 'g m' ^-3 *'",
+    ans <- gsub("mgm-3", "mg.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ng/m3", "' * 'n' * 'g m' ^-3 *'",
+    ans <- gsub("ng/m3", "ng.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ng.m-3", "' * 'n' * 'g m' ^-3 *'",
+    ans <- gsub("ng.m-3", "ng.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ng m-3", "' * 'n' * 'g m' ^-3 *'",
+    ans <- gsub("ng m-3", "ng.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("ngm-3", "' * 'n' * 'g m' ^-3 *'",
+    ans <- gsub("ngm-3", "ng.m<sup>-3</sup>",
                 ans)
-    ans <- gsub("m/s2", "' 'm s' ^-2 *'", ans)
-    ans <- gsub("m/s", "' 'm s' ^-1 *'", ans)
-    ans <- gsub("m.s-1", "' 'm s' ^-1 *'", ans)
-    ans <- gsub("m s-1", "' 'm s' ^-1 *'", ans)
-    ans <- gsub("g/km", "' 'g km' ^-1 *'", ans)
-    ans <- gsub("g/s", "' 'g s' ^-1 *'", ans)
-    ans <- gsub("kW/t", "' 'kW t' ^-1 *'", ans)
-    ans <- gsub("g/hour", "' 'g hour' ^-1 *'", ans)
-    ans <- gsub("g/hr", "' 'g hour' ^-1 *'", ans)
-    ans <- gsub("g/m3", "' 'g m' ^-3 *'", ans)
-    ans <- gsub("g/kg", "' 'g kg' ^-1 *'", ans)
-    ans <- gsub("km/hr/s", "' 'km hr' ^-1 * ' s' ^-1 *'",
+    ans <- gsub("m/s2", "m.s<sup>-2</sup>", ans)
+    ans <- gsub("m/s", "m.s<sup>-1</sup>", ans)
+    ans <- gsub("m.s-1", "m.s<sup>-1</sup>", ans)
+    ans <- gsub("m s-1", "m.s<sup>-1</sup>", ans)
+    ans <- gsub("g/km", "g.km<sup>-1</sup>", ans)
+    ans <- gsub("g/s", "g.s<sup>-1</sup>", ans)
+    ans <- gsub("kW/t", "kW.t<sup>-1</sup>", ans)
+    ans <- gsub("g/hour", "g.hour<sup>-1</sup>", ans)
+    ans <- gsub("g/hr", "g.hour<sup>-1</sup>", ans)
+    ans <- gsub("g/m3", "g.m<sup>-3</sup>", ans)
+    ans <- gsub("g/kg", "g.kg<sup>-1</sup>", ans)
+    ans <- gsub("km/hr/s", "km.hour<sup>-1</sup>s<sup>-1</sup>",
                 ans)
-    ans <- gsub("km/hour/s", "' 'km hr' ^-1 * ' s' ^-1 *'",
+    ans <- gsub("km/hour/s", "km.hour<sup>-1</sup>s<sup>-1</sup>",
                 ans)
-    ans <- gsub("km/h/s", "km hr' ^-1 * ' s' ^-1 *'",
+    ans <- gsub("km/h/s", "km.hour<sup>-1</sup>s<sup>-1</sup>",
                 ans)
-    ans <- gsub("km/hr", "' 'km hr' ^-1 *'", ans)
-    ans <- gsub("km/h", "' 'km hr' ^-1 *'", ans)
-    ans <- gsub("km/hour", "' 'km hr' ^-1 *'", ans)
-    ans <- gsub("r2", "R' ^2 *'", ans)
-    ans <- gsub("R2", "R' ^2 *'", ans)
-    ans <- gsub("tau ", "' * tau * '", ans)
-    ans <- gsub("umol/m2/s", "' * mu * 'mol m' ^-2 * ' s' ^-1 *'",
-                ans)
-    ans <- gsub("umol/m2", "' * mu * 'mol m' ^-2 *'",
-                ans)
-    ans <- paste(ans, "'))", sep = "")
-    if (substr(ans, (nchar(ans) - 8), (nchar(ans) - 6)) == "] *") {
-      a <- ans
-      ans <- paste(substr(a, 1, (nchar(a) - 7)), substr(a,
-                                                        (nchar(a) - 5), nchar(a)), sep = "")
-    }
-    ans <- gsub("''", "", ans)
-    ans <- gsub("' '", "", ans)
-    ans <- gsub("\\*  \\*", "~", ans)
-    ans <- gsub("^expression\\(paste\\( \\*", "expression(paste(",
-                ans)
-    ans <- gsub("^expression\\(paste\\(\\*", "expression(paste(",
-                ans)
-    if (substr(ans, (nchar(ans) - 2), (nchar(ans) - 2)) == "*") {
-      a <- ans
-      ans <- paste(substr(a, 1, (nchar(a) - 2)), " ' ' ",
-                   substr(a, (nchar(a) - 1), nchar(a)), sep = "")
-    }
-    if (grepl("\n", ans)) {
-      a <- ans
-      ans <- paste(substr(a, 1, 17), "atop(", substr(a,
-                                                     18, nchar(a)), sep = "")
-      ans <- gsub("\n", "' , '", ans)
-      temp <- paste(")", sep = "", collapse = "")
-      ans <- paste(ans, temp, sep = "")
-    }
-    if (inherits(try(eval(parse(text = ans)), TRUE), "try-error") ==
-        FALSE) {
-      ans <- eval(parse(text = ans))
-    }
-    else {
-      ans <- text
-    }
+    ans <- gsub("km/hr", "km.hour<sup>-1", ans)
+    ans <- gsub("km/h", "km.hour<sup>-1", ans)
+    ans <- gsub("km/hour", "km.hour<sup>-1", ans)
+    ans <- gsub("r2", "R<sup>2", ans)
+    ans <- gsub("R2", "R<sup>2", ans)
+    #ans <- gsub("tau ", "' * tau * '", ans)
+    #ans <- gsub("umol/m2/s", "' * mu * 'mol m' ^-2 * ' s' ^-1 *'",
+    #            ans)
+    #ans <- gsub("umol/m2", "' * mu * 'mol m' ^-2 *'",
+    #            ans)
+    ans <- gsub("\n", "<br>", ans)
+    ans
   }
 
 

@@ -1,7 +1,7 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.2.3
-Date: 2022-02-01
+Version: 0.2.4
+Date: 2022-02-02
 Description: Pre-release package for R code for Air
       Quality Evaluation.
 Authors@R: c(person(given = "Karl", family =
@@ -16,5 +16,5 @@ Encoding: UTF-8
 LazyData: true
 Imports: openair, dplyr, loa, readr, ggplot2,
       strucchange, segmented, mgcv, tidyr, lubridate,
-      purrr
+      purrr, ggtext
 RoxygenNote: 7.1.1
