@@ -44,9 +44,22 @@
 #' met.lhr meteorological data from London Heathrow NOAA
 #' archive.
 #'
-#' Data access from associated archives using openair
-#' functions importAURN and importKCL and worldmet
-#' function importNOAA.
+#' Data access from associated archives using
+#' \code{\link{openair}}
+#' functions \code{\link{importAURN}} and
+#' \code{\link{importKCL}} and \code{\link{worldmet}}
+#' function \code{\link{importNOAA}}.
+#'
+#'@references
+#' Carslaw, D. C. and K. Ropkins, (2012) openair --- an
+#' R package for air quality data analysis.
+#' Environmental Modelling & Software. Volume 27-28,
+#' 52-61.
+#'
+#' David Carslaw (2021). worldmet: Import Surface
+#' Meteorological Data from NOAA Integrated Surface
+#' Database (ISD). R package version 0.9.5.
+#' \url{https://CRAN.R-project.org/package=worldmet}
 #'
 "aq.my1"
 "aq.ea2"

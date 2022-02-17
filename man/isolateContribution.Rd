@@ -18,31 +18,83 @@ isolateContribution(
 )
 }
 \arguments{
-\item{data}{data source, typically data.frame, containing time-series}
+\item{data}{Data source, typically data.frame (or similar),
+containing all time-series of interest.}
 
-\item{pollutant}{the time-series}
+\item{pollutant}{The column name of the \code{data}
+time-series to be signal processed.}
 
-\item{background}{(optimal) if supplied, the background time-series to
-subtract}
+\item{background}{(optimal) if supplied, the background
+time-series to use as a background correction.}
 
-\item{deseason}{logical, if TRUE (default) the data is deseasonalised as
-part of contribution isolation}
+\item{deseason}{logical or character vector, if TRUE (default),
+the data is deseasonalised using day.hour and year.day
+frequency terms. Other options: FALSE to turn off deseasonalisation; or
+a character vector of frequency terms if user-defining.
+See below.}
 
-\item{deweather}{logical, if TRUE (default) the data is deweathered as
-part of contribution isolation}
+\item{deweather}{logical or character vector, if TRUE (default),
+the data is deweathered using wind speed and direction (\code{ws}
+and \code{wd} in \code{data}). Other options: FALSE to turn off
+deweathering; or a character vector of \code{data} column names
+ if user-defining. See below.}
 
-\item{method}{numeric, contribution isolation method (default 2)}
+\item{method}{numeric, contribution isolation method (default 2).
+See Note.}
 
 \item{add.term}{extra terms to add to the contribution isolation
-model; ignore for now (in development)}
+model; ignore for now (in development).}
 
-\item{formula}{model formula to use; ignore for now (in development)}
+\item{formula}{model formula to use; ignore for now.}
 
 \item{output}{output options; ignore for now (in development)}
 
 \item{...}{other arguments; ignore for now (in development)}
 }
+\value{
+\code{isolateContribution} returns a vector of
+predictions of the \code{pollutant} time-series after
+the requested signal isolation.
+}
 \description{
-time-series contribution isolation based on
-background subtraction, deseasonalisation and deweathering
+Environmental time-series signal processing:
+Contribution isolation based on background subtraction,
+deseasonalisation and/or deweathering.
+}
+\details{
+\code{isolateContribution} estimates and
+subtracts \code{pollutant} variance associated with
+factors that may hinder break-point/segment analysis,
+\itemize{
+ \item{Background Correction}{ If applied, this fits
+ the supplied \code{background} time-series as a
+ spline term: \code{s(background)}.}
+ \item{Seasonality}{ If applied, this fits regular
+ frequency terms, e.g. \code{day.hour}, \code{year.day},
+ as spline terms, default TRUE is equivalent to
+ \code{s(day.hour)} and \code{s(year.day)}. All terms are
+ calculated from \code{date} column in \code{data}.}
+ \item{Weather}{ If applied, this fits time-series of
+ identified meteorological measurements, e.g. wind speed
+ and direction (\code{ws} and \code{wd} in \code{data}).
+ If both \code{ws} and \code{wd} are present these are
+ fitted as a tensor term \code{te(ws, wd)}. Other
+ \code{deweather}ing terms, if included, are fitted
+ as spline term \code{s(term)}. The default \code{TRUE}
+ is equivalent to \code{te(ws, wd)}.}
+}
+Using the supplied arguments, it builds a signal
+(\code{mgcv}) GAM model, calculates,
+and returns the mean-centred residuals as an
+estimate of the isolated local contribution.
+}
+\references{
+Regarding \code{mgcv}, see package documentation
+and Wood, S.N. (2017) Generalized Additive Models:
+an introduction with R (2nd edition), CRC.
+
+Regarding \code{isolateContribution}, see TO DO....
+}
+\author{
+Karl Ropkins
 }

@@ -98,7 +98,10 @@ console reports [2022-02-01]
 * added ggtext quickText alternative (CWO) [2022-02-01] 
 * added plot auto.text (CWO) [2022-02-02] 
 
+## v. 0.2.5 - updates 
 
+* updated isolateContribution documentation [2022-02-16] 
+* 
 
 
 

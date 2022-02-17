@@ -54,3 +54,8 @@ quantBreakPoints is the default version of this function;
 quantBreaks01 and quantBreaks02, now removed, were early versions used in
 testing and optimisation work.
 }
+\examples{
+#using openair timeAverage
+temp <- openair::timeAverage(aq.my1, "4 day")
+quantBreakPoints(temp, "no2")
+}

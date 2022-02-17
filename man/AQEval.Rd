@@ -9,6 +9,8 @@ Pre-release package for R code for Air Quality Evaluation.
 }
 \section{main package functions}{
 
-findBreakPoints, quantBreakPoints, quantBreakSegments
+\code{\link{findBreakPoints}},
+\code{\link{quantBreakPoints}},
+\code{\link{quantBreakSegments}}.
 }
 
