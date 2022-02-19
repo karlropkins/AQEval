@@ -70,7 +70,7 @@
 #' et al (In Prep).
 #' @seealso
 #' \code{\link{mgcv::gam}}.
-#' #' @examples
+#' @examples
 #' #using openair timeAverage
 #' temp <- openair::timeAverage(aq.data, "1 day")
 #' quantBreakPoints(temp"no2", h=0.3)

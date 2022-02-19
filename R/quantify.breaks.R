@@ -58,7 +58,7 @@
 #' #without dswb
 #' quantBreakPoints(temp, "no2", test=FALSE, h=0.1)
 #'
-#' with dswb
+#' #with dswb
 #' quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
 
 #quantBreakPoints
