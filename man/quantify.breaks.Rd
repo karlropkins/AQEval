@@ -74,6 +74,15 @@ are shown but also invisible return a \code{list}
 of all outputs which can caught using, e.g.:
 
 \code{brk.mod <- quantBreakPoints(data, pollutant)}
+#' @examples
+#using openair timeAverage to covert 1-hour data to 1-day averages
+temp <- openair::timeAverage(aq.data, "1 day")
+
+#break-points
+quantBreakPoints(temp, "no2", h=0.3)
+
+#break-segments
+quantBreakSegments(temp, "no2", h=0.3)
 }
 \description{
 Quantify either break-points or
@@ -86,22 +95,6 @@ break-segment methods for pollutant time-series
 break-points in time-series, and then quantify
 these as conventional break-points or break-segments,
 respectively.
-}
-\examples{
-#fitting a simple deseasonalisation, deweathering
-#and background correction (dswb) model to no2:
-
-aq.data$dswb.no2 <- isolateContribution(aq.data,
-                        "no2", background="bg.no2")
-
-#compare at 7 day resolution:
-temp <- openair::timeAverage(aq.data, "7 day")
-
-#without dswb
-quantBreakPoints(temp, "no2", test=FALSE, h=0.1)
-
-#with dswb
-quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
 }
 \references{
 Ropkins et al (In Prep).

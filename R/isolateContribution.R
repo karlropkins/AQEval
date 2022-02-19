@@ -71,10 +71,21 @@
 #' @seealso
 #' \code{\link{mgcv::gam}}.
 #' @examples
-#' #using openair timeAverage
-#' temp <- openair::timeAverage(aq.data, "1 day")
-#' quantBreakPoints(temp"no2", h=0.3)
-#' quantBreakSegments(temp, "no2", h=0.3)
+#' #fitting a simple deseasonalisation, deweathering
+#' #and background correction (dswb) model to no2:
+#'
+#' aq.data$dswb.no2 <- isolateContribution(aq.data,
+#'                         "no2", background="bg.no2")
+#'
+#' #compare at 7 day resolution:
+#' temp <- openair::timeAverage(aq.data, "7 day")
+#'
+#' #without dswb
+#' quantBreakPoints(temp, "no2", test=FALSE, h=0.1)
+#'
+#' #with dswb
+#' quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
+
 
 
 
