@@ -8,9 +8,21 @@
 #' expected to contain a timestamp data-series called
 #' date and a measurement time-series to be analysed
 #' identified using the pollutant argument
-#' @param pollutant the name of the time-series, typically
-#' pollutant measurements, to be analysed
+#' @param pollutant the name of the time-series,
+#' typically pollutant measurements, to be analysed
 #' @param ... extra arguments
+#' @returns \code{spectralFrequency} uses the \code{show} argument
+#' to control which elements of the functions outputs
+#' are shown but also invisible return a \code{list}
+#' of all outputs which can caught using, e.g.:
+#'
+#' \code{sfa.mod <- spectralFrequency(data, pollutant)}
+#' @details \code{spectralFrequency} producing a
+#' time frequency analysis of the requested
+#' \code{pollutant}.
+#' @examples
+#' #no2 spectral frequency
+#' spectralFrequency(aq.data, "no2")
 
 #splatted function
 #spectralFrequency
@@ -26,6 +38,7 @@
 #think about normalise
 #think about ci
 #labelling for key and facets via quickText
+#   needs replacing with local version
 
 #' @rdname spectral.analysis
 #' @export

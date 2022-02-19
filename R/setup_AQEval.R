@@ -11,6 +11,8 @@
 #Hoping remotes::install_local works and
 #currently not export this
 
+#remove before public release???
+
 #splatted function
 #currently not exporting
 ## #' @export

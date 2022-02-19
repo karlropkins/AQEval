@@ -3,32 +3,23 @@
 \docType{data}
 \name{AQEval.data}
 \alias{AQEval.data}
-\alias{aq.my1}
-\alias{aq.ea2}
-\alias{aq.kc1}
-\alias{met.lhr}
+\alias{aq.data}
 \title{AQEval Example data}
 \format{
-4 (70128x6) 'tbl_df' objects
+(26280x6) 'tbl_df' objects
 \describe{
   \item{date}{Time-series of POSIX class date and time records.}
-  \item{site}{For \code{aq...} datasets, air quality
-  monitoring site name.}
-  \item{station}{For \code{met...} dataset, meteorological
-  monitoring station name.}
-  \item{code}{Monitoring site identifer code, see below.}
-  \item{no2}{For \code{aq...} datasets, time-series of
-  nitrogen dioxide measurements.}
-  \item{nox}{For \code{aq...} datasets, time-series of
-  oxides of nitrogen measurements.}
-  \item{o3}{For \code{aq...} datasets, time-series of
-  ozone measurements.}
-  \item{ws}{\code{met...} dataset, time-series of
-  wind speed measurements.}
-  \item{wd}{\code{met...} dataset, time-series of
-  wind direction measurements.}
-  \item{air_temp}{\code{met...} dataset, time-series
-  of air temperature measurements.}
+  \item{no2}{Time-series of
+  nitrogen dioxide measurements from local site.}
+  \item{bg.no2}{Time-series of
+  nitrogen dioxide measurements from nearby
+  background site.}
+  \item{ws}{Time-series of
+  local wind speed measurements.}
+  \item{wd}{Time-series of
+  local wind direction measurements.}
+  \item{air_temp}{Time-series
+  of local air temperature measurements.}
 }
 }
 \source{
@@ -41,9 +32,6 @@ monitoring station.
 aq.ea2 and aq.kc1 air quality data from Earling and
 Knightsbridge KCL network monitoring stations.
 
-met.lhr meteorological data from London Heathrow NOAA
-archive.
-
 Data access from associated archives using
 \code{\link{openair}}
 functions \code{\link{importAURN}} and
@@ -51,10 +39,7 @@ functions \code{\link{importAURN}} and
 function \code{\link{importNOAA}}.
 }
 \usage{
-aq.my1
-aq.ea2
-aq.kc1
-met.lhr
+aq.data
 }
 \description{
 Data packaged with AQEval for

@@ -3,52 +3,47 @@
 ############################################
 #'
 #' @name AQEval.data
-#' @aliases aq.my1 aq.ea2 aq.kc1 met.lhr
+#' @aliases aq.data
 #' @description Data packaged with AQEval for
 #' use with example code.
 #' @usage
-#' aq.my1
-#' aq.ea2
-#' aq.kc1
-#' met.lhr
-#' @format 4 (70128x6) 'tbl_df' objects
+#' aq.data
+#' @format (26280x6) 'tbl_df' objects
 #' \describe{
 #'   \item{date}{Time-series of POSIX class date and time records.}
-#'   \item{site}{For \code{aq...} datasets, air quality
-#'   monitoring site name.}
-#'   \item{station}{For \code{met...} dataset, meteorological
-#'   monitoring station name.}
-#'   \item{code}{Monitoring site identifer code, see below.}
-#'   \item{no2}{For \code{aq...} datasets, time-series of
-#'   nitrogen dioxide measurements.}
-#'   \item{nox}{For \code{aq...} datasets, time-series of
-#'   oxides of nitrogen measurements.}
-#'   \item{o3}{For \code{aq...} datasets, time-series of
-#'   ozone measurements.}
-#'   \item{ws}{\code{met...} dataset, time-series of
-#'   wind speed measurements.}
-#'   \item{wd}{\code{met...} dataset, time-series of
-#'   wind direction measurements.}
-#'   \item{air_temp}{\code{met...} dataset, time-series
-#'   of air temperature measurements.}
+#'   \item{no2}{Time-series of
+#'   nitrogen dioxide measurements from local site.}
+#'   \item{bg.no2}{Time-series of
+#'   nitrogen dioxide measurements from nearby
+#'   background site.}
+#'   \item{ws}{Time-series of
+#'   local wind speed measurements.}
+#'   \item{wd}{Time-series of
+#'   local wind direction measurements.}
+#'   \item{air_temp}{Time-series
+#'   of local air temperature measurements.}
 #' }
 #' @source Air quality and meteorological data packaged
 #' for use with AQEval Examples.
 #'
-#' aq.my1 air quality data from Marylebone Road AURN
-#' monitoring station.
+#' Time-series sources:
+#' \itemize{
+#'  \item no2 Nitrogen dioxide downloaded from King's
+#'  College London Archive using \code{importKCL}
+#'  function in \code{openair}.
+#'  \item bg.no2  Nitrogen dioxide downloaded from
+#'  Autonmatic Urban and Rural Network Archive using
+#'  \code{importAURN} function in \code{openair}.
+#'  \item ws, wd, air_temp Wind speed, wind direction
+#'  and air temperature downloaded from NOAA's
+#'  Integrated Surface Database using \code{importNOAA}
+#'  function in \code{worldmet}.
+#' }
+#' @seealso
+#' \code{\link{openair}}: functions \code{\link{importAURN}} and
+#' \code{\link{importKCL}}
 #'
-#' aq.ea2 and aq.kc1 air quality data from Earling and
-#' Knightsbridge KCL network monitoring stations.
-#'
-#' met.lhr meteorological data from London Heathrow NOAA
-#' archive.
-#'
-#' Data access from associated archives using
-#' \code{\link{openair}}
-#' functions \code{\link{importAURN}} and
-#' \code{\link{importKCL}} and \code{\link{worldmet}}
-#' function \code{\link{importNOAA}}.
+#' \code{\link{worldmet}}: function \code{\link{importNOAA}}.
 #'
 #'@references
 #' Carslaw, D. C. and K. Ropkins, (2012) openair --- an
@@ -61,7 +56,5 @@
 #' Database (ISD). R package version 0.9.5.
 #' \url{https://CRAN.R-project.org/package=worldmet}
 #'
-"aq.my1"
-"aq.ea2"
-"aq.kc1"
-"met.lhr"
+"aq.data"
+

@@ -100,8 +100,20 @@ console reports [2022-02-01]
 
 ## v. 0.2.5 - updates 
 
-* updated isolateContribution documentation [2022-02-16] 
-* 
+* updated isolateContribution documentation [2022-02-16]  
+
+## v. 0.2.6 - updates 
+
+* updated quant... functions [2022-02-17] 
+
+## v. 0.2.7 - updates
+
+* replaces example data with smaller alternative [2022-02-18] 
+* adding provisional examples and updated docs [2022-02-19] 
+
+
+
+
 
 
 

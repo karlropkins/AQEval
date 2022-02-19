@@ -55,15 +55,26 @@
 #'  is equivalent to \code{te(ws, wd)}.}
 #' }
 #' Using the supplied arguments, it builds a signal
-#' (\code{mgcv}) GAM model, calculates,
+#' (\code{\link{mgcv}}) GAM model, calculates,
 #' and returns the mean-centred residuals as an
 #' estimate of the isolated local contribution.
 #' @references
-#' Regarding \code{mgcv}, see package documentation
-#' and Wood, S.N. (2017) Generalized Additive Models:
+#' Regarding \code{\link{mgcv}} GAM fitting methods, see
+#' Wood (2017) for general introduction and package
+#' documentation regarding coding:
+#'
+#' Wood, S.N. (2017) Generalized Additive Models:
 #' an introduction with R (2nd edition), CRC.
 #'
-#' Regarding \code{isolateContribution}, see TO DO....
+#' Regarding \code{isolateContribution}, see Ropkins
+#' et al (In Prep).
+#' @seealso
+#' \code{\link{mgcv::gam}}.
+#' #' @examples
+#' #using openair timeAverage
+#' temp <- openair::timeAverage(aq.data, "1 day")
+#' quantBreakPoints(temp"no2", h=0.3)
+#' quantBreakSegments(temp, "no2", h=0.3)
 
 
 
@@ -92,7 +103,7 @@
 #think about diagnostic options following T-IRP feedback...
 #think about import
 #think about making some of this internal functions
-#     for example the dS and dW fomular build...
+#     for example the dS and dW fomula build...
 
 
 #splatted function
@@ -200,6 +211,15 @@ function(data, pollutant, background = NULL,
 ############################
 #method 2
 #fit a spline better than factor...
+############################
+#add more seasonal terms
+# week.day
+# month.day??
+# week.hour??
+############################
+#do we need to set d1 and data?
+# unless we want to return data
+# it seems unlikely
 ############################
         if(method==2){
           if("year.day" %in% deseason){

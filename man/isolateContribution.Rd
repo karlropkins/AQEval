@@ -84,16 +84,23 @@ factors that may hinder break-point/segment analysis,
  is equivalent to \code{te(ws, wd)}.}
 }
 Using the supplied arguments, it builds a signal
-(\code{mgcv}) GAM model, calculates,
+(\code{\link{mgcv}}) GAM model, calculates,
 and returns the mean-centred residuals as an
 estimate of the isolated local contribution.
 }
 \references{
-Regarding \code{mgcv}, see package documentation
-and Wood, S.N. (2017) Generalized Additive Models:
+Regarding \code{\link{mgcv}} GAM fitting methods, see
+Wood (2017) for general introduction and package
+documentation regarding coding:
+
+Wood, S.N. (2017) Generalized Additive Models:
 an introduction with R (2nd edition), CRC.
 
-Regarding \code{isolateContribution}, see TO DO....
+Regarding \code{isolateContribution}, see Ropkins
+et al (In Prep).
+}
+\seealso{
+\code{\link{mgcv::gam}}.
 }
 \author{
 Karl Ropkins
