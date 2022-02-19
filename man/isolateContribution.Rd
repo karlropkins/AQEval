@@ -88,6 +88,12 @@ Using the supplied arguments, it builds a signal
 and returns the mean-centred residuals as an
 estimate of the isolated local contribution.
 }
+\examples{
+#using openair timeAverage
+temp <- openair::timeAverage(aq.data, "1 day")
+quantBreakPoints(temp"no2", h=0.3)
+quantBreakSegments(temp, "no2", h=0.3)
+}
 \references{
 Regarding \code{\link{mgcv}} GAM fitting methods, see
 Wood (2017) for general introduction and package
@@ -101,11 +107,6 @@ et al (In Prep).
 }
 \seealso{
 \code{\link{mgcv::gam}}.
-#' @examples
-#using openair timeAverage
-temp <- openair::timeAverage(aq.data, "1 day")
-quantBreakPoints(temp"no2", h=0.3)
-quantBreakSegments(temp, "no2", h=0.3)
 }
 \author{
 Karl Ropkins
