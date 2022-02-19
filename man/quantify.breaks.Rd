@@ -67,20 +67,48 @@ quantification mode, by default plot and report.}
 \item{seg.method}{(\code{quantBreakSegments} only) the
 break-segment fitting method to use.}
 }
+\value{
+Both functions use the \code{show} argument
+to control which elements of the functions outputs
+are shown but also invisible return a \code{list}
+of all outputs which can caught using, e.g.:
+
+\code{brk.mod <- quantBreakPoints(data, pollutant)}
+}
 \description{
 Quantify either break-points or
 break-segment methods for pollutant time-series
 }
-\note{
-quantBreakPoints is the default version of this function;
-quantBreaks01 and quantBreaks02, now removed, were early versions used in
-testing and optimisation work.
+\details{
+\code{quantBreakPoints} and
+\code{quantBreakSegments} both use
+\code{strucchange} methods to identify potential
+break-points in time-series, and then quantify
+these as conventional break-points or break-segments,
+respectively.
 }
 \examples{
-#using openair timeAverage
-temp <- openair::timeAverage(aq.my1, "4 day")
-quantBreakPoints(temp, "no2")
+#fitting a simple deseasonalisation, deweathering
+#and background correction (dswb) model to no2:
+
+aq.data$dswb.no2 <- isolateContribution(aq.data,
+                        "no2", background="bg.no2")
+
+#compare at 7 day resolution:
+temp <- openair::timeAverage(aq.data, "7 day")
+
+#without dswb
+quantBreakPoints(temp, "no2", test=FALSE, h=0.1)
+
+with dswb
+quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
+}
+\references{
+Ropkins et al (In Prep).
 }
 \seealso{
-\code{\link{timeAverage}} in openair.
+\code{\link{timeAverage}} in \code{openair}.
+}
+\author{
+Karl Ropkins
 }

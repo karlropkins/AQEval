@@ -26,17 +26,19 @@
 Air quality and meteorological data packaged
 for use with AQEval Examples.
 
-aq.my1 air quality data from Marylebone Road AURN
-monitoring station.
-
-aq.ea2 and aq.kc1 air quality data from Earling and
-Knightsbridge KCL network monitoring stations.
-
-Data access from associated archives using
-\code{\link{openair}}
-functions \code{\link{importAURN}} and
-\code{\link{importKCL}} and \code{\link{worldmet}}
-function \code{\link{importNOAA}}.
+Time-series sources:
+\itemize{
+ \item no2 Nitrogen dioxide downloaded from King's
+ College London Archive using \code{importKCL}
+ function in \code{openair}.
+ \item bg.no2  Nitrogen dioxide downloaded from
+ Autonmatic Urban and Rural Network Archive using
+ \code{importAURN} function in \code{openair}.
+ \item ws, wd, air_temp Wind speed, wind direction
+ and air temperature downloaded from NOAA's
+ Integrated Surface Database using \code{importNOAA}
+ function in \code{worldmet}.
+}
 }
 \usage{
 aq.data
@@ -55,5 +57,11 @@ David Carslaw (2021). worldmet: Import Surface
 Meteorological Data from NOAA Integrated Surface
 Database (ISD). R package version 0.9.5.
 \url{https://CRAN.R-project.org/package=worldmet}
+}
+\seealso{
+\code{\link{openair}}: functions \code{\link{importAURN}} and
+\code{\link{importKCL}}
+
+\code{\link{worldmet}}: function \code{\link{importNOAA}}.
 }
 \keyword{datasets}

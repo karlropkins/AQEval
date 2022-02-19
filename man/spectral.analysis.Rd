@@ -12,11 +12,28 @@ expected to contain a timestamp data-series called
 date and a measurement time-series to be analysed
 identified using the pollutant argument}
 
-\item{pollutant}{the name of the time-series, typically
-pollutant measurements, to be analysed}
+\item{pollutant}{the name of the time-series,
+typically pollutant measurements, to be analysed}
 
 \item{...}{extra arguments}
 }
+\value{
+\code{spectralFrequency} uses the \code{show} argument
+to control which elements of the functions outputs
+are shown but also invisible return a \code{list}
+of all outputs which can caught using, e.g.:
+
+\code{sfa.mod <- spectralFrequency(data, pollutant)}
+}
 \description{
 Time-series spectral frequency analysis.
+}
+\details{
+\code{spectralFrequency} producing a
+time frequency analysis of the requested
+\code{pollutant}.
+}
+\examples{
+#no2 spectral frequency
+spectralFrequency(aq.data, "no2")
 }
