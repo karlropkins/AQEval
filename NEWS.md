@@ -108,12 +108,10 @@ console reports [2022-02-01]
 
 ## v. 0.2.7 - updates
 
-* replaces example data with smaller alternative [2022-02-18] 
-* adding provisional examples and updated docs [2022-02-19] 
+* replaced example data with smaller alternative [2022-02-18] 
+* added provisional examples and updated docs [2022-02-19] 
 
+## v. 0.2.8 - updates
 
-
-
-
-
-
+* further doc updates (fbs) [2022-02-24]
+* further doc updates (is) [2022-02-25]

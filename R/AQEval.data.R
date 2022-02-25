@@ -23,38 +23,81 @@
 #'   \item{air_temp}{Time-series
 #'   of local air temperature measurements.}
 #' }
+#' @details Most of functions in \code{AQEval} adopt the
+#' \code{openair} convention of assuming supplied data is
+#' a single \code{data.frame} or similar.
+#' The data frame was initially adopted for two reasons:
+#' \itemize{
+#'   \item Firstly, air quality data currently collected and archived
+#' in numerous formats and keeping the import requirements
+#' simple minimises the frustrations associated with data
+#' importation.
+#'   \item Secondly, restricting the user to work with a single
+#' data format greatly simplifies data management for
+#' those less familiar with programming environments.
+#' }
+#' As part of this work several coding conventions were
+#' adopted, most that data sets should a column named
+#' \code{date} of \code{‘POSIX’} class data-and-time-stamps
+#' (\code{\link{DateTimeClasses}}).
+#' This and others, such as the use of
+#' \code{ws} and \code{wd} for numeric wind speed and
+#' direction data-series, and \code{site} and \code{code}
+#' for character or factor monitoring site name and
+#' identifier code, are now commonplace for many working
+#' with R in the air quality research community, and many
+#' air quality archives provide data in (or support import
+#' functions that convert their own data structures to)
+#' this \code{openair}-friendly structure.
 #' @source Air quality and meteorological data packaged
 #' for use with AQEval Examples.
 #'
 #' Time-series sources:
 #' \itemize{
-#'  \item no2 Nitrogen dioxide downloaded from King's
+#'  \item \strong{date} Date-and-time-stamp of POSIX class
+#'  (\code{\link{?DateTimeClasses}}).
+#'  \item \strong{no2} Nitrogen dioxide downloaded from King's
 #'  College London Archive using \code{importKCL}
 #'  function in \code{openair}.
-#'  \item bg.no2  Nitrogen dioxide downloaded from
-#'  Autonmatic Urban and Rural Network Archive using
+#'  \item \strong{bg.no2}  Nitrogen dioxide downloaded from
+#'  the Automatic Urban and Rural Network Archive using
 #'  \code{importAURN} function in \code{openair}.
-#'  \item ws, wd, air_temp Wind speed, wind direction
-#'  and air temperature downloaded from NOAA's
-#'  Integrated Surface Database using \code{importNOAA}
+#'  \item \strong{ws}, \strong{wd}, \strong{air_temp} Wind
+#'  speed, wind direction and air temperature downloaded from
+#'  NOAA's Integrated Surface Database using \code{importNOAA}
 #'  function in \code{worldmet}.
 #' }
 #' @seealso
+#' \code{\link{DateTimeClasses}}
+#'
 #' \code{\link{openair}}: functions \code{\link{importAURN}} and
 #' \code{\link{importKCL}}
 #'
 #' \code{\link{worldmet}}: function \code{\link{importNOAA}}.
 #'
 #'@references
-#' Carslaw, D. C. and K. Ropkins, (2012) openair --- an
+#' Regarding \code{openair} and \code{openair}-friendly
+#' data structuring, see:
+#'
+#' Carslaw, D. C. and K. Ropkins (2012), openair --- an
 #' R package for air quality data analysis.
 #' Environmental Modelling & Software. Volume 27-28,
-#' 52-61.
+#' 52-61,
+#' DOI \url{https://doi.org/10.1016/j.envsoft.2011.09.008}
 #'
-#' David Carslaw (2021). worldmet: Import Surface
+#' Ropkins, K. and D.C. Carslaw (2012), openair-Data
+#' Analysis Tools for the Air Quality Community. R Journal,
+#' 4(1).
+#' URL \url{https://journal.r-project.org/archive/2012/RJ-2012-003/RJ-2012-003.pdf}
+#'
+#' Regarding \code{worldmet}, see:
+#'
+#' David Carslaw (2021), worldmet: Import Surface
 #' Meteorological Data from NOAA Integrated Surface
 #' Database (ISD). R package version 0.9.5.
 #' \url{https://CRAN.R-project.org/package=worldmet}
+#'
+#'
 #'
 "aq.data"
 

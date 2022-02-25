@@ -45,7 +45,7 @@
 #' of all outputs which can caught using, e.g.:
 #'
 #' \code{brk.mod <- quantBreakPoints(data, pollutant)}
-#' #' @examples
+#' @examples
 #' #using openair timeAverage to covert 1-hour data to 1-day averages
 #' temp <- openair::timeAverage(aq.data, "1 day")
 #'
@@ -247,4 +247,5 @@ quantBreakSegments <-
 ##quantBreaks02 <- function(...) quantBreakPoints(...)
 
 ## from days of quantBreaks01 and 02
+## nobody should be using either these days
 

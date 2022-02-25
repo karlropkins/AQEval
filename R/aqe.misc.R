@@ -258,6 +258,8 @@ aqe_quickText <- function (text, auto.text = TRUE)
   if (!auto.text)
     return(ans <- text)
   #currently based on openair quicktext
+  #check can we make gsub case non-sensitive
+  #without big speed penalty???
   ans <- text
   ans <- gsub("NO2", "NO<sub>2</sub>", ans)
   ans <- gsub("no2", "NO<sub>2</sub>", ans)

@@ -74,15 +74,6 @@ are shown but also invisible return a \code{list}
 of all outputs which can caught using, e.g.:
 
 \code{brk.mod <- quantBreakPoints(data, pollutant)}
-#' @examples
-#using openair timeAverage to covert 1-hour data to 1-day averages
-temp <- openair::timeAverage(aq.data, "1 day")
-
-#break-points
-quantBreakPoints(temp, "no2", h=0.3)
-
-#break-segments
-quantBreakSegments(temp, "no2", h=0.3)
 }
 \description{
 Quantify either break-points or
@@ -95,6 +86,16 @@ break-segment methods for pollutant time-series
 break-points in time-series, and then quantify
 these as conventional break-points or break-segments,
 respectively.
+}
+\examples{
+#using openair timeAverage to covert 1-hour data to 1-day averages
+temp <- openair::timeAverage(aq.data, "1 day")
+
+#break-points
+quantBreakPoints(temp, "no2", h=0.3)
+
+#break-segments
+quantBreakSegments(temp, "no2", h=0.3)
 }
 \references{
 Ropkins et al (In Prep).
