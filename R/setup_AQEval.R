@@ -2,6 +2,11 @@
 ## #' @title setup_AQEval
 ############################################
 
+##################################
+#remove before public release
+#if not using/recommending
+##################################
+
 ## #' @name setup_AQEval
 ## #' @description Attempts to load packages needed to run
 ## #' \code{AQEval}.
@@ -11,7 +16,7 @@
 #Hoping remotes::install_local works and
 #currently not export this
 
-#remove before public release???
+
 
 #splatted function
 #currently not exporting

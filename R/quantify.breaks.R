@@ -34,13 +34,6 @@
 #' break-points in time-series, and then quantify
 #' these as conventional break-points or break-segments,
 #' respectively.
-#' #' @returns \code{quantBreakPoints} and
-#' \code{quantBreakSegments} use the \code{show} argument
-#' to control which elements of the functions outputs
-#' are shown but also invisibly returns a \code{list}
-#' of all outputs which can caught using, e.g.:
-#'
-#' \code{bpt.mod <- quantBreakPoints(data, pollutant)}
 #' @author Karl Ropkins
 #' @references
 #' Regarding \code{strucchange} methods see in-package

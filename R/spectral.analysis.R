@@ -5,7 +5,7 @@
 #' @name spectral.analysis
 #' @aliases  spectralFrequency
 #' @description Time-series spectral frequency analysis.
-#' @param data \code(data.frame) holding data to be analysed,
+#' @param data \code{data.frame} holding data to be analysed,
 #' expected to contain a timestamp data-series called
 #' \code{date} and a measurement time-series to be analysed
 #' identified using the \code{pollutant} argument.
