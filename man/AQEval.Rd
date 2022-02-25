@@ -14,6 +14,8 @@ Quality time-series discrete change analysis.
 Need to standardise wording here and intro paper...
 
 ref intro paper?
+
+acknowledgement to funders?
 }
 
 \section{main package functions}{

@@ -132,6 +132,10 @@ Regarding \code{isolateContribution}, see:
 Ropkins et al (In Prep).
 }
 \seealso{
+Regarding seasonal terms and frequency
+analysis, see \code{\link{stl}} and
+\code{\link{spectralFrequency}}
+
 \code{\link{mgcv}}, \code{\link{gam}}.
 }
 \author{

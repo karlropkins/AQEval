@@ -86,22 +86,72 @@ break-segment methods for pollutant time-series
 break-points in time-series, and then quantify
 these as conventional break-points or break-segments,
 respectively.
+#' @returns \code{quantBreakPoints} and
+\code{quantBreakSegments} use the \code{show} argument
+to control which elements of the functions outputs
+are shown but also invisibly returns a \code{list}
+of all outputs which can caught using, e.g.:
+
+\code{bpt.mod <- quantBreakPoints(data, pollutant)}
 }
 \examples{
 #using openair timeAverage to covert 1-hour data to 1-day averages
+
 temp <- openair::timeAverage(aq.data, "1 day")
 
 #break-points
+
 quantBreakPoints(temp, "no2", h=0.3)
 
 #break-segments
+
 quantBreakSegments(temp, "no2", h=0.3)
 }
 \references{
+Regarding \code{strucchange} methods see in-package
+documentation, e.g. \code{\link{breakpoints}}, and:
+
+Achim Zeileis, Friedrich Leisch, Kurt Hornik and Christian Kleiber
+(2002). strucchange: An R Package for Testing for Structural Change
+in Linear Regression Models. Journal of Statistical Software, 7(2),
+1-38. URL \url{http://www.jstatsoft.org/v07/i02/}.
+
+Achim Zeileis, Christian Kleiber, Walter Kraemer and Kurt Hornik
+(2003). Testing and Dating of Structural Changes in Practice.
+Computational Statistics & Data Analysis, 44, 109-123.
+
+Regarding \code{segmented} methods see in-package
+documentation, e.g.
+\code{\link{segmented}}, and:
+
+  Vito M. R. Muggeo (2003). Estimating regression models
+  with unknown break-points. Statistics in Medicine, 22,
+  3055-3071.
+
+  Vito M. R. Muggeo (2008). segmented: an R Package to
+  Fit Regression Models with Broken-Line Relationships.
+  R News, 8/1, 20-25.
+  URL \url{https://cran.r-project.org/doc/Rnews/}.
+
+  Vito M. R. Muggeo (2016). Testing with a nuisance
+  parameter present only under the alternative: a
+  score-based approach with application to segmented
+  modelling. J of Statistical Computation and Simulation,
+  86, 3059-3067.
+
+  Vito M. R. Muggeo (2017). Interval estimation for the
+  breakpoint in segmented regression: a smoothed
+  score-based approach. Australian & New Zealand Journal
+  of Statistics, 59, 311-322.
+
+Regarding break-points/segment methods, see:
+
 Ropkins et al (In Prep).
 }
 \seealso{
-\code{\link{timeAverage}} in \code{openair}.
+\code{\link{timeAverage}} in \code{openair},
+\code{\link{breakpoints}} in \code{strucchange}, and
+\code{\link{segmented}} in \code{segmented}.
 }
 \author{
 Karl Ropkins
