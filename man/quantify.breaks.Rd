@@ -41,8 +41,8 @@ data-series, named date.}
 \item{pollutant}{The name of the data-series to
 break-point or break-segment model.}
 
-\item{breaks}{(Optional) The break-points to
-and confidence intervals to use when build either
+\item{breaks}{(Optional) The break-points and
+confidence intervals to use when building either
 break-point or break-segment models. If not supplied
 these are build using \code{\link{findBreakPoints}}
 and supplied arguments.}
@@ -85,7 +85,23 @@ break-segment methods for pollutant time-series
 \code{strucchange} methods to identify potential
 break-points in time-series, and then quantify
 these as conventional break-points or break-segments,
-respectively.
+respectively:
+\itemize{
+  \item \strong{Finding Break-points} Using the
+  \code{strucchange} methods of Zeileis and colleagues
+  and independent change detection model, the functions
+  apply a rolling-window approach, assuming the first
+  window (or data subset) is without change, building a
+  statistical model of that, advancing the window,
+  building a second model and comparing these, and so on,
+  to identify the most likely points of change in a
+  larger data-series. See also \code{\link{findBreakPoints}}
+  \item \strong{Quantifying Break-points} Using the
+  supplied break-points to build a break-point model.
+  \item \strong{Quantifying Break-segments} Using the
+  confidence regions for the supplied break-points as the
+  starting points to build a break-segment model.
+}
 }
 \examples{
 #using openair timeAverage to covert 1-hour data to 1-day averages
@@ -102,7 +118,8 @@ quantBreakSegments(temp, "no2", h=0.3)
 }
 \references{
 Regarding \code{strucchange} methods see in-package
-documentation, e.g. \code{\link{breakpoints}}, and:
+documentation, e.g. \code{\link[strucchange]{breakpoints}},
+and:
 
 Achim Zeileis, Friedrich Leisch, Kurt Hornik and Christian Kleiber
 (2002). strucchange: An R Package for Testing for Structural Change
@@ -112,14 +129,15 @@ in Linear Regression Models. Journal of Statistical Software, 7(2),
 Achim Zeileis, Christian Kleiber, Walter Kraemer and Kurt Hornik
 (2003). Testing and Dating of Structural Changes in Practice.
 Computational Statistics & Data Analysis, 44, 109-123.
+DOI \url{https://doi.org/10.1016/S0167-9473(03)00030-6}.
 
 Regarding \code{segmented} methods see in-package
 documentation, e.g.
-\code{\link{segmented}}, and:
+\code{\link[segmented]{segmented}}, and:
 
   Vito M. R. Muggeo (2003). Estimating regression models
   with unknown break-points. Statistics in Medicine, 22,
-  3055-3071.
+  3055-3071. DOI \url{https://doi.org/10.1002/sim.1545}.
 
   Vito M. R. Muggeo (2008). segmented: an R Package to
   Fit Regression Models with Broken-Line Relationships.
@@ -131,11 +149,13 @@ documentation, e.g.
   score-based approach with application to segmented
   modelling. J of Statistical Computation and Simulation,
   86, 3059-3067.
+  DOI \url{https://doi.org/10.1080/00949655.2016.1149855}.
 
   Vito M. R. Muggeo (2017). Interval estimation for the
   breakpoint in segmented regression: a smoothed
   score-based approach. Australian & New Zealand Journal
   of Statistics, 59, 311-322.
+  DOI \url{https://doi.org/10.1111/anzs.12200}.
 
 Regarding break-points/segment methods, see:
 

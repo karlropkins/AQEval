@@ -2,21 +2,50 @@
 #' Air Quality Evaluation
 ##################################################
 #'
-#' R AQEval beta-release package of R code for Air
-#' Quality time-series discrete change analysis.
+#' R AQEval beta-release package of R code for the
+#' analysis of discrete change in Air Quality
+#' time-series discrete.
 #'
-#' @section TO DO:
+#' @section AQEval:
+#' \code{AQEval} was developed for use by those tasked with
+#' the routine detection, characterisation and quantification
+#' of discrete changes in air quality time-series.
 #'
-#' Need to standardise wording here and intro paper...
+#' The main functions, \code{\link{quantBreakPoints}}
+#' and \code{\link{quantBreakSegments}}, use
+#' break-point/segment (BP/S) methods
+#' based on the consecutive use of methods in the
+#' \code{strucchange} and \code{segmented} \code{R} packages
+#' to first detection (as break-points) and then characterise
+#' and quantify (as segments), discrete changes in
+#' air-quality time-series.
 #'
-#' ref intro paper?
+#' \code{AQEval} functions adopt an \code{openair}-friendly
+#' approach using function and data structures that many
+#' in the air quality research community are already familiar
+#' with.
+#' Most notably, most functions expect supplied data
+#' to be time-series, to be supplied as a single
+#' \code{data.frame} (or similar R object), for
+#' time-series to be identified by column names,
+#' and main functions are typically structured to be applied :
 #'
-#' acknowledgement to funders?
+#' \code{function(data, "polluant.name", ...)}
 #'
-#' @section main package functions:
-#' \code{\link{findBreakPoints}},
-#' \code{\link{quantBreakPoints}},
-#' \code{\link{quantBreakSegments}}.
+#' \code{output <- function(data, "polluant.name", ...)}
+#'
+#' @seealso
+#'
+#' For more about data structure and an example data set,
+#' see \code{\link{AQEval.data}}
+#'
+#' For more about the main functions, see
+#' \code{\link{quantBreakPoints}}
+#' and \code{\link{quantBreakSegments}}
+#' @references
+#' @author Karl Ropkins
+#' @references
+#' Ropkins et al (In Prep).
 #'
 #' @docType package
 #' @name AQEval

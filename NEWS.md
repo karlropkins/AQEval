@@ -120,4 +120,5 @@ console reports [2022-02-01]
 ## v. 0.2.9 - updates 
 
 * further doc updates (links) [2022-02-25]
-*
+* further doc updates (links2) [2022-02-25]
+

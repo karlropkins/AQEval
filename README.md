@@ -1,6 +1,6 @@
 # AQEval
 
-Pre-release packages of R code for Air Quality Evaluation.
+Beta-release package of R code for Air Quality Evaluation.
 
 ## Installation
 
