@@ -55,7 +55,7 @@
 #' Time-series sources:
 #' \itemize{
 #'  \item \strong{date} Date-and-time-stamp of POSIX class
-#'  (\code{\link{?DateTimeClasses}}).
+#'  (\code{\link{DateTimeClasses}}).
 #'  \item \strong{no2} Nitrogen dioxide downloaded from King's
 #'  College London Archive using \code{importKCL}
 #'  function in \code{openair}.

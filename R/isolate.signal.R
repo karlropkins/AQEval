@@ -70,6 +70,9 @@
 #' @note \code{method} was included as part of method
 #' development and testing work, and retained for now.
 #' Please ignore for now.
+#' @seealso Regarding seasonal terms and frequency
+#' analysis, see \code{\link{stl}} and
+#' \code{\link{spectralFrequency}}
 #' @references
 #' Regarding \code{\link{mgcv}} GAM fitting methods, see
 #' Wood (2017) for general introduction and package
@@ -247,11 +250,22 @@ function(data, pollutant, background = NULL,
 # unless we want to return data
 # it seems unlikely
 ############################
+#also we should be able to
+#a lot of this...
+############################
         if(method==2){
           if("year.day" %in% deseason){
             d1$year.day <- as.numeric(format(d1$date, "%j"))
             data$year.day <- as.numeric(format(data$date, "%j"))
             ff <- paste(ff, "+s(year.day)", sep="")
+          }
+          ####################################
+          #this will need better thinking
+          ####################################
+          if("week.day" %in% deseason){
+            d1$week.day <- as.numeric(format(d1$date, "%w"))
+            data$week.day <- as.numeric(format(data$date, "%w"))
+            ff <- paste(ff, "s(week.day, k=5)", sep="")
           }
           if("day.hour" %in% deseason){
             d1$day.hour <- as.numeric(format(d1$date, "%H"))
@@ -264,6 +278,11 @@ function(data, pollutant, background = NULL,
             d1$year.day <- as.numeric(format(d1$date, "%j"))
             data$year.day <- as.numeric(format(data$date, "%j"))
             ff <- paste(ff, "+year.day", sep="")
+          }
+          if("week.day" %in% deseason){
+            d1$week.day <- as.numeric(format(d1$date, "%w"))
+            data$week.day <- as.numeric(format(data$date, "%w"))
+            ff <- paste(ff, "+week.day", sep="")
           }
           if("day.hour" %in% deseason){
             d1$day.hour <- as.numeric(format(d1$date, "%H"))

@@ -5,8 +5,17 @@
 \alias{AQEval}
 \title{Air Quality Evaluation}
 \description{
-Pre-release package for R code for Air Quality Evaluation.
+R AQEval beta-release package of R code for Air
+Quality time-series discrete change analysis.
 }
+\section{TO DO}{
+
+
+Need to standardise wording here and intro paper...
+
+ref intro paper?
+}
+
 \section{main package functions}{
 
 \code{\link{findBreakPoints}},

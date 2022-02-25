@@ -115,3 +115,9 @@ console reports [2022-02-01]
 
 * further doc updates (fbs) [2022-02-24]
 * further doc updates (is) [2022-02-25]
+* further doc update (refs) [2022-02-25]
+
+## v. 0.2.9 - updates 
+
+* further doc updates (links) [2022-02-25]
+*

@@ -1,20 +1,28 @@
 ############################################
-#' @title Fit a near-site model
+#' @title Other Air Quality Models
 ############################################
 
-#' @name fitNearSiteModel
-#' @description Build an air quality model for one location
-#' using air quality data from nearby sites
-#' @param data data.frame (or similar) containing data-series
+#' @name other.aq.models
+#' @rdname fitNearSiteModel
+#' @description Other packaged Air Quality Models.
+#' @param data \code{data.frame} (or similar) containing data-series
 #' to be modelled; this is expected to contain 'date', 'site'
-#' and pollutant of interest data-series
-#' @param pollutant The pollutant of interest, by default 'NO2'
-#' @param y The site to be modelled
-#' @param x The sites to use when building the model, the
-#' default 'rest' uses all supplied sites except 'y'
+#' and pollutant of interest data-series.
+#' @param pollutant The name of the \code{pollutant} (in
+#' \code{data}) to model, by default 'NO2'.
+#' @param y The name of the monitor site to be modelled,
+#' assumed to be one several names in the \code{site} column of
+#' \code{data}.
+#' @param x The other sites to use when building the model, the
+#' default 'rest' uses all supplied sites except 'y'.
 #' @param elements The number of inputs to use in the
 #' site models, can be any number up to length of x or
-#' combination thereof; by default, length(x):1
+#' combination thereof; by default this is set as
+#' \code{length(x):1}
+#' @details \code{fitNearSiteModel} builds an air quality
+#' model for one location using air quality data from nearby
+#' sites.
+
 ## #' @references TO DO...
 
 #fitNearSiteModel
