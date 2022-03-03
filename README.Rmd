@@ -13,9 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-# pkgdown <img src="man/figures/logo.png" align="right" alt="" width="120" />
+# AQEval <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
-# AQEval
 
 <!-- badges: start -->
 <!-- badges: end -->
