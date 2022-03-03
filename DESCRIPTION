@@ -10,7 +10,7 @@ Authors@R: c(person(given = "Karl", family = "Ropkins", role
       person(given = "Anthony", family = "Walker", role =
       c("ctb")), person(given = "James", family = "Tate",
       role = c("ctb")))
-License: GLP-3
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: openair, dplyr, loa, readr, ggplot2, strucchange,
