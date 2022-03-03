@@ -4,6 +4,8 @@
 # AQEval <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
 <!-- badges: end -->
 
 **AQEval** was developed for use by those tasked with the routine
