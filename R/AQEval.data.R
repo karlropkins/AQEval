@@ -73,7 +73,7 @@
 #' \code{\link{openair}}: functions \code{\link{importAURN}} and
 #' \code{\link{importKCL}}
 #'
-#' \code{\link{worldmet}}: function \code{\link{importNOAA}}.
+#' \code{worldmet}: function \code{importNOAA} (See References)
 #'
 #'@references
 #' Regarding \code{openair} and \code{openair}-friendly

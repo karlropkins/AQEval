@@ -1,3 +1,14 @@
+#############################################
+#misc set up
+#should tidy this...
+#############################################
+#defined globals
+#' @importFrom utils capture.output combn
+#############################################
+#undefined globals
+utils::globalVariables(c("end.date", "err", "freq", "my.y",
+                         "pred", "spec", "start.date"))
+
 
 ##############################################
 #misc sub functions

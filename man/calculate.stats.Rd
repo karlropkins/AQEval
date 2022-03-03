@@ -48,6 +48,8 @@ data, by default \code{mean(pollutant, na.rm=TRUE)}.}
 analyse in \code{data}, by default all columns in
 supplied data except \code{date}.}
 
+\item{...}{extra arguments.}
+
 \item{method}{(numeric) Method to use when calculating
 statistic.}
 
@@ -58,8 +60,6 @@ the range the rolling date windows, by default
 \item{res}{(character) For \code{calcRollingDateRange},
 the resolution to calculate the rolling statistic at, by
 default \code{'day'} to calculate this once per day.}
-
-\item{only.last}{(logical) Just calculate last statistic.}
 }
 \description{
 Calculate data set statistics for

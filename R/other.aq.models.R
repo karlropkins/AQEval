@@ -19,6 +19,7 @@
 #' site models, can be any number up to length of x or
 #' combination thereof; by default this is set as
 #' \code{length(x):1}
+#' @param ... extra arguments.
 #' @details \code{fitNearSiteModel} builds an air quality
 #' model for one location using air quality data from nearby
 #' sites.

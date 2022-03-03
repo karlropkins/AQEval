@@ -1,18 +1,16 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.2.9
-Date: 2022-02-25
-Description: Pre-release package for R code for Air Quality
-      Evaluation.
-Authors@R: c(person(given = "Karl", family = "Ropkins", role
-      = c("aut", "cre"), email = "k.ropkins@its.leeds.ac.uk",
-      comment = c(ORCID = "0000-0002-0294-6997")),
-      person(given = "Anthony", family = "Walker", role =
-      c("ctb")), person(given = "James", family = "Tate",
-      role = c("ctb")))
+Version: 0.2.10
+Date: 2022-03-03
+Description: Pre-release package for R code for Air Quality Evaluation.
+Authors@R: c(person(given = "Karl", family = "Ropkins", role = c("aut", "cre"), email =
+           "k.ropkins@its.leeds.ac.uk", comment = c(ORCID = "0000-0002-0294-6997")), person(given =
+           "Anthony", family = "Walker", role = c("ctb")), person(given = "James", family = "Tate",
+           role = c("ctb")))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: openair, dplyr, loa, readr, ggplot2, strucchange,
-      segmented, mgcv, tidyr, lubridate, purrr, ggtext
+Depends: R (>= 3.5.0)
+Imports: openair, dplyr, loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate, purrr,
+           ggtext, stats
 RoxygenNote: 7.1.1

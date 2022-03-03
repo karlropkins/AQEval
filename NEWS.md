@@ -122,3 +122,8 @@ console reports [2022-02-01]
 * further doc updates (links) [2022-02-25]
 * further doc updates (links2) [2022-02-25]
 
+## v. 0.2.10 - upadtes
+
+* readme favicon (thanks anthony) [2022-03-03] 
+* tidy links (worldmet - issue) [2022-03-03] 
+* test checks [2022-03-03] 

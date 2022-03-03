@@ -26,6 +26,8 @@ default 'rest' uses all supplied sites except 'y'.}
 site models, can be any number up to length of x or
 combination thereof; by default this is set as
 \code{length(x):1}}
+
+\item{...}{extra arguments.}
 }
 \description{
 Other packaged Air Quality Models.

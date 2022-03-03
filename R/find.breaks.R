@@ -76,6 +76,7 @@
 
 #splatted function
 #' @import strucchange
+#' @importFrom stats approx as.formula confint filter lm na.omit pchisq predict qchisq spec.pgram
 #' @rdname find.breaks
 #' @export
 findBreakPoints <-

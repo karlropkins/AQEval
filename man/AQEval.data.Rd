@@ -105,6 +105,6 @@ Database (ISD). R package version 0.9.5.
 \code{\link{openair}}: functions \code{\link{importAURN}} and
 \code{\link{importKCL}}
 
-\code{\link{worldmet}}: function \code{\link{importNOAA}}.
+\code{worldmet}: function \code{importNOAA} (See References)
 }
 \keyword{datasets}

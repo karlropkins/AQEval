@@ -12,7 +12,7 @@
 #' @param pollutant (character) The name(s) of data-series to
 #' analyse in \code{data}, by default all columns in
 #' supplied data except \code{date}.
-#' @param only.last (logical) Just calculate last statistic.
+#' @param ... extra arguments.
 #' @param method (numeric) Method to use when calculating
 #' statistic.
 #' @param from (various) Start date(s) to subsample from when
@@ -133,8 +133,8 @@ calcRollingDateRangeStat <-
     #might want option to turn this off?
     temp <- strsplit(res, " ")[[1]]
     temp <- temp[length(temp)]
-    start <- round(min(data$date, na.rm=TRUE), units=temp)
-    end <- round(max(data$date, na.rm=TRUE), units=temp)
+    start <- round.POSIXt(min(data$date, na.rm=TRUE), units=temp)
+    end <- round.POSIXt(max(data$date, na.rm=TRUE), units=temp)
 
     #calculating at end of range
     end <- seq(start, end, by=res)
@@ -164,7 +164,7 @@ calcRollingDateRangeStat <-
 
 
 ############################################
-#unexported code 
+#unexported code
 
 #could be using a few of these elsewhere?
 #would standardise handling of same name args...
