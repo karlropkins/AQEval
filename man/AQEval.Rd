@@ -30,9 +30,11 @@ in the air quality research community are already familiar
 with.
 Most notably, most functions expect supplied data
 to be time-series, to be supplied as a single
-\code{data.frame} (or similar R object), for
-time-series to be identified by column names,
-and main functions are typically structured to be applied :
+\code{data.frame} (or similar R object), and for
+time-series to be identified by column names.
+The main functions are typically structured expect
+first the \code{data.frame}, then the name of the
+pollutant to be used, then other arguments:
 
 \code{function(data, "polluant.name", ...)}
 

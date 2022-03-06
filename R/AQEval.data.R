@@ -28,7 +28,7 @@
 #' a single \code{data.frame} or similar.
 #' The data frame was initially adopted for two reasons:
 #' \itemize{
-#'   \item Firstly, air quality data currently collected and archived
+#'   \item Firstly, air quality data collected and archived
 #' in numerous formats and keeping the import requirements
 #' simple minimises the frustrations associated with data
 #' importation.
@@ -36,11 +36,12 @@
 #' data format greatly simplifies data management for
 #' those less familiar with programming environments.
 #' }
-#' As part of this work several coding conventions were
-#' adopted, most that data sets should a column named
-#' \code{date} of \code{‘POSIX’} class data-and-time-stamps
+#' As part of this work several \code{openair} coding
+#' conventions were adopted, most importantly that data
+#' sets should include a column named \code{date} of
+#' \code{‘POSIX’} class data-and-time-stamps
 #' (\code{\link{DateTimeClasses}}).
-#' This and others, such as the use of
+#' This and other conventions, such as the use of
 #' \code{ws} and \code{wd} for numeric wind speed and
 #' direction data-series, and \code{site} and \code{code}
 #' for character or factor monitoring site name and

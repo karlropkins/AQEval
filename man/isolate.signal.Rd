@@ -20,7 +20,8 @@ isolateContribution(
 }
 \arguments{
 \item{data}{Data source, typically \code{data.frame}
-(or similar), containing all time-series of interest.}
+(or similar), containing all time-series to be used when
+applying signal processing.}
 
 \item{pollutant}{The column name of the \code{data}
 time-series to be signal processed.}

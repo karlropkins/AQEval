@@ -8,7 +8,8 @@
 #' Contribution isolation based on background subtraction,
 #' deseasonalisation and/or deweathering.
 #' @param data Data source, typically \code{data.frame}
-#' (or similar), containing all time-series of interest.
+#' (or similar), containing all time-series to be used when
+#' applying signal processing.
 #' @param pollutant The column name of the \code{data}
 #' time-series to be signal processed.
 #' @param background (optional) if supplied, the background

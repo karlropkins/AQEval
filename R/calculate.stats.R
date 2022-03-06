@@ -7,7 +7,7 @@
 #' @description Calculate data set statistics for
 #' selected time intervals.
 #' @param data (data.frame, tibble, etc) Data set containing
-#' data statistic to be calculated for and \code{date}
+#' data statistic to be calculated for, and \code{date}
 #' column of date/time records.
 #' @param pollutant (character) The name(s) of data-series to
 #' analyse in \code{data}, by default all columns in
@@ -50,6 +50,7 @@
 #regarding rolling windows...
 
 #(not a fan of importing lubridate in full...)
+#(maybe try dplyr approach?)
 #' @import lubridate
 
 

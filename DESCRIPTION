@@ -1,7 +1,7 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.2.10
-Date: 2022-03-03
+Version: 0.2.11
+Date: 2022-03-06
 Description: Pre-release package for R code for Air Quality Evaluation.
 Authors@R: c(person(given = "Karl", family = "Ropkins", role = c("aut", "cre"), email =
            "k.ropkins@its.leeds.ac.uk", comment = c(ORCID = "0000-0002-0294-6997")), person(given =

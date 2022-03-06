@@ -8,7 +8,7 @@
 #' conventionally formatted air quality data sets.
 #' @param data Data source, typically a \code{data.frame}
 #' or similar, containing data-series to apply function to
-#' and a paired time-stamped data-series, named date.
+#' and a paired time-stamped data-series, called \code{date}.
 #' @param pollutant Name of time-series, assumed to be
 #' a column in \code{date}.
 #' @param h (\code{findBreakPoints} only) The data/time window

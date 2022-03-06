@@ -11,7 +11,7 @@
 #' @param nmax (numeric) The maximum number of nearest sites
 #' to report, by default 10.
 #' @param ... Other parameters, currently ignored.
-#' @param ref (data.frame or similar) The look-up table to
+#' @param ref (\code{data.frame} or similar) The look-up table to
 #' use when identifying nearby locations, and expected to
 #' contain latitude, longitude and any required location
 #' identifier data-series. By default, \code{findNearSites}
@@ -116,7 +116,7 @@ findNearLatLon <-
       stop("supplied units not recognised")
     }
     #############
-    #handling for unrecognised units
+    #needs handling for unrecognised units
     #############
 
     #see previous version findNearLatLon

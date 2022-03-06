@@ -14,7 +14,7 @@ testBreakPoints(data, pollutant, breaks, ...)
 \arguments{
 \item{data}{Data source, typically a \code{data.frame}
 or similar, containing data-series to apply function to
-and a paired time-stamped data-series, named date.}
+and a paired time-stamped data-series, called \code{date}.}
 
 \item{pollutant}{Name of time-series, assumed to be
 a column in \code{date}.}

@@ -28,7 +28,7 @@ to report, by default 10.}
 
 \item{...}{Other parameters, currently ignored.}
 
-\item{ref}{(data.frame or similar) The look-up table to
+\item{ref}{(\code{data.frame} or similar) The look-up table to
 use when identifying nearby locations, and expected to
 contain latitude, longitude and any required location
 identifier data-series. By default, \code{findNearSites}

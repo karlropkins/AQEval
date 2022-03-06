@@ -127,3 +127,8 @@ console reports [2022-02-01]
 * readme favicon (thanks anthony) [2022-03-03] 
 * tidy links (worldmet - issue) [2022-03-03] 
 * test checks [2022-03-03] 
+
+## v. 0.2.11 - upadtes
+
+* minor doc updates [2022-03-06]
+

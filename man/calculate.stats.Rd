@@ -30,7 +30,7 @@ calcRollingDateRangeStat(
 }
 \arguments{
 \item{data}{(data.frame, tibble, etc) Data set containing
-data statistic to be calculated for and \code{date}
+data statistic to be calculated for, and \code{date}
 column of date/time records.}
 
 \item{from}{(various) Start date(s) to subsample from when
