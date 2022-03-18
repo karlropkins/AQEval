@@ -33,8 +33,8 @@ use when identifying nearby locations, and expected to
 contain latitude, longitude and any required location
 identifier data-series. By default, \code{findNearSites}
 uses openair \code{importMeta} output if this is not
-supplied but this is a required input for other
-\code{findNear...} functions.}
+supplied but this is a required input for
+\code{findNearLatLon}.}
 
 \item{units}{(character) The units to use when reporting
 distances to near locations; current options m.}
@@ -49,6 +49,15 @@ Background.}
 \description{
 Function to find nearest locations in a
 reference by latitude and longitude.
+}
+\details{
+If investigating air quality in a particular location,
+for example a UK Clean Air Zone
+(\url{https://www.gov.uk/guidance/driving-in-a-clean-air-zone}),
+you may wish to locate an appropriate rural background air quality
+monitoring station. \code{findNearSites} locates air quality monitoring
+sites with openly available data such as that available from the UK AURN
+network (\url{https://uk-air.defra.gov.uk/networks/network-info?view=aurn})
 }
 \note{
 This function uses haversine formula to account

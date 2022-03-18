@@ -16,8 +16,8 @@
 #' contain latitude, longitude and any required location
 #' identifier data-series. By default, \code{findNearSites}
 #' uses openair \code{importMeta} output if this is not
-#' supplied but this is a required input for other
-#' \code{findNear...} functions.
+#' supplied but this is a required input for
+#' \code{findNearLatLon}.
 #' @param units (character) The units to use when reporting
 #' distances to near locations; current options m.
 #' @param pollutant (character) For \code{findNearSites}
@@ -25,11 +25,17 @@
 #' @param site.type (character) For \code{findNearSites}
 #' only, the monitoring site type, by default Rural
 #' Background.
+#' @details
+#' If investigating air quality in a particular location,
+#' for example a UK Clean Air Zone
+#' (\url{https://www.gov.uk/guidance/driving-in-a-clean-air-zone}),
+#' you may wish to locate an appropriate rural background air quality
+#' monitoring station. \code{findNearSites} locates air quality monitoring
+#' sites with openly available data such as that available from the UK AURN
+#' network (\url{https://uk-air.defra.gov.uk/networks/network-info?view=aurn})
 #' @note This function uses haversine formula to account
 #' to the Earth's surface curvature, and uses 6371 km as
 #' the radius of earth.
-
-## #' @references TO DO...
 
 #findNear...
 #############################
@@ -44,6 +50,8 @@
 #think about rename/manage/set data columns local function
 #    aqeval_renameDataColumns?
 
+## #' @references need to reference formula
+## #' @need to add dont run examples
 
 
 #' @rdname find.near
@@ -56,6 +64,10 @@ findNearLatLon <-
     #find near locations in a reference dataset
     #replaces findNearSite
     x.args <- list(...)
+    #if no ref stop
+    if(is.null(ref)){
+      stop("findNearLatLon halted, ref not supplied.\n\t(See ?findNearLatLon)", call.=FALSE)
+    }
 
     #if data.frame supplied as lat
     #look in this for latitude and longitude

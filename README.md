@@ -15,36 +15,36 @@ detection, characterisation and quantification of discrete changes in
 air quality time-series, such as identifying the impacts of air quality
 policy interventions.
 
+## Project Webpages
+
+**AQEVal** Projects pages: <https://karlropkins.github.io/aqeval>.
+
 ## Installation
 
-If you are a package collaborator
-
-1.  create [personal
-    token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
-2.  then in R
+The beta testing version of **AQEval** is on
+[GitHub](https://github.com/):
 
 ``` r
-# (if you do not have devtools, install it) 
-devtools::install_github("karlropkins/AQEval", 
-          auth_token = "[your-token-here]") 
+# (if you do not have remotes package, install it from CRAN) 
+# install.packages("remotes")
+remotess::install_github("karlropkins/AQEval") 
 ```
 
-If you have .tar.gz file
+If you have the .tar.gz file:
 
 ``` r
-# (if you do not have devtools, install it)
-devtools::install_local(file.choose())
+# install.packages("remotes")
+devtools::install_local(file.choose()) # and select
 ```
 
 ## Background
 
-These packages contain pre-release code being developed as part of an
+These packages contain beta-testing code being developed as part of an
 on-going project.
 
 ## Contributing
 
-Currently in-house, so not strictly intended for wider circulation, but
-contributions are very welcome.
+Contributions are very welcome.
 
 ## License
 

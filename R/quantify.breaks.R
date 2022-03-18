@@ -106,6 +106,9 @@
 #' of all outputs which can caught using, e.g.:
 #'
 #' \code{brk.mod <- quantBreakPoints(data, pollutant)}
+#' @note \code{AQEval} function \code{quantBreakSegments}
+#' is currently running \code{segmented v.1.3-4} while we
+#' evaluate latest version, \code{v.1.4-0}.
 #' @examples
 #' #using openair timeAverage to covert 1-hour data to 1-day averages
 #'

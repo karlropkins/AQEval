@@ -103,6 +103,11 @@ respectively:
   starting points to build a break-segment model.
 }
 }
+\note{
+\code{AQEval} function \code{quantBreakSegments}
+is currently running \code{segmented v.1.3-4} while we
+evaluate latest version, \code{v.1.4-0}.
+}
 \examples{
 #using openair timeAverage to covert 1-hour data to 1-day averages
 
