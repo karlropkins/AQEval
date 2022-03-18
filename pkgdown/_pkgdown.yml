@@ -14,18 +14,15 @@ navbar:
     articles:
       text: "Articles"
       menu:
-      - text: Slides
-      - text: Title A1
-        href: articles/test.html
-      - text: Title A2
-        href: articles/index.html
+      - text: "Slides"
+      - text: Overview
+        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
       - text: -------
-      - text: "Category B"
+      - text: "Other Documents"
       - text: Article B1
-        href: articles/test2pdf.pdf
 
 home:
-  title: just testing
+  title: AQEval
   sidebar:
     structure: [links, license, community, citation, authors, dev]
 
