@@ -20,6 +20,7 @@ navbar:
       - text: -------
       - text: "Other Documents"
       - text: Article B1
+        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
 
 home:
   title: AQEval
