@@ -27,8 +27,7 @@ of air quality policy interventions.
 
 ## Project Webpages
 
-__AQEVal__ Projects pages: https://karlropkins.github.io/aqeval.
-
+__AQEVal__ Projects pages: https://karlropkins.github.io/AQEval/
 
 ## Installation
 
