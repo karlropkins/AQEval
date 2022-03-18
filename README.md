@@ -17,7 +17,7 @@ policy interventions.
 
 ## Project Webpages
 
-**AQEVal** Projects pages: <https://karlropkins.github.io/AQEval/>
+**AQEval** Projects pages: <https://karlropkins.github.io/AQEval/>
 
 ## Installation
 
