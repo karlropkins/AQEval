@@ -1,4 +1,4 @@
-url: https://karlropkins.github.io/aqeval
+url: https://karlropkins.github.io/AQEval
 
 template:
   bootstrap: 5
@@ -16,7 +16,7 @@ navbar:
     articles:
       text: "Articles"
       menu:
-      - text: Category A
+      - text: Slides
       - text: Title A1
         href: articles/test.html
       - text: Title A2
