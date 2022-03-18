@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://karlropkins.github.io/AQEval/404.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/authors.html</loc>
+    <loc>/authors.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/index.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/LICENSE.html</loc>
+    <loc>/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/news/index.html</loc>
+    <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/AQEval.data.html</loc>
+    <loc>/reference/AQEval.data.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/AQEval.html</loc>
+    <loc>/reference/AQEval.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/calculate.stats.html</loc>
+    <loc>/reference/calculate.stats.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/find.breaks.html</loc>
+    <loc>/reference/find.breaks.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/find.near.html</loc>
+    <loc>/reference/find.near.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/fitNearSiteModel.html</loc>
+    <loc>/reference/fitNearSiteModel.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/index.html</loc>
+    <loc>/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/isolate.signal.html</loc>
+    <loc>/reference/isolate.signal.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/quantify.breaks.html</loc>
+    <loc>/reference/quantify.breaks.html</loc>
   </url>
   <url>
-    <loc>https://karlropkins.github.io/AQEval/reference/spectral.analysis.html</loc>
+    <loc>/reference/spectral.analysis.html</loc>
   </url>
 </urlset>
