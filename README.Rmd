@@ -43,7 +43,7 @@ If you have the .tar.gz file:
 
 ```{r, eval=FALSE}
 # install.packages("remotes")
-devtools::install_local(file.choose()) # and select
+remotes::install_local(file.choose()) # and select
 ```
 
 ## Background
