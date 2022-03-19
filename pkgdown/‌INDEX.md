@@ -1,5 +1,8 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- INDEX.md is generated from INDEX.Rmd. Please edit that file -->
+
+# AQEval
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
