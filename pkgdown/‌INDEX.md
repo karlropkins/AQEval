@@ -30,7 +30,7 @@ If you have the .tar.gz file:
 
 ``` r
 # install.packages("remotes")
-devtools::install_local(file.choose()) # and select
+remotes::install_local(file.choose()) # and select
 ```
 
 ## Background
