@@ -1,11 +1,11 @@
 
 <!-- INDEX.md is generated from INDEX.Rmd. Please edit that file -->
 
-# AQEval
+# just.testing
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
+[![R-CMD-check](https://github.com/karlropkins/aqeval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/aqeval/actions)
 <!-- badges: end -->
 
 Beta-release package of R code for Air Quality Evaluation.
@@ -23,7 +23,7 @@ The beta testing version of **AQEval** is on
 ``` r
 # (if you do not have remotes package, install it from CRAN) 
 # install.packages("remotes")
-remotess::install_github("karlropkins/AQEval") 
+remotes::install_github("karlropkins/AQEval") 
 ```
 
 If you have the .tar.gz file:
