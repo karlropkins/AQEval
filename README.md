@@ -27,7 +27,7 @@ The beta testing version of **AQEval** is on
 ``` r
 # (if you do not have remotes package, install it from CRAN) 
 # install.packages("remotes")
-remotess::install_github("karlropkins/AQEval") 
+remotes::install_github("karlropkins/AQEval") 
 ```
 
 If you have the .tar.gz file:

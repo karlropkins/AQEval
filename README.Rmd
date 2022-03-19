@@ -36,7 +36,7 @@ The beta testing version of __AQEval__ is on [GitHub](https://github.com/):
 ```{r, eval=FALSE}
 # (if you do not have remotes package, install it from CRAN) 
 # install.packages("remotes")
-remotess::install_github("karlropkins/AQEval") 
+remotes::install_github("karlropkins/AQEval") 
 ```
 
 If you have the .tar.gz file:
