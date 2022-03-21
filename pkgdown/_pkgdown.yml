@@ -15,13 +15,8 @@ navbar:
     articles:
       text: "Articles"
       menu:
-      - text: "Slides"
-      - text: Overview
-        href: articles/test.html
-      - text: -------
-      - text: "Other Documents"
-      - text: Article B1
-        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
+      - text: "documents"
+      - text: "content pending"
 
 home:
   title: AQEval
