@@ -1,0 +1,29 @@
+url: https://karlropkins.github.io/AQEval/
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#0054AD"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+
+navbar:
+  type: inverse
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    articles:
+      text: "Articles"
+      menu:
+      - text: "Slides"
+      - text: Overview
+        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
+      - text: -------
+      - text: "Other Documents"
+      - text: Article B1
+        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
+
+home:
+  title: AQEval
+  sidebar:
+    structure: [links, license, community, citation, authors, dev]
