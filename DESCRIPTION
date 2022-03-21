@@ -14,3 +14,4 @@ Depends: R (>= 3.5.0)
 Imports: openair, dplyr, loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate, purrr, ggtext,
            stats
 RoxygenNote: 7.1.2
+URL: https://karlropkins.github.io/AQEval/
