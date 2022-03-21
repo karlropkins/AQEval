@@ -20,7 +20,8 @@ navbar:
         href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
       - text: -------
       - text: "Other Documents"
-      - text: Article B1
+      - text: Overview
+        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
 
 home:
   title: R code for Air Quality Evaluation
