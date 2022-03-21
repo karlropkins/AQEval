@@ -21,9 +21,8 @@ navbar:
       - text: -------
       - text: "Other Documents"
       - text: Article B1
-        href: articles/AQEvalPackage_Guidance_Slides_07052021.pdf
 
 home:
-  title: AQEval
+  title: R code for Air Quality Evaluation
   sidebar:
     structure: [links, license, community, citation, authors, dev]
