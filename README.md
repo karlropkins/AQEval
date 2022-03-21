@@ -39,7 +39,7 @@ remotes::install_local(file.choose()) # and select
 
 ## Background
 
-These packages contain beta-testing code being developed as part of an
+This package contains beta-testing code being developed as part of an
 on-going project.
 
 ## Contributing

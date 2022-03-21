@@ -23,7 +23,7 @@ Beta-release package of R code for Air Quality Evaluation.
 
 __AQEval__ was developed for use by those tasked with the routine detection, characterisation and
 quantification of discrete changes in air quality time-series, such as identifying the impacts
-of air quality policy interventions.
+of air quality policy interventions. 
 
 ## Project Webpages
 
@@ -47,7 +47,7 @@ remotes::install_local(file.choose()) # and select
 ```
 
 ## Background
-These packages contain beta-testing code being developed as part 
+This package contains beta-testing code being developed as part 
 of an on-going project.
 
 ## Contributing
