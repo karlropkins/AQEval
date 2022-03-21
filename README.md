@@ -30,7 +30,7 @@ The beta testing version of **AQEval** is on
 remotes::install_github("karlropkins/AQEval") 
 ```
 
-If you have the .tar.gz file:
+If you have the **AQEval** .tar.gz file:
 
 ``` r
 # install.packages("remotes")

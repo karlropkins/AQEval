@@ -39,7 +39,7 @@ The beta testing version of __AQEval__ is on [GitHub](https://github.com/):
 remotes::install_github("karlropkins/AQEval") 
 ```
 
-If you have the .tar.gz file:
+If you have the __AQEval__ .tar.gz file:
 
 ```{r, eval=FALSE}
 # install.packages("remotes")
