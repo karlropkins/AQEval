@@ -5,7 +5,8 @@ Date: 2022-03-16
 Description: Pre-release package for R code for Air Quality Evaluation.
 Authors@R: c(person(given = "Karl", family = "Ropkins", role = c("aut", "cre"), email =
            "k.ropkins@its.leeds.ac.uk", comment = c(ORCID = "0000-0002-0294-6997")), person(given =
-           "Anthony", family = "Walker", role = c("ctb")), person(given = "James", family = "Tate",
+           "Anthony", family = "Walker", role = c("ctb"), email = "anthony.walker@defra.gov.uk", 
+           comment = c(ORCID = "0000-0003-3979-0989")), person(given = "James", family = "Tate",
            role = c("ctb")))
 License: GPL (>= 3)
 Encoding: UTF-8
