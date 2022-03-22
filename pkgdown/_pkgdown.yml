@@ -19,7 +19,7 @@ navbar:
       - text: "content pending"
 
 home:
-  title: AQEval
+  title: R Package
   sidebar:
     structure: [links, license, community, citation, authors, dev]
 
