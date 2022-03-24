@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/404.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/index.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/AQEval.data.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/AQEval.data.html</loc>
   </url>
   <url>
-    <loc>/reference/AQEval.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/AQEval.html</loc>
   </url>
   <url>
-    <loc>/reference/calculate.stats.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/calculate.stats.html</loc>
   </url>
   <url>
-    <loc>/reference/find.breaks.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/find.breaks.html</loc>
   </url>
   <url>
-    <loc>/reference/find.near.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/find.near.html</loc>
   </url>
   <url>
-    <loc>/reference/fitNearSiteModel.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/fitNearSiteModel.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/isolate.signal.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/isolate.signal.html</loc>
   </url>
   <url>
-    <loc>/reference/quantify.breaks.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/quantify.breaks.html</loc>
   </url>
   <url>
-    <loc>/reference/spectral.analysis.html</loc>
+    <loc>https://karlropkins.github.io/AQEval/reference/spectral.analysis.html</loc>
   </url>
 </urlset>
