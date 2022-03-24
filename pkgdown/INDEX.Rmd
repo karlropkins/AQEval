@@ -39,6 +39,7 @@ remotes::install_github("karlropkins/AQEval")
 If you have the __AQEval__ .tar.gz file:
 
 ```{r, eval=FALSE}
+# (if you do not have remotes package, install it from CRAN) 
 # install.packages("remotes")
 remotes::install_local(file.choose()) # and select
 ```
