@@ -584,7 +584,11 @@ aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
   temp$..d.prop <- temp$..d.prop/max(temp$..d.prop,
                                     na.rm=TRUE)
   ff <- as.formula(paste(name.pol, "..d.prop", sep="~"))
+#print("fit")
+#############################
   mod <- lm(ff, temp)
+#print("post-fit")
+
   #####################
   #send back if not breaks
   #####################
@@ -604,6 +608,8 @@ aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
   ref <- -10
   smod <- NULL
   for(i in 1:nrow(test)){
+#print("start")
+#######################
     ttest <- as.vector(unlist(test[i,]))
     segs <- segs0 + (segsd * ttest)
     segs <- segs[order(segs)]
@@ -614,21 +620,35 @@ aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
     if(any(segs>0.99)){
       segs[segs>0.99] <- 0.99
     }
-
+#print("this fit")
+#######################
     log <- capture.output({
+    #tmod <- try(suppressWarnings(
+    #  local_segmented(mod, seg.Z=~..d.prop, psi=segs,
+    #                       control=local_seg.control(it.max=1, n.boot=0))
+    #  ), silent=FALSE)
+
     tmod <- try(suppressWarnings(
-      local_segmented(mod, seg.Z=~..d.prop, psi=segs,
-                           control=local_seg.control(it.max=1, n.boot=0))
-    ), silent=FALSE)
+        local_segmented(mod, seg.Z=~..d.prop, psi=segs,
+                      control=local_seg.control(it.max=1, n.boot=0))
+      ), silent=TRUE)
     })
+#print(class(tmod))
+###########################
     if(class(tmod)[1]!="try-error"){
-      ans <- try(local_summary.segmented(tmod)$adj.r.squared,
+      ans <- try(suppressWarnings(local_summary.segmented(tmod)$adj.r.squared),
                  silent=TRUE)
+
+#print(ans)
+#print(ref)
+############################
       if(class(ans)[1]!="try-error" && ans>ref){
         ref <- ans
         smod <- tmod
       }
     }
+#print("end")
+#######################
   }
   #if no segmented model built...
   #fault 1: sot, thomas lewin, bpt 4 at end...
@@ -652,6 +672,9 @@ aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
     seg.end.hi = c(segs.hi, nrow(data))
   )
   #this returns mod and segments
+#print("here")
+#######################
+
   list(mod=smod, segments=segments)
 }
 
@@ -659,6 +682,9 @@ local_summary.segmented <-
   function (object, short = FALSE, var.diff = FALSE, p.df = "p",
             .vcov = NULL, ...)
   {
+#print("lss start")
+#######################
+
     if (is.null(object$psi))
       object <- object[[length(object)]]
     if (!is.null(.vcov))
@@ -673,6 +699,8 @@ local_summary.segmented <-
     idU <- match(nomiU, names(coef(object)[!is.na(coef(object))]))
     idV <- match(nomiV, names(coef(object)[!is.na(coef(object))]))
     beta.c <- coef(object)[nomiU]
+#print("lss model")
+#################
     if ("segmented.default" == as.character(object$call)[1]) {
       summ <- c(summary(object, ...), object["psi"])
       summ[c("it", "epsilon")] <- object[c("it", "epsilon")]
@@ -729,6 +757,9 @@ local_summary.segmented <-
       summ$var.diff <- var.diff
       summ$short <- short
       class(summ) <- c("summary.segmented", "summary.lm")
+#print("lss stop")
+#######################
+
       return(summ)
     }
     if (inherits(object, "glm")) {
@@ -762,6 +793,8 @@ local_segmented  <-
   function (obj, seg.Z, psi, npsi, fixed.psi = NULL, control = local_seg.control(),
             model = TRUE, keep.class = FALSE, ...)
   {
+print("ls start")
+#######################
     build.all.psi <- function(psi, fixed.psi) {
       all.names.psi <- union(names(psi), names(fixed.psi))
       all.psi <- vector("list", length = length(all.names.psi))
@@ -1070,6 +1103,7 @@ local_segmented  <-
                 conv.psi = conv.psi, alpha = alpha, fix.npsi = fix.npsi,
                 min.step = min.step, fc = fc)
     if (n.boot <= 0) {
+#print("here?")
       obj <- local_seg.lm.fit(y, XREG, Z, PSI, weights, offs, opz)
     }
     else {
@@ -1212,6 +1246,9 @@ local_segmented  <-
     class(objF) <- c("segmented", class(obj0))
     list.obj[[length(list.obj) + 1]] <- objF
     class(list.obj) <- "segmented"
+#print("end")
+#######################
+
     if (last)
       list.obj <- list.obj[[length(list.obj)]]
     return(list.obj)
@@ -1221,6 +1258,9 @@ local_segmented  <-
 local_seg.lm.fit <-
   function (y, XREG, Z, PSI, w, offs, opz, return.all.sol = FALSE)
   {
+#print("start")
+#######################
+
     useExp.k = TRUE
     est.k <- function(x1, y1, L0) {
       ax <- log(x1)
@@ -1719,6 +1759,8 @@ local_seg.control <-
             powers = c(1,1), last = TRUE, stop.if.error = NULL, gap = FALSE,
             fc = 0.95)
   {
+print("control")
+####################
     list(toll = tol, it.max = it.max, visual = display, stop.if.error = stop.if.error,
          K = K, last = last, maxit.glm = maxit.glm, h = h, n.boot = n.boot,
          size.boot = size.boot, gap = gap, jt = jt, break.boot = break.boot,

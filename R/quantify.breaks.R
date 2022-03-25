@@ -257,7 +257,10 @@ quantBreakSegments <-
     }
     if(seg.method==2){
       data2 <- data[,c("date", pollutant)]
+#print("fit")
+#################
       ls.mod <- aqe_fitBreakSegmentsModel02(data2, pollutant, breaks)
+#print("after.fit")
       mod <- ls.mod$mod
       data2$pred <- rep(NA, nrow(data2))
       data2$err <- data2$pred
@@ -278,6 +281,8 @@ quantBreakSegments <-
 
       #report
       #this needs to be tidied once methods finalised
+#print("report")
+###################
       report <- aqe_makeBreakSegmentsReport(data2, segments)
       if ("report" %in% show) {
         aqe_summariseBreakSegmentsReport(report)
@@ -289,6 +294,8 @@ quantBreakSegments <-
       auto.text <- if("auto.text" %in% names(x.args)){
         x.args$auto.text
       } else { TRUE }
+#print("plot")
+#######################
       plt <- aqe_plotQuantBreakSegments02(data2, pollutant,
                                           segments,
                                           pt.col=pt.col,
