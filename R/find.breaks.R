@@ -40,7 +40,7 @@
 #' Achim Zeileis, Friedrich Leisch, Kurt Hornik and Christian Kleiber
 #' (2002). strucchange: An R Package for Testing for Structural Change
 #' in Linear Regression Models. Journal of Statistical Software, 7(2),
-#' 1-38. URL \url{http://www.jstatsoft.org/v07/i02/}.
+#' 1-38. URL \url{https://www.jstatsoft.org/v07/i02/}.
 #'
 #' Achim Zeileis, Christian Kleiber, Walter Kraemer and Kurt Hornik
 #' (2003). Testing and Dating of Structural Changes in Practice.

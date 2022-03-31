@@ -86,7 +86,7 @@ Carslaw, D. C. and K. Ropkins (2012), openair --- an
 R package for air quality data analysis.
 Environmental Modelling & Software. Volume 27-28,
 52-61,
-DOI \url{https://doi.org/10.1016/j.envsoft.2011.09.008}
+DOI \doi{10.1016/j.envsoft.2011.09.008}
 
 Ropkins, K. and D.C. Carslaw (2012), openair-Data
 Analysis Tools for the Air Quality Community. R Journal,
@@ -98,7 +98,7 @@ Regarding \code{worldmet}, see:
 David Carslaw (2021), worldmet: Import Surface
 Meteorological Data from NOAA Integrated Surface
 Database (ISD). R package version 0.9.5.
-\url{https://CRAN.R-project.org/package=worldmet}
+URL \url{https://CRAN.R-project.org/package=worldmet}
 }
 \seealso{
 \code{\link{DateTimeClasses}}

@@ -129,12 +129,12 @@ and:
 Achim Zeileis, Friedrich Leisch, Kurt Hornik and Christian Kleiber
 (2002). strucchange: An R Package for Testing for Structural Change
 in Linear Regression Models. Journal of Statistical Software, 7(2),
-1-38. URL \url{http://www.jstatsoft.org/v07/i02/}.
+1-38. URL \url{https://www.jstatsoft.org/v07/i02/}.
 
 Achim Zeileis, Christian Kleiber, Walter Kraemer and Kurt Hornik
 (2003). Testing and Dating of Structural Changes in Practice.
 Computational Statistics & Data Analysis, 44, 109-123.
-DOI \url{https://doi.org/10.1016/S0167-9473(03)00030-6}.
+DOI \doi{10.1016/S0167-9473(03)00030-6}.
 
 Regarding \code{segmented} methods see in-package
 documentation, e.g.
@@ -142,7 +142,7 @@ documentation, e.g.
 
   Vito M. R. Muggeo (2003). Estimating regression models
   with unknown break-points. Statistics in Medicine, 22,
-  3055-3071. DOI \url{https://doi.org/10.1002/sim.1545}.
+  3055-3071. DOI \doi{10.1002/sim.1545}.
 
   Vito M. R. Muggeo (2008). segmented: an R Package to
   Fit Regression Models with Broken-Line Relationships.
@@ -154,13 +154,13 @@ documentation, e.g.
   score-based approach with application to segmented
   modelling. J of Statistical Computation and Simulation,
   86, 3059-3067.
-  DOI \url{https://doi.org/10.1080/00949655.2016.1149855}.
+  DOI \doi{10.1080/00949655.2016.1149855}.
 
   Vito M. R. Muggeo (2017). Interval estimation for the
   breakpoint in segmented regression: a smoothed
   score-based approach. Australian & New Zealand Journal
   of Statistics, 59, 311-322.
-  DOI \url{https://doi.org/10.1111/anzs.12200}.
+  DOI \doi{10.1111/anzs.12200}.
 
 Regarding break-points/segment methods, see:
 
