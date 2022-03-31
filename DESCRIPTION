@@ -8,6 +8,7 @@ Authors@R: c(person(given = "Karl", family = "Ropkins", role = c("aut", "cre"), 
            "Anthony", family = "Walker", role = c("ctb"), email = "anthony.walker@defra.gov.uk", comment
            = c(ORCID = "0000-0003-3979-0989")), person(given = "James", family = "Tate", role =
            c("ctb")))
+Maintainer: Karl Ropkins <k.ropkins@its.leeds.ac.uk>
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
