@@ -8,7 +8,7 @@
 [![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
 <!-- badges: end -->
 
-Beta-release package of R code for Air Quality Evaluation.
+R code for Air Quality Evaluation.
 
 **AQEval** was developed for use by those tasked with the routine
 detection, characterisation and quantification of discrete changes in
@@ -17,7 +17,8 @@ policy interventions.
 
 ## Installation
 
-**AQEval** is on [GitHub](https://github.com/karlropkins/AQEval):
+**AQEval** is on [GitHub](https://github.com) in the
+[AQEval](https://github.com/karlropkins/AQEval) code archive:
 
 ``` r
 # (if you do not have remotes package, install it from CRAN) 
