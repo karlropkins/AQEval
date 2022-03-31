@@ -28,7 +28,7 @@ of air quality policy interventions.
 
 ## Installation
 
-__AQEval__ is on [GitHub](https://github.com/):
+__AQEval__ is on [GitHub](https://github.com/karlropkins/AQEval):
 
 ```{r, eval=FALSE}
 # (if you do not have remotes package, install it from CRAN) 
