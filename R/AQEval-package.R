@@ -2,7 +2,7 @@
 #' Air Quality Evaluation
 ##################################################
 #'
-#' R AQEval A package of R code for the
+#' R AQEval: A package of R code for the
 #' analysis of discrete change in Air Quality
 #' time-series discrete.
 #'
