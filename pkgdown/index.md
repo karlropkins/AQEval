@@ -17,8 +17,7 @@ policy interventions.
 
 ## Installation
 
-The beta testing version of **AQEval** is on
-[GitHub](https://github.com/):
+**AQEval** is on [GitHub](https://github.com/):
 
 ``` r
 # (if you do not have remotes package, install it from CRAN) 
