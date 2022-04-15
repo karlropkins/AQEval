@@ -12,7 +12,7 @@ use with example code."><meta property="og:image" content="https://karlropkins.g
     
     <a class="navbar-brand me-2" href="../index.html">AQEval</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,8 +87,8 @@ use with example code.</p>
   local wind direction measurements.</p></dd>
 
   <dt>air_temp</dt>
-<dd><p>Time-series
-  of local air temperature measurements.</p></dd>
+<dd><p>Time-series of
+  local air temperature measurements.</p></dd>
 
 
 </dl></div>
@@ -124,7 +124,7 @@ those less familiar with programming environments.</p></li>
 </ul><p>As part of this work several <code>openair</code> coding
 conventions were adopted, most importantly that data
 sets should include a column named <code>date</code> of
-<code>‘POSIX’</code> class data-and-time-stamps
+<code>POSIX</code> class data-and-time-stamps
 (<code><a href="https://rdrr.io/r/base/DateTimeClasses.html" class="external-link">DateTimeClasses</a></code>).
 This and other conventions, such as the use of
 <code>ws</code> and <code>wd</code> for numeric wind speed and
@@ -163,6 +163,26 @@ URL <a href="https://CRAN.R-project.org/package=worldmet" class="external-link">
 <p><code>worldmet</code>: function <code>importNOAA</code> (See References)</p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">#data set used in AQEval Examples</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">aq.data</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 26280     6</span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">aq.data</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date                  no2 bg.no2    ws    wd air_temp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2001-01-01 <span style="color: #949494;">00:00:00</span>  5.77     <span style="color: #BB0000;">NA</span>  8.5   170      5.55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2001-01-01 <span style="color: #949494;">01:00:00</span>  6.50     <span style="color: #BB0000;">NA</span>  6.95  170      6.5 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2001-01-01 <span style="color: #949494;">02:00:00</span> 11.0      <span style="color: #BB0000;">NA</span>  5.95  170      7.5 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 2001-01-01 <span style="color: #949494;">03:00:00</span>  7.38     <span style="color: #BB0000;">NA</span>  6.2   181.     8.4 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 2001-01-01 <span style="color: #949494;">04:00:00</span>  5.77     <span style="color: #BB0000;">NA</span>  7.45  190      8.8 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 2001-01-01 <span style="color: #949494;">05:00:00</span>  5.77     <span style="color: #BB0000;">NA</span>  7.45  190      9   </span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">aq.data</span>, <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">no2</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="AQEval.data-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
