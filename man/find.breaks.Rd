@@ -74,3 +74,6 @@ Regarding \code{testBreakPoints}, see:
 
 Ropkins et al (In Prep).
 }
+\seealso{
+\code{\link{find.breaks}}.
+}

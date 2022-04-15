@@ -20,8 +20,8 @@
 #'   local wind speed measurements.}
 #'   \item{wd}{Time-series of
 #'   local wind direction measurements.}
-#'   \item{air_temp}{Time-series
-#'   of local air temperature measurements.}
+#'   \item{air_temp}{Time-series of
+#'   local air temperature measurements.}
 #' }
 #' @details Most of functions in \code{AQEval} adopt the
 #' \code{openair} convention of assuming supplied data is
@@ -39,7 +39,7 @@
 #' As part of this work several \code{openair} coding
 #' conventions were adopted, most importantly that data
 #' sets should include a column named \code{date} of
-#' \code{‘POSIX’} class data-and-time-stamps
+#' \code{POSIX} class data-and-time-stamps
 #' (\code{\link{DateTimeClasses}}).
 #' This and other conventions, such as the use of
 #' \code{ws} and \code{wd} for numeric wind speed and
@@ -98,7 +98,11 @@
 #' Database (ISD). R package version 0.9.5.
 #' URL \url{https://CRAN.R-project.org/package=worldmet}
 #'
-#'
+#' @examples
+#' #data set used in AQEval Examples
+#' dim(aq.data)
+#' head(aq.data)
+#' with(aq.data, plot(date, no2, type="l"))
 #'
 "aq.data"
 

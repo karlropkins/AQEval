@@ -35,6 +35,5 @@ time frequency analysis of the requested
 \code{pollutant}.
 }
 \examples{
-#no2 spectral frequency
 spectralFrequency(aq.data, "no2")
 }

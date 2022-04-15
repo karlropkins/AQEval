@@ -28,6 +28,9 @@
 #' @param ... other parameters
 #' @param seg.method (\code{quantBreakSegments} only) the
 #' break-segment fitting method to use.
+#' @param seg.seed (\code{quantBreakSegments} only) the
+#' seed setting to use when fitting break-segments, default
+#' \code{12345}.
 #' @details \code{quantBreakPoints} and
 #' \code{quantBreakSegments} both use
 #' \code{strucchange} methods to identify potential
@@ -72,7 +75,7 @@
 #'
 #'   Vito M. R. Muggeo (2003). Estimating regression models
 #'   with unknown break-points. Statistics in Medicine, 22,
-#'   3055-3071. DOI \doi{10.1002/sim.1545}.
+#'   3055-3071. DOI 10.1002/sim.1545.
 #'
 #'   Vito M. R. Muggeo (2008). segmented: an R Package to
 #'   Fit Regression Models with Broken-Line Relationships.
@@ -84,13 +87,13 @@
 #'   score-based approach with application to segmented
 #'   modelling. J of Statistical Computation and Simulation,
 #'   86, 3059-3067.
-#'   DOI \doi{10.1080/00949655.2016.1149855}.
+#'   DOI 10.1080/00949655.2016.1149855.
 #'
 #'   Vito M. R. Muggeo (2017). Interval estimation for the
 #'   breakpoint in segmented regression: a smoothed
 #'   score-based approach. Australian & New Zealand Journal
 #'   of Statistics, 59, 311-322.
-#'   DOI \doi{10.1111/anzs.12200}.
+#'   DOI 10.1111/anzs.12200.
 #'
 #' Regarding break-points/segment methods, see:
 #'
@@ -197,13 +200,14 @@ quantBreakSegments <-
   function (data, pollutant, breaks, ylab = NULL,
             xlab = NULL, pt.col = c("lightgrey", "darkgrey"),
             line.col = "red", break.col ="blue",
-            seg.method = 2,
+            seg.method = 2, seg.seed = 12345,
             show = c("plot", "report"), ...)
   {
     ##########################
     #need a checker for date and pollutant like quantBreakPoints
     #does breaks default want to be NA
     #need to rationalise seg.method = 1/2 once method finalised
+    #see CRAN feedback regard set.seed
     ##########################
 
     #breaks setup
@@ -259,7 +263,8 @@ quantBreakSegments <-
       data2 <- data[,c("date", pollutant)]
 #print("fit")
 #################
-      ls.mod <- aqe_fitBreakSegmentsModel02(data2, pollutant, breaks)
+      ls.mod <- aqe_fitBreakSegmentsModel02(data2, pollutant, breaks,
+                                            seg.seed = seg.seed)
 #print("after.fit")
       mod <- ls.mod$mod
       data2$pred <- rep(NA, nrow(data2))

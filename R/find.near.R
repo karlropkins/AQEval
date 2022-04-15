@@ -36,6 +36,16 @@
 #' @note This function uses haversine formula to account
 #' to the Earth's surface curvature, and uses 6371 km as
 #' the radius of earth.
+#' @returns \code{find.near} returns \code{data.frame} of near site meta
+#' data.
+#' @examples
+#' #find rural background NO2 monitoring sites
+#' #near latitude = 50, longitude = -1
+#'
+#' #not run: requires internet
+#' \dontrun{
+#' findNearSites(lat = 50, lon = -1)
+#' }
 
 #findNear...
 #############################

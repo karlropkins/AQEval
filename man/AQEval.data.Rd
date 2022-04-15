@@ -18,8 +18,8 @@
   local wind speed measurements.}
   \item{wd}{Time-series of
   local wind direction measurements.}
-  \item{air_temp}{Time-series
-  of local air temperature measurements.}
+  \item{air_temp}{Time-series of
+  local air temperature measurements.}
 }
 }
 \source{
@@ -66,7 +66,7 @@ those less familiar with programming environments.
 As part of this work several \code{openair} coding
 conventions were adopted, most importantly that data
 sets should include a column named \code{date} of
-\code{‘POSIX’} class data-and-time-stamps
+\code{POSIX} class data-and-time-stamps
 (\code{\link{DateTimeClasses}}).
 This and other conventions, such as the use of
 \code{ws} and \code{wd} for numeric wind speed and
@@ -77,6 +77,13 @@ with R in the air quality research community, and many
 air quality archives provide data in (or support import
 functions that convert their own data structures to)
 this \code{openair}-friendly structure.
+}
+\examples{
+#data set used in AQEval Examples
+dim(aq.data)
+head(aq.data)
+with(aq.data, plot(date, no2, type="l"))
+
 }
 \references{
 Regarding \code{openair} and \code{openair}-friendly

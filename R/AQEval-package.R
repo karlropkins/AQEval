@@ -2,9 +2,8 @@
 #' Air Quality Evaluation
 ##################################################
 #'
-#' R AQEval: A package of R code for the
-#' analysis of discrete change in Air Quality
-#' time-series discrete.
+#' R AQEval: R code for the analysis of discrete
+#' change in Air Quality time-series.
 #'
 #' @section AQEval:
 #' \code{AQEval} was developed for use by those tasked with

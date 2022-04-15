@@ -302,7 +302,7 @@ function(data, pollutant, background = NULL,
       ff <- as.formula(ff)
     }
 #think about how we do/document this...
-cat(paste(as.character(ff)[c(2,1,3)],
+message(paste(as.character(ff)[c(2,1,3)],
             sep="", collapse = " "))
     ############################
     #model

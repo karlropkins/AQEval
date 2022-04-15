@@ -46,6 +46,10 @@ only, the pollutant of interest, by default NO2.}
 only, the monitoring site type, by default Rural
 Background.}
 }
+\value{
+\code{find.near} returns \code{data.frame} of near site meta
+data.
+}
 \description{
 Function to find nearest locations in a
 reference by latitude and longitude.
@@ -63,4 +67,13 @@ network (\url{https://uk-air.defra.gov.uk/networks/network-info?view=aurn})
 This function uses haversine formula to account
 to the Earth's surface curvature, and uses 6371 km as
 the radius of earth.
+}
+\examples{
+#find rural background NO2 monitoring sites
+#near latitude = 50, longitude = -1
+
+#not run: requires internet
+\dontrun{
+findNearSites(lat = 50, lon = -1)
+}
 }

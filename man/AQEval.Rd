@@ -5,9 +5,8 @@
 \alias{AQEval}
 \title{Air Quality Evaluation}
 \description{
-R AQEval: A package of R code for the
-analysis of discrete change in Air Quality
-time-series discrete.
+R AQEval: R code for the analysis of discrete
+change in Air Quality time-series.
 }
 \section{AQEval}{
 

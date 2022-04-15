@@ -22,7 +22,6 @@
 #' time frequency analysis of the requested
 #' \code{pollutant}.
 #' @examples
-#' #no2 spectral frequency
 #' spectralFrequency(aq.data, "no2")
 
 #splatted function
@@ -38,6 +37,7 @@
 ##think about colour scheme for stacking (yellow in middle)
 #think about normalise
 #think about ci
+#think about comparison + add reference to paper
 #labelling for key and facets via quickText
 #   needs replacing with local version
 

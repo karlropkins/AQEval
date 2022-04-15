@@ -61,6 +61,10 @@ the range the rolling date windows, by default
 the resolution to calculate the rolling statistic at, by
 default \code{'day'} to calculate this once per day.}
 }
+\value{
+These functions return \code{data.frame}s of function
+outputs.
+}
 \description{
 Calculate data set statistics for
 selected time intervals.

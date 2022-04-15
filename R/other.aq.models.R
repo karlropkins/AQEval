@@ -23,8 +23,10 @@
 #' @details \code{fitNearSiteModel} builds an air quality
 #' model for one location using air quality data from nearby
 #' sites.
+#' @returns \code{data} with model output added as additional
+#' column.
 
-## #' @references TO DO...
+## #' @references TO DO once paper published
 
 #fitNearSiteModel
 ##############################################

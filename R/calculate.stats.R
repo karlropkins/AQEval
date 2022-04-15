@@ -32,6 +32,8 @@
 #' @note These functions are in development and likely to change
 #' significantly in future versions, please handle with
 #' care.
+#' @returns These functions return \code{data.frame}s of function
+#' outputs.
 
 #kr version 0.4 (first packaged) 2020/11/02
 #   version 0.5 2020/12/16

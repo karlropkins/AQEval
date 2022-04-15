@@ -20,8 +20,6 @@ utils::globalVariables(c("end.date", "err", "freq", "my.y",
                          "seg.control", "seg.lm.fit"))
 
 
-
-
 ##############################################
 #misc sub functions
 #not exported
@@ -32,7 +30,7 @@ aqe_buildBreaks <- function(data, name.pol, ...){
   breaks <- findBreakPoints(data, name.pol, ...)
   x.args <- list(...)
   if("test" %in% names(x.args) && !x.args$test){
-    cat("Using all ", nrow(breaks), " suggested breaks\n",
+    message("Using all ", nrow(breaks), " suggested breaks",
         sep="")
     breaks
   } else {
@@ -42,9 +40,9 @@ aqe_buildBreaks <- function(data, name.pol, ...){
     if(all(test$breaks[temp]=="NA")) return(NULL)
     temp <- as.numeric(strsplit(test$breaks[temp],
                                 "[+]")[[1]])
-    cat("Using ", length(temp), " of ", nrow(breaks),
+    message("Using ", length(temp), " of ", nrow(breaks),
         " suggested breaks: ", paste(temp, collapse = ",",
-                                     sep=","), "\n", sep="")
+                                     sep=","), sep="")
     breaks[temp,]
   }
 }
@@ -194,16 +192,16 @@ aqe_makeBreakPointsReport <- function(data, breaks){
 
 aqe_summariseBreakPointsReport <- function(report){
   if (is.null(report)) {
-    cat("no break points declared...\n")
+    message("no break points declared...")
   }
   else {
     for (i in 1:nrow(report)) {
-      cat("\n", as.character(report[i, 1]), " (",
+      message("\n", as.character(report[i, 1]), " (",
           as.character(report[i, 2]), " to ",
-          as.character(report[i, 3]), ")\n",
+          as.character(report[i, 3]), ")",
           sep = "")
-      cat(report[i, 4], "->", report[i, 5], ";",
-          report[i, 6], " (", report[i, 7], "%)\n", sep = "")
+      message(report[i, 4], "->", report[i, 5], ";",
+          report[i, 6], " (", report[i, 7], "%)", sep = "")
       #########################
       #to do
       #########################
@@ -218,23 +216,23 @@ aqe_summariseBreakPointsReport <- function(report){
 #want to have similar option for quantBreakSegments
 aqe_summariseBreakPointsReport.old <- function(report){
   if (is.null(report)) {
-    cat("no breakpoints declared...\n")
+    message("no breakpoints declared...")
   }
   else {
     for (i in 1:nrow(report)) {
-      cat("\n", as.character(report[i, 1]), "(",
+      message("\n", as.character(report[i, 1]), "(",
           as.character(report[i, 2]), "->",
-          as.character(report[i, 3]), ")\n",
+          as.character(report[i, 3]), ")",
           sep = "")
-      cat(report[i, 4], "->", report[i, 5], ";",
+      message(report[i, 4], "->", report[i, 5], ";",
           report[i, 6], " (", report[i, 7], "%)\n", sep = "")
-      cat("[Upper] ", report[i, 8], "->", report[i, 9],
+      message("[Upper] ", report[i, 8], "->", report[i, 9],
           ";", report[i, 10], " (", report[i, 11],
-          "%)\n", sep = "")
-      cat("[Lower]", report[i, 12], "->",
+          "%)", sep = "")
+      message("[Lower]", report[i, 12], "->",
           report[i, 13], ";", report[i, 14], " (",
           report[i, 15],
-          "%)\n", sep = "")
+          "%)", sep = "")
     }
   }
 }
@@ -508,19 +506,19 @@ aqe_plotQuantBreakSegments02 <- function(data, name.pol, segments,
 
 aqe_summariseBreakSegmentsReport <- function(report){
   if (is.null(report)) {
-    cat("no change ranges declared...\n")
+    message("no change ranges declared...")
   }
   else {
-    cat("building ", nrow(report), " segments\n")
+    message("building ", nrow(report), " segments")
     for (i in 1:nrow(report)) {
-      cat("\n", as.character(report[i, 1]), " to ",
+      message("\n", as.character(report[i, 1]), " to ",
           as.character(report[i, 2]), " (",
-          as.character(report[i, 3]), ")\n",
+          as.character(report[i, 3]), ")",
           sep = "")
-      cat(signif(report[i, 4], 4), "->",
+      message(signif(report[i, 4], 4), "->",
           signif(report[i, 5], 4), ";",
           signif(report[i, 6], 4), " (",
-          signif(report[i, 7], 4), "%)\n", sep = "")
+          signif(report[i, 7], 4), "%)", sep = "")
       #########################
       #to do
       #########################
@@ -571,7 +569,8 @@ aqe_makeSegmentsFromBreaks01 <- function(breaks){
 }
 
 #fitBreakSegmentsModel02
-aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
+aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks,
+                                        seg.seed = 12345){
   #reinstate iterative segmented as method 02
   #(needs extra stops for out of range cases)
   #(might need change of outputs for method 01)
@@ -630,7 +629,8 @@ aqe_fitBreakSegmentsModel02 <- function(data, name.pol, breaks){
 
     tmod <- try(suppressWarnings(
         local_segmented(mod, seg.Z=~..d.prop, psi=segs,
-                      control=local_seg.control(it.max=1, n.boot=0))
+                      control=local_seg.control(it.max=1, n.boot=0,
+                                                seed=seg.seed))
       ), silent=TRUE)
     })
 #print(class(tmod))
@@ -788,12 +788,25 @@ local_summary.segmented <-
   }
 
 
+#######################################
+#local versions of segmented functions
+#######################################
+#added while looking at changes
+#segmented 1.3 -> 1.4
+######################################
+#note:
+#segmented sets seed which R core do
+#not like...
+#######################################
+
+#source:
+#https://CRAN.R-project.org/package=segmented
 
 local_segmented  <-
   function (obj, seg.Z, psi, npsi, fixed.psi = NULL, control = local_seg.control(),
             model = TRUE, keep.class = FALSE, ...)
   {
-print("ls start")
+#print("ls start")
 #######################
     build.all.psi <- function(psi, fixed.psi) {
       all.names.psi <- union(names(psi), names(fixed.psi))
@@ -918,7 +931,7 @@ print("ls start")
     mf <- mf[c(1, m)]
     mf$drop.unused.levels <- TRUE
     mf[[1L]] <- as.name("model.frame")
-    if (class(mf$formula) == "name" && !"~" %in% paste(mf$formula))
+    if (class(mf$formula)[1] == "name" && !"~" %in% paste(mf$formula))
       mf$formula <- eval(mf$formula)
     mfExt <- mf
     mf$formula <- update.formula(mf$formula, paste(seg.Z, collapse = ".+"))
@@ -1173,7 +1186,7 @@ print("ls start")
     isNAcoef <- any(is.na(objF$coefficients))
     if (isNAcoef) {
       if (stop.if.error) {
-        cat("breakpoint estimate(s):", as.vector(psi), "\n")
+        message("breakpoint estimate(s):", as.vector(psi))
         stop("at least one coef is NA: breakpoint(s) at the boundary? (possibly with many x-values replicated)",
              call. = FALSE)
       }
@@ -1392,7 +1405,7 @@ local_seg.lm.fit <-
     dev.values[length(dev.values) + 1] <- L0
     psi.values[[length(psi.values) + 1]] <- psi
     if (visual) {
-      cat(paste("iter = ", sprintf("%2.0f", 0), "  dev = ",
+      message(paste("iter = ", sprintf("%2.0f", 0), "  dev = ",
                 sprintf(paste("%", n.intDev0 + 6, ".5f", sep = ""),
                         L0), "  k = ", sprintf("%2.0f", NA), "  n.psi = ",
                 formatC(length(unlist(psi)), digits = 0, format = "f"),
@@ -1491,7 +1504,7 @@ local_seg.lm.fit <-
       }
       if (visual) {
         flush.console()
-        cat(paste("iter = ", sprintf("%2.0f", it), "  dev = ",
+        message(paste("iter = ", sprintf("%2.0f", it), "  dev = ",
                   sprintf(paste("%", n.intDev0 + 6, ".5f", sep = ""),
                           L1), "  k = ", sprintf("%2.0f", k), "  n.psi = ",
                   formatC(length(unlist(psi)), digits = 0, format = "f"),
@@ -1716,7 +1729,7 @@ local_seg.lm.fit.boot <-
       }
       if (visualBoot) {
         flush.console()
-        cat(paste("boot sample = ", sprintf("%2.0f", k),
+        message(paste("boot sample = ", sprintf("%2.0f", k),
                   "  opt.dev = ", sprintf(paste("%", n.intDev0 +
                                                   6, ".5f", sep = ""), o0$SumSquares.no.gap),
                   "  n.psi = ", formatC(length(unlist(est.psi0)),
@@ -1745,7 +1758,7 @@ local_seg.lm.fit.boot <-
     if (!is.list(o0))
       return(0)
     o0$boot.restart <- ris
-    rm(.Random.seed, envir = globalenv())
+    #rm(.Random.seed, envir = globalenv())
     return(o0)
   }
 

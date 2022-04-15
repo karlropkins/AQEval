@@ -29,6 +29,7 @@ quantBreakSegments(
   line.col = "red",
   break.col = "blue",
   seg.method = 2,
+  seg.seed = 12345,
   show = c("plot", "report"),
   ...
 )
@@ -66,6 +67,10 @@ quantification mode, by default plot and report.}
 
 \item{seg.method}{(\code{quantBreakSegments} only) the
 break-segment fitting method to use.}
+
+\item{seg.seed}{(\code{quantBreakSegments} only) the
+seed setting to use when fitting break-segments, default
+\code{12345}.}
 }
 \value{
 Both functions use the \code{show} argument
@@ -142,7 +147,7 @@ documentation, e.g.
 
   Vito M. R. Muggeo (2003). Estimating regression models
   with unknown break-points. Statistics in Medicine, 22,
-  3055-3071. DOI \doi{10.1002/sim.1545}.
+  3055-3071. DOI 10.1002/sim.1545.
 
   Vito M. R. Muggeo (2008). segmented: an R Package to
   Fit Regression Models with Broken-Line Relationships.
@@ -154,13 +159,13 @@ documentation, e.g.
   score-based approach with application to segmented
   modelling. J of Statistical Computation and Simulation,
   86, 3059-3067.
-  DOI \doi{10.1080/00949655.2016.1149855}.
+  DOI 10.1080/00949655.2016.1149855.
 
   Vito M. R. Muggeo (2017). Interval estimation for the
   breakpoint in segmented regression: a smoothed
   score-based approach. Australian & New Zealand Journal
   of Statistics, 59, 311-322.
-  DOI \doi{10.1111/anzs.12200}.
+  DOI 10.1111/anzs.12200.
 
 Regarding break-points/segment methods, see:
 

@@ -29,6 +29,10 @@ combination thereof; by default this is set as
 
 \item{...}{extra arguments.}
 }
+\value{
+\code{data} with model output added as additional
+column.
+}
 \description{
 Other packaged Air Quality Models.
 }
