@@ -21,7 +21,13 @@ policy interventions.
 
 ## Installation
 
-The beta testing version of **AQEval** is on
+Get **AQEval** from [CRAN](https://cran.r-project.org/):
+
+``` r
+install.packages("AQEval")
+```
+
+The developer’s version of **AQEval** is on
 [GitHub](https://github.com/):
 
 ``` r
@@ -39,8 +45,7 @@ remotes::install_local(file.choose()) # and select
 
 ## Background
 
-This package contains beta-testing code being developed as part of an
-on-going project.
+This package contains code developed as part of an on-going project.
 
 ## Contributing
 

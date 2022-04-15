@@ -22,8 +22,7 @@ knitr::opts_chunk$set(
 R code for Air Quality Evaluation.
 
 __AQEval__ was developed for use by those tasked with the routine detection, characterisation and
-quantification of discrete changes in air quality time-series, such as identifying the impacts
-of air quality policy interventions. 
+quantification of discrete changes in air quality time-series, such as identifying the impacts of air quality policy interventions. 
 
 ## Project Webpages
 
@@ -31,7 +30,16 @@ __AQEval__ Projects pages: https://karlropkins.github.io/AQEval/
 
 ## Installation
 
-The beta testing version of __AQEval__ is on [GitHub](https://github.com/):
+
+Get __AQEval__ from [CRAN](https://cran.r-project.org/):
+
+
+```{r, eval=FALSE}
+install.packages("AQEval")
+```
+
+
+The developer's version of __AQEval__ is on [GitHub](https://github.com/):
 
 ```{r, eval=FALSE}
 # (if you do not have remotes package, install it from CRAN) 
@@ -47,7 +55,7 @@ remotes::install_local(file.choose()) # and select
 ```
 
 ## Background
-This package contains beta-testing code being developed as part 
+This package contains code developed as part 
 of an on-going project.
 
 ## Contributing
