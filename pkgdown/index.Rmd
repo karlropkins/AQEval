@@ -28,6 +28,14 @@ of air quality policy interventions.
 
 ## Installation
 
+Get __AQEval__ from [CRAN](https://cran.r-project.org/):
+
+
+```{r, eval=FALSE}
+install.packages("AQEval")
+```
+
+
 __AQEval__ is on [GitHub](https://github.com) in the [AQEval](https://github.com/karlropkins/AQEval) code archive:
 
 ```{r, eval=FALSE}

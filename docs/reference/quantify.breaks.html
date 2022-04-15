@@ -12,7 +12,7 @@ break-segment methods for pollutant time-series"><meta property="og:image" conte
     
     <a class="navbar-brand me-2" href="../index.html">AQEval</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,6 +84,7 @@ break-segment methods for pollutant time-series</p>
   line.col <span class="op">=</span> <span class="st">"red"</span>,
   break.col <span class="op">=</span> <span class="st">"blue"</span>,
   seg.method <span class="op">=</span> <span class="fl">2</span>,
+  seg.seed <span class="op">=</span> <span class="fl">12345</span>,
   show <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"plot"</span>, <span class="st">"report"</span><span class="op">)</span>,
   <span class="va">...</span>
 <span class="op">)</span></code></pre></div>
@@ -124,6 +125,10 @@ quantification mode, by default plot and report.</p></dd>
 <dt>seg.method</dt>
 <dd><p>(<code>quantBreakSegments</code> only) the
 break-segment fitting method to use.</p></dd>
+<dt>seg.seed</dt>
+<dd><p>(<code>quantBreakSegments</code> only) the
+seed setting to use when fitting break-segments, default
+<code>12345</code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -179,8 +184,7 @@ documentation, e.g.
 <code><a href="https://rdrr.io/pkg/segmented/man/segmented.html" class="external-link">segmented</a></code>, and:</p>
 <p>Vito M. R. Muggeo (2003). Estimating regression models
   with unknown break-points. Statistics in Medicine, 22,
-  3055-3071. DOI doi: <a href="https://doi.org/10.1002/sim.1545" class="external-link">10.1002/sim.1545</a>
-.</p>
+  3055-3071. DOI 10.1002/sim.1545.</p>
 <p>Vito M. R. Muggeo (2008). segmented: an R Package to
   Fit Regression Models with Broken-Line Relationships.
   R News, 8/1, 20-25.
@@ -190,14 +194,12 @@ documentation, e.g.
   score-based approach with application to segmented
   modelling. J of Statistical Computation and Simulation,
   86, 3059-3067.
-  DOI doi: <a href="https://doi.org/10.1080/00949655.2016.1149855" class="external-link">10.1080/00949655.2016.1149855</a>
-.</p>
+  DOI 10.1080/00949655.2016.1149855.</p>
 <p>Vito M. R. Muggeo (2017). Interval estimation for the
   breakpoint in segmented regression: a smoothed
   score-based approach. Australian &amp; New Zealand Journal
   of Statistics, 59, 311-322.
-  DOI doi: <a href="https://doi.org/10.1111/anzs.12200" class="external-link">10.1111/anzs.12200</a>
-.</p>
+  DOI 10.1111/anzs.12200.</p>
 <p>Regarding break-points/segment methods, see:</p>
 <p>Ropkins et al (In Prep).</p>
     </div>
@@ -221,28 +223,26 @@ documentation, e.g.
 <span class="r-in"><span class="co">#break-points</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">quantBreakPoints</span><span class="op">(</span><span class="va">temp</span>, <span class="st">"no2"</span>, h<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Using 1 of 1 suggested breaks: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2002-09-26 (2002-05-24 to 2003-01-08)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35.93-&gt;47.28;11.35 (32%)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using 1 of 1 suggested breaks: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2002-09-26 (2002-05-24 to 2003-01-08)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 35.93-&gt;47.28;11.35 (32%)</span>
 <span class="r-plt img"><img src="quantify.breaks-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">#break-segments</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">quantBreakSegments</span><span class="op">(</span><span class="va">temp</span>, <span class="st">"no2"</span>, h<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Using 1 of 1 suggested breaks: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0 (non-NA) cases</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> building  3  segments</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2001-01-01 to 2002-08-26 (602)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43.78-&gt;35.57;-8.208 (-18.75%)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2002-08-26 to 2002-10-21 (56)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35.57-&gt;46.02;10.44 (29.35%)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2002-10-21 to 2003-12-31 (436)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46.02-&gt;43.61;-2.406 (-5.23%)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using 1 of 1 suggested breaks: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> building 3 segments</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2001-01-01 to 2002-08-26 (602)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 43.78-&gt;35.57;-8.208 (-18.75%)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2002-08-26 to 2002-10-21 (56)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 35.57-&gt;46.02;10.44 (29.35%)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2002-10-21 to 2003-12-31 (436)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 46.02-&gt;43.61;-2.406 (-5.23%)</span>
 <span class="r-plt img"><img src="quantify.breaks-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

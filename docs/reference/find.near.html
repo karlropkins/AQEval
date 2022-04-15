@@ -12,7 +12,7 @@ reference by latitude and longitude."><meta property="og:image" content="https:/
     
     <a class="navbar-brand me-2" href="../index.html">AQEval</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,6 +105,11 @@ only, the monitoring site type, by default Rural
 Background.</p></dd>
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p><code>find.near</code> returns <code>data.frame</code> of near site meta
+data.</p>
+    </div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>If investigating air quality in a particular location,
 for example a UK Clean Air Zone
@@ -121,6 +126,17 @@ to the Earth's surface curvature, and uses 6371 km as
 the radius of earth.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">#find rural background NO2 monitoring sites</span></span>
+<span class="r-in"><span class="co">#near latitude = 50, longitude = -1</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co">#not run: requires internet</span></span>
+<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in"><span class="fu">findNearSites</span><span class="op">(</span>lat <span class="op">=</span> <span class="fl">50</span>, lon <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">}</span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

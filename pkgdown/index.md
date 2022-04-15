@@ -17,6 +17,12 @@ policy interventions.
 
 ## Installation
 
+Get **AQEval** from [CRAN](https://cran.r-project.org/):
+
+``` r
+install.packages("AQEval")
+```
+
 **AQEval** is on [GitHub](https://github.com) in the
 [AQEval](https://github.com/karlropkins/AQEval) code archive:
 
