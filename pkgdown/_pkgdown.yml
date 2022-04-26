@@ -22,3 +22,24 @@ home:
   title: R Package
   sidebar:
     structure: [links, license, community, citation, authors, dev]
+
+reference:
+- subtitle: Introduction
+- contents:
+  - AQEval
+- subtitle: Data Structure
+  contents:
+  - AQEval.data
+- subtitle: Main Functions
+  contents:
+  - quantBreakPoints
+  - quantBreakSegments
+- subtitle: Other Functions
+  contents:
+  - findBreakPoints
+  - testBreakPoints
+  - isolateContribution
+  - find.near
+  - calculate.stats
+  - other.aq.models
+  - spectral.analysis

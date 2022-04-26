@@ -13,13 +13,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-# AQEval <img src="man/figures/logo.png" align="right" alt="" width="120" />
+# AQEval <img src="man/figures/logo.png" align="right" alt="" width="120" /> 
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/AQEval)](https://CRAN.R-project.org/package=AQEval)
 <!-- badges: end -->
 
-R code for Air Quality Evaluation.
+R code for Air Quality Evaluation
 
 __AQEval__ was developed for use by those tasked with the routine detection, characterisation and
 quantification of discrete changes in air quality time-series, such as identifying the impacts
@@ -28,15 +29,14 @@ of air quality policy interventions.
 
 ## Installation
 
-Get __AQEval__ from [CRAN](https://cran.r-project.org/):
-
+Get __AQEval__ from [CRAN](https://cran.r-project.org/) ([archive](https://CRAN.R-project.org/package=AQEval)):
 
 ```{r, eval=FALSE}
 install.packages("AQEval")
 ```
 
 
-__AQEval__ is on [GitHub](https://github.com) in the [AQEval](https://github.com/karlropkins/AQEval) code archive:
+The developer's version __AQEval__ is on [GitHub](https://github.com) in the [AQEval](https://github.com/karlropkins/AQEval) code archive:
 
 ```{r, eval=FALSE}
 # (if you do not have remotes package, install it from CRAN) 

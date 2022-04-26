@@ -6,9 +6,11 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/AQEval)](https://CRAN.R-project.org/package=AQEval)
 <!-- badges: end -->
 
-R code for Air Quality Evaluation.
+R code for Air Quality Evaluation
 
 **AQEval** was developed for use by those tasked with the routine
 detection, characterisation and quantification of discrete changes in
@@ -17,14 +19,15 @@ policy interventions.
 
 ## Installation
 
-Get **AQEval** from [CRAN](https://cran.r-project.org/):
+Get **AQEval** from [CRAN](https://cran.r-project.org/)
+([archive](https://CRAN.R-project.org/package=AQEval)):
 
 ``` r
 install.packages("AQEval")
 ```
 
-**AQEval** is on [GitHub](https://github.com) in the
-[AQEval](https://github.com/karlropkins/AQEval) code archive:
+The developer’s version **AQEval** is on [GitHub](https://github.com) in
+the [AQEval](https://github.com/karlropkins/AQEval) code archive:
 
 ``` r
 # (if you do not have remotes package, install it from CRAN) 

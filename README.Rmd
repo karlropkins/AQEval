@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/AQEval)](https://CRAN.R-project.org/package=AQEval)
 <!-- badges: end -->
 
 R code for Air Quality Evaluation.
@@ -30,8 +31,7 @@ __AQEval__ Projects pages: https://karlropkins.github.io/AQEval/
 
 ## Installation
 
-
-Get __AQEval__ from [CRAN](https://cran.r-project.org/):
+Get __AQEval__ from [CRAN](https://cran.r-project.org/) ([archive](https://CRAN.R-project.org/package=AQEval)):
 
 
 ```{r, eval=FALSE}
@@ -39,7 +39,7 @@ install.packages("AQEval")
 ```
 
 
-The developer's version of __AQEval__ is on [GitHub](https://github.com/):
+The developer's version __AQEval__ is on [GitHub](https://github.com) in the [AQEval](https://github.com/karlropkins/AQEval) code archive:
 
 ```{r, eval=FALSE}
 # (if you do not have remotes package, install it from CRAN) 
