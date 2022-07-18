@@ -61,9 +61,9 @@ conventionally formatted air quality data sets.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">findBreakPoints</span><span class="op">(</span><span class="va">data</span>, <span class="va">pollutant</span>, h <span class="op">=</span> <span class="fl">0.15</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">testBreakPoints</span><span class="op">(</span><span class="va">data</span>, <span class="va">pollutant</span>, <span class="va">breaks</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">findBreakPoints</span><span class="op">(</span><span class="va">data</span>, <span class="va">pollutant</span>, h <span class="op">=</span> <span class="fl">0.15</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">testBreakPoints</span><span class="op">(</span><span class="va">data</span>, <span class="va">pollutant</span>, <span class="va">breaks</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -72,24 +72,40 @@ conventionally formatted air quality data sets.</p>
 <dd><p>Data source, typically a <code>data.frame</code>
 or similar, containing data-series to apply function to
 and a paired time-stamped data-series, called <code>date</code>.</p></dd>
+
+
 <dt>pollutant</dt>
 <dd><p>Name of time-series, assumed to be
 a column in <code>date</code>.</p></dd>
+
+
 <dt>h</dt>
 <dd><p>(<code>findBreakPoints</code> only) The data/time window
 size to use when looking for breaks in a supplied time-series,
 expressed as proportion of time-series (0-1), default 0.15.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>other parameters</p></dd>
+
+
 <dt>breaks</dt>
 <dd><p>(<code>testBreakPoints</code> only) <code>data.frame</code>
 of The break-points and confidence intervals, typically a
 <code>findBreakPoints</code> output.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p><code>findBreakPoints</code> returns a <code>data.frame</code>of found break-points.
-<code>testBreakPoints</code> return a likely break-point/segment
+    
+
+<p><code>findBreakPoints</code> returns a <code>data.frame</code></p>
+
+
+<p>of found break-points.</p>
+
+
+<p><code>testBreakPoints</code> return a likely break-point/segment
 report.</p>
     </div>
     <div class="section level2">
@@ -135,7 +151,7 @@ Computational Statistics &amp; Data Analysis, 44, 109-123.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer></div>

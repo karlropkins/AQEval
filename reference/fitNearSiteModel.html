@@ -58,7 +58,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">fitNearSiteModel</span><span class="op">(</span><span class="va">data</span>, pollutant <span class="op">=</span> <span class="st">"no2"</span>, <span class="va">y</span>, x <span class="op">=</span> <span class="st">"rest"</span>, elements <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fitNearSiteModel</span><span class="op">(</span><span class="va">data</span>, pollutant <span class="op">=</span> <span class="st">"no2"</span>, <span class="va">y</span>, x <span class="op">=</span> <span class="st">"rest"</span>, elements <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -67,27 +67,40 @@
 <dd><p><code>data.frame</code> (or similar) containing data-series
 to be modelled; this is expected to contain 'date', 'site'
 and pollutant of interest data-series.</p></dd>
+
+
 <dt>pollutant</dt>
 <dd><p>The name of the <code>pollutant</code> (in
 <code>data</code>) to model, by default 'NO2'.</p></dd>
+
+
 <dt>y</dt>
 <dd><p>The name of the monitor site to be modelled,
 assumed to be one several names in the <code>site</code> column of
 <code>data</code>.</p></dd>
+
+
 <dt>x</dt>
 <dd><p>The other sites to use when building the model, the
 default 'rest' uses all supplied sites except 'y'.</p></dd>
+
+
 <dt>elements</dt>
 <dd><p>The number of inputs to use in the
 site models, can be any number up to length of x or
 combination thereof; by default this is set as
 <code>length(x):1</code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>extra arguments.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p><code>data</code> with model output added as additional
+    
+
+<p><code>data</code> with model output added as additional
 column.</p>
     </div>
     <div class="section level2">
@@ -106,7 +119,7 @@ sites.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer></div>
