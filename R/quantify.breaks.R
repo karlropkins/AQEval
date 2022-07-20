@@ -23,6 +23,15 @@
 #' @param line.col Line colour for plot, default red.
 #' @param break.col Break-point/segment colour for plot, default
 #' blue.
+#' @param event An optional list of plot terms for an event
+#' marker, applied to a vertical line and text label. List
+#' items include: \code{x} the event date (YYYY-MM-DD format)
+#' require for both line and label; \code{y} by default 0.9 x
+#' y-plot range; \code{label} the label text, required for
+#' label; \code{line.size} the line width, by default 0.5;
+#' \code{font.size} the text size, by default 5; and,
+#' \code{hjust} the label left/right justification, 0 left,
+#' 0.5 centre, 1 right (default). See also examples below.
 #' @param show What to show before returning the break-point
 #' quantification mode, by default plot and report.
 #' @param ... other parameters
@@ -124,6 +133,18 @@
 #' #break-segments
 #'
 #' quantBreakSegments(temp, "no2", h=0.3)
+#'
+#' #addition examples (not run)
+#' \dontrun{
+#' #in-call plot modification
+#' #removing x axis label
+#' #recolouring break line and
+#' #adding an event marker
+#' quantBreakPoints(temp, "no2", h=0.3,
+#'        xlab="", break.col = "red",
+#'        event=list(label="Event expected here",
+#'                  x="2002-08-01", col="grey"))
+#'}
 
 #quantBreakPoints
 ################################
@@ -139,7 +160,7 @@ quantBreakPoints <-
   function (data, pollutant, breaks, ylab = NULL,
             xlab = NULL, pt.col = c("lightgrey", "darkgrey"),
             line.col = "red", break.col ="blue",
-            show = c("plot", "report"), ...)
+            event = NULL, show = c("plot", "report"), ...)
   {
 ##########################
 #need a checker for date and pollutant
@@ -184,7 +205,7 @@ quantBreakPoints <-
     plt <- aqe_plotQuantBreakPoints(data2, name.pol, breaks,
                   xlab=xlab, ylab=ylab, pt.col=pt.col,
                   line.col=line.col, break.col=break.col,
-                  auto.text=auto.text)
+                  event=event, auto.text=auto.text, ...)
     if ("plot" %in% show) {
       plot(plt)
     }
@@ -200,7 +221,7 @@ quantBreakSegments <-
   function (data, pollutant, breaks, ylab = NULL,
             xlab = NULL, pt.col = c("lightgrey", "darkgrey"),
             line.col = "red", break.col ="blue",
-            seg.method = 2, seg.seed = 12345,
+            event = NULL, seg.method = 2, seg.seed = 12345,
             show = c("plot", "report"), ...)
   {
     ##########################
@@ -215,7 +236,6 @@ quantBreakSegments <-
     if(missing(breaks)){
       breaks <- aqe_buildBreaks(data, pollutant,...)
     }
-
     x.args <- list(...)
 
     #model
@@ -254,7 +274,8 @@ quantBreakSegments <-
                                           pt.col=pt.col,
                                           break.col = break.col, line.col = line.col,
                                           ylab=ylab, xlab=xlab,
-                                          auto.text = auto.text)
+                                          event=event,
+                                          auto.text = auto.text, ...)
       if ("plot" %in% show) {
         plot(plt)
       }
@@ -306,7 +327,8 @@ quantBreakSegments <-
                                           pt.col=pt.col,
                                           break.col = break.col, line.col = line.col,
                                           ylab=ylab, xlab=xlab,
-                                          auto.text = auto.text)
+                                          event=event,
+                                          auto.text = auto.text, ...)
       if ("plot" %in% show) {
         plot(plt)
       }

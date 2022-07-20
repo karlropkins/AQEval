@@ -53,9 +53,8 @@ aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
                                      ylab = NULL, xlab = NULL,
                                      pt.col = c("lightgrey", "darkgrey"),
                                      line.col = "red", break.col ="blue",
-                                     scalelabs =c("data", "trend",
-                                                  "break"),
-                                     auto.text = TRUE){
+                                     scalelabs = c("data", "trend", "break"),
+                                     event = NULL, auto.text = TRUE, ...){
   #think about default declarations...
   #   have to match these and those in main function at moment...
   if(is.null(ylab)) ylab <- name.pol
@@ -124,6 +123,43 @@ aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
                    legend.spacing.x = ggplot2::unit(0, 'cm'),
                    axis.title.y = ggtext::element_markdown(),
                    axis.title.x = ggtext::element_markdown())
+  if(!is.null(event)){
+    #requested intervention marker
+    #(not a fan of this)
+    if(!is.list(event)){
+      warning("expecting event to be list; ignoring; see help")
+    } else {
+      event <- loa::listUpdate(list(label=NA, y=NA, x=NA, col="black",
+                                  hjust=1, line.size=0.5,
+                                  font.size=5),
+                               event)
+      if(is.na(event$y)) {
+        ref <- ggplot2::layer_scales(plt)$y$range$range
+        event$y <- ((ref[2] - ref[1])*0.9) + ref[1]
+      }
+      if(is.character(event$x)){
+        event$x <- as.POSIXct(event$x)
+      }
+      if(!is.na(event$x)){
+        plt <- plt + ggplot2::geom_vline(xintercept=event$x, col=event$col,
+                                       size=event$line.size)
+        if(!is.na(event$label)){
+          #this will not work line very thick...
+          if(event$hjust==0) {
+            event$label <- paste(" ", event$label, sep="")
+            event$label <- gsub("\n", "\n ", event$label)
+          }
+          if(event$hjust==1) {
+            event$label <- paste(event$label, " ", sep="")
+            event$label <- gsub("\n", " \n", event$label)
+          }
+          plt <- plt + ggplot2::geom_text(label=event$label, x=event$x,
+                                          y=event$y, col=event$col,
+                                          hjust = event$hjust, size=event$font.size)
+        }
+      }
+    }
+  }
   #output
   plt
 }
@@ -437,7 +473,8 @@ aqe_plotQuantBreakSegments01 <- function(data, name.pol, segments,
                                             line.col = "red", break.col ="blue",
                                             scalelabs = c("data", "trend",
                                                           "change"),
-                                         auto.text=TRUE){
+                                         event = NULL,
+                                         auto.text=TRUE, ...){
   #using plotQuantBreakPoints
   if(!is.null(segments) && nrow(segments)>0){
     temp <- segments[,4:6]
@@ -457,7 +494,8 @@ aqe_plotQuantBreakSegments01 <- function(data, name.pol, segments,
                               pt.col = pt.col, line.col = line.col,
                               break.col = break.col,
                               scalelabs = scalelabs,
-                           auto.text=auto.text)
+                           event=event,
+                           auto.text=auto.text, ...)
 }
 
 
@@ -468,7 +506,8 @@ aqe_plotQuantBreakSegments02 <- function(data, name.pol, segments,
                                         line.col = "red", break.col ="blue",
                                         scalelabs = c("data", "trend",
                                                       "change"),
-                                        auto.text=TRUE){
+                                        event=NULL,
+                                        auto.text=TRUE, ...){
   #using plotQuantBreakPoints
   if(!is.null(segments) && nrow(segments)>0){
     segments <- segments[2:nrow(segments),1:3]
@@ -500,6 +539,7 @@ aqe_plotQuantBreakSegments02 <- function(data, name.pol, segments,
                               pt.col = pt.col, line.col = line.col,
                               break.col = break.col,
                               scalelabs = scalelabs,
+                           event=event,
                            auto.text=auto.text)
 }
 
@@ -951,7 +991,7 @@ local_segmented  <-
     nomiNO <- NULL
     for (i in nomiTUTTI) {
       r <- try(eval(parse(text = i), parent.frame()), silent = TRUE)
-      if (class(r) != "try-error" && length(r) == 1 && !is.function(r) &&
+      if (class(r)[1] != "try-error" && length(r) == 1 && !is.function(r) &&
           !i %in% names(mf))
         nomiNO[[length(nomiNO) + 1]] <- i
     }

@@ -41,8 +41,6 @@ pollutant to be used, then other arguments:
 }
 
 \references{
-
-
 Ropkins et al (In Prep).
 }
 \seealso{

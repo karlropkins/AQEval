@@ -15,6 +15,7 @@ quantBreakPoints(
   pt.col = c("lightgrey", "darkgrey"),
   line.col = "red",
   break.col = "blue",
+  event = NULL,
   show = c("plot", "report"),
   ...
 )
@@ -28,6 +29,7 @@ quantBreakSegments(
   pt.col = c("lightgrey", "darkgrey"),
   line.col = "red",
   break.col = "blue",
+  event = NULL,
   seg.method = 2,
   seg.seed = 12345,
   show = c("plot", "report"),
@@ -59,6 +61,16 @@ defaults lightgrey and darkgrey.}
 
 \item{break.col}{Break-point/segment colour for plot, default
 blue.}
+
+\item{event}{An optional list of plot terms for an event
+marker, applied to a vertical line and text label. List
+items include: \code{x} the event date (YYYY-MM-DD format)
+require for both line and label; \code{y} by default 0.9 x
+y-plot range; \code{label} the label text, required for
+label; \code{line.size} the line width, by default 0.5;
+\code{font.size} the text size, by default 5; and,
+\code{hjust} the label left/right justification, 0 left,
+0.5 centre, 1 right (default). See also examples below.}
 
 \item{show}{What to show before returning the break-point
 quantification mode, by default plot and report.}
@@ -125,6 +137,18 @@ quantBreakPoints(temp, "no2", h=0.3)
 #break-segments
 
 quantBreakSegments(temp, "no2", h=0.3)
+
+#addition examples (not run)
+\dontrun{
+#in-call plot modification
+#removing x axis label
+#recolouring break line and
+#adding an event marker
+quantBreakPoints(temp, "no2", h=0.3,
+       xlab="", break.col = "red",
+       event=list(label="Event expected here",
+                 x="2002-08-01", col="grey"))
+}
 }
 \references{
 Regarding \code{strucchange} methods see in-package

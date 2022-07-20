@@ -43,7 +43,6 @@
 #' For more about the main functions, see
 #' \code{\link{quantBreakPoints}}
 #' and \code{\link{quantBreakSegments}}
-#' @references
 #' @author Karl Ropkins
 #' @references
 #' Ropkins et al (In Prep).

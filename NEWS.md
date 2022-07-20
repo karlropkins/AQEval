@@ -15,3 +15,8 @@
     * __v 0.4.4__ [2022-04-11] CRAN submission revision; CRAN feedback (2)
     * __v 0.4.5__ [2022-04-13] CRAN submission revision; CRAN feedback (3)
     
+# AQEval version 0.5
+
+* Year 1 changes 
+    * __v 0.5.0__ [2022-07-20] added (requested) event line and label option for in-call plot
+    
