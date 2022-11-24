@@ -50,7 +50,9 @@ on-going project.
 
 ## Contributing
 
-Contributions are very welcome.
+Contributions are very welcome. Please note both contribution guidance
+and code of conduct…
+[Contributions](https://karlropkins.github.io/AQEval/CONTRIBUTING.html)
 
 ## License
 
