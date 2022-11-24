@@ -1,7 +1,7 @@
 # AQEval version 0.5
 
 * Year 1 changes 
-    * __v 0.5.0__ [2022-07-20] added (requested) event line and label option for in-call plot
+    * __v 0.5.0__ [2022-07-20] added (requested) event line and label option for in-call plot 
 
 # AQEval version 0.4
 
