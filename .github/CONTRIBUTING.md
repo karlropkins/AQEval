@@ -16,7 +16,7 @@ in the related .R relevant script, rather than as discrete a .Rd file. (That .Rd
 
 ## Bigger changes and code changes
 
-If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed and don't hinder established user work-flows. 
+If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the package team agrees that it’s needed and don't hinder established user work-flows. 
 
 But, please note, some major changes in the main functions may not be possible and some many take time to test and implement.      
 
