@@ -27,7 +27,7 @@ we would appreciate a 'head-up' regardless of the format if you think anything i
 ### Pull request process
 
 *   Fork the package and clone onto your computer. If you haven't done this before, **tidyverse** folks recommend using 
-    `usethis::create_from_github("karlropkins/align", fork = TRUE)`.
+    `usethis::create_from_github("karlropkins/AQEval", fork = TRUE)`.
 
 *   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
     If R CMD check doesn't pass cleanly, it's a good idea to get in contact before continuing. 
