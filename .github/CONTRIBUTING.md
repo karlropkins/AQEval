@@ -1,4 +1,4 @@
-# Contributing to **AQEval**
+# Contributing to __AQEval__
 
 This outlines how to propose a change to AQEval. 
 
