@@ -7,7 +7,7 @@ Description: Developed for use by those tasked with the routine detection,
          time-series, such as identifying the impacts of air quality policy
          interventions. The main functions use signal isolation then
          break-point/segment (BP/S) methods based on 'strucchange' and 'segmented'
-         methods detect and quantify change events (Ropkins & Tate, 2021,
+         methods to detect and quantify change events (Ropkins & Tate, 2021,
          <doi:10.1016/j.scitotenv.2020.142374>).
 Authors@R: c(person(given = "Karl", family = "Ropkins", role = c("aut", "cre"), email =
          "k.ropkins@its.leeds.ac.uk", comment = c(ORCID = "0000-0002-0294-6997")),
