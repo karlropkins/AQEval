@@ -2,6 +2,7 @@
 
 * Year 1 changes 
     * __v 0.5.0__ [2022-07-20] added (requested) event line and label option for in-call plot 
+    * __v 0.5.1__ [2023-02-23] citation now generated using citation(auto=meta) (requested)  
 
 # AQEval version 0.4
 

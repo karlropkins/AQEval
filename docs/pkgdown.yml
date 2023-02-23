@@ -2,7 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-12-14T13:21Z
+last_built: 2023-02-23T10:15Z
 urls:
   reference: https://karlropkins.github.io/AQEval/reference
   article: https://karlropkins.github.io/AQEval/articles
