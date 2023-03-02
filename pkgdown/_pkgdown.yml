@@ -9,14 +9,15 @@ template:
 navbar:
   type: inverse
   structure:
-    left:  [intro, reference, articles]
+    left:  [intro, reference, articles, news]
     right: [search, github]
   components:
     articles:
       text: "Articles"
       menu:
       - text: "documents"
-      - text: "content pending"
+      - text: "Package Introduction"
+        href: articles/AQEval_Intro_Preprint.pdf
 
 home:
   title: R Package
