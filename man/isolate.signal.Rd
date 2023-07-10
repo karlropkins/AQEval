@@ -57,7 +57,9 @@ this allows user to set the signal isolation model formula
 directly, but means other formula terms (\code{background},
 \code{deseason} and \code{deweather}) will be ignored.}
 
-\item{output}{output options; ignore for now (in development)}
+\item{output}{output options; currently, \code{'mean'}, \code{'model'},
+and \code{'all'}; but please note these are in development and may be
+subject to change.}
 
 \item{...}{other arguments; ignore for now (in development)}
 }

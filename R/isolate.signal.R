@@ -37,7 +37,9 @@
 #' this allows user to set the signal isolation model formula
 #' directly, but means other formula terms (\code{background},
 #' \code{deseason} and \code{deweather}) will be ignored.
-#' @param output output options; ignore for now (in development)
+#' @param output output options; currently, \code{'mean'}, \code{'model'},
+#' and \code{'all'}; but please note these are in development and may be
+#' subject to change.
 #' @param ... other arguments; ignore for now (in development)
 #' @author Karl Ropkins
 #' @returns \code{isolateContribution} returns a vector of
@@ -328,5 +330,10 @@ message(paste(as.character(ff)[c(2,1,3)],
     ########################
     #this returns vector for data.frames and tbf_df...
     ########################
-    return(ans)
+    if("all" %in% output){
+      return(list(mod=mod,
+                  ans=ans))
+    } else {
+      return(ans)
+    }
 }
