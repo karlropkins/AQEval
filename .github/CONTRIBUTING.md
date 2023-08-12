@@ -34,7 +34,7 @@ we would appreciate a 'head-up' regardless of the format if you think anything i
 
 *   Create a Git branch for your pull request (PR). Here the **tidyverse** recommendation is to use `usethis::pr_init("brief-description-of-change")`.
 
-*   Make your changes, commit to git, and then create a PR (**tidyverse** recommendation `usethis::pr_push()` tehn follow the prompts in your browser).
+*   Make your changes, commit to git, and then create a PR (**tidyverse** recommendation `usethis::pr_push()` then follow the prompts in your browser).
     Ideally, the title of your PR should briefly describe the change, and the body of your PR should contain `Fixes #issue-number`.
 
 *   For user-facing changes, please include a suggestion for a `NEWS.Rmd` bullet. 
