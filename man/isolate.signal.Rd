@@ -54,8 +54,8 @@ isolation model; ignore for now (in development).}
 
 \item{formula}{(optional) Signal isolate model formula;
 this allows user to set the signal isolation model formula
-directly, but means other formula terms (\code{background},
-\code{deseason} and \code{deweather}) will be ignored.}
+directly, but means function arguments \code{background},
+\code{deseason} and \code{deweather} will be ignored.}
 
 \item{output}{output options; currently, \code{'mean'}, \code{'model'},
 and \code{'all'}; but please note these are in development and may be
@@ -136,8 +136,8 @@ Ropkins et al (In Prep).
 }
 \seealso{
 Regarding seasonal terms and frequency
-analysis, see \code{\link{stl}} and
-\code{\link{spectralFrequency}}
+analysis, see also \code{\link{stl}} and
+\code{\link{spectralFrequency}}.
 
 \code{\link{mgcv}}, \code{\link{gam}}.
 }

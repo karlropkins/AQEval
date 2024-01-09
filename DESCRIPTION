@@ -1,25 +1,26 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.5.3
-Date: 2023-07-10
-Description: Developed for use by those tasked with the routine detection, characterisation and
-          quantification of discrete changes in air quality time-series, such as identifying the
-          impacts of air quality policy interventions. The main functions use signal isolation
-          then break-point/segment (BP/S) methods based on 'strucchange' and 'segmented' methods
-          to detect and quantify change events (Ropkins & Tate, 2021,
-          <doi:10.1016/j.scitotenv.2020.142374>).
+Version: 0.5.4
+Date: 2024-01-09
+Description: Developed for use by those tasked with the routine detection,
+         characterisation and quantification of discrete changes in air quality
+         time-series, such as identifying the impacts of air quality policy
+         interventions. The main functions use signal isolation then
+         break-point/segment (BP/S) methods based on 'strucchange' and 'segmented'
+         methods to detect and quantify change events (Ropkins & Tate, 2021,
+         <doi:10.1016/j.scitotenv.2020.142374>).
 Authors@R: c(person(given = "Karl", family = "Ropkins", role = c("aut", "cre"), email =
-          "k.ropkins@its.leeds.ac.uk", comment = c(ORCID = "0000-0002-0294-6997")), person(given
-          = "Anthony", family = "Walker", role = c("aut"), email =
-          "anthony.walker@defra.gov.uk", comment = c(ORCID = "0000-0003-3979-0989")),
-          person(given = "James", family = "Tate", role = c("aut")))
+         "k.ropkins@its.leeds.ac.uk", comment = c(ORCID = "0000-0002-0294-6997")),
+         person(given = "Anthony", family = "Walker", role = c("aut"), email =
+         "anthony.walker@defra.gov.uk", comment = c(ORCID = "0000-0003-3979-0989")),
+         person(given = "James", family = "Tate", role = c("aut")))
 Maintainer: Karl Ropkins <k.ropkins@its.leeds.ac.uk>
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)
-Imports: openair, dplyr, loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate, purrr,
-          ggtext, stats
+Imports: openair, dplyr, loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate,
+         purrr, ggtext, stats
 RoxygenNote: 7.2.3
 URL: https://github.com/karlropkins/AQEval, https://karlropkins.github.io/AQEval/
 BugReports: https://github.com/karlropkins/AQEval/issues

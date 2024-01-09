@@ -35,8 +35,8 @@
 #' isolation model; ignore for now (in development).
 #' @param formula (optional) Signal isolate model formula;
 #' this allows user to set the signal isolation model formula
-#' directly, but means other formula terms (\code{background},
-#' \code{deseason} and \code{deweather}) will be ignored.
+#' directly, but means function arguments \code{background},
+#' \code{deseason} and \code{deweather} will be ignored.
 #' @param output output options; currently, \code{'mean'}, \code{'model'},
 #' and \code{'all'}; but please note these are in development and may be
 #' subject to change.
@@ -74,8 +74,8 @@
 #' development and testing work, and retained for now.
 #' Please ignore for now.
 #' @seealso Regarding seasonal terms and frequency
-#' analysis, see \code{\link{stl}} and
-#' \code{\link{spectralFrequency}}
+#' analysis, see also \code{\link{stl}} and
+#' \code{\link{spectralFrequency}}.
 #' @references
 #' Regarding \code{\link{mgcv}} GAM fitting methods, see
 #' Wood (2017) for general introduction and package
@@ -152,9 +152,15 @@ function(data, pollutant, background = NULL,
     #####################
     #setup
     #####################
+    #NOTE
+    #make data.frame because tibbles are stopping row.names
+    #and we are using row.names to track indices when predicting
+    #     maybe also think about different approach to handle this ???
+    data <- as.data.frame(data)
+    row.names(data) <- 1:nrow(data)
     if(is.null(formula)){
      #don't need any of this if formula is set!
-
+     #can maybe simplify ???
       deweather <- if(is.logical(deweather)){
         if(deweather) c("ws", "wd") else character()
       } else {
@@ -168,7 +174,6 @@ function(data, pollutant, background = NULL,
       }
 
       #check that all expected columns are there
-
       if(is.null(background) & length(deseason)<1 & length(deweather)<1){
         stop("Need (at least) one of 'background', 'deseason' or 'deweather'")
       }
@@ -179,48 +184,9 @@ function(data, pollutant, background = NULL,
       if(!is.null(add.term)){
         ref <- unique(c(ref, add.term))
       }
-    } else {
-      ref <- unique(all.vars(formula))
-      if(length(formula)==2){
-        ############################
-        #this will error if formula has no y term
-        #and pollutant missing
-        ##########################
-        ref <- unique(c(pollutant, ref))
-      }
-    }
-    temp <- ref[!ref %in% names(data)]
-    ####################
-    #untidy error message
-    ###################
-    if(length(temp)>0){
-        stop(paste("Missing data-series: ", paste(temp, collapse=", "),
-                   "\n", sep=""))
-    }
-    d1 <- data[ref]                  #currently not used...
-    d1$..counter <- 1:nrow(d1)       #...
-    d1 <- as.data.frame(na.omit(d1)) #...
-    ####################
-    #build model formula
-    #or use formula
-    ####################
-    if(!is.null(formula)){
-      if(length(formula)==3){
-        ff <- formula
-        pollutant <- all.vars(ff[[1]])
-      } else {
-        ff <- paste(pollutant, as.character(formula),
-                    sep=" ~ ")
-        ff <- as.formula(ff)
-      }
-    } else {
+
+      #make formula
       ff <- ""
-######################
-#method 3
-#log(y)~ (and e^y)
-#does not seem to be better
-#test again/makes no sense...
-######################
       if(!is.null(background)){
         ff <- paste(ff, "+s(", background, ")")
       }
@@ -234,62 +200,50 @@ function(data, pollutant, background = NULL,
           ff <- paste(ff, "+", fff, sep="")
         }
 
-        }
-        temp <- TRUE
+      }
+      temp <- TRUE
 
       if(length(deseason)>0){
-############################
-#like to look at this again
-############################
-#method 2
-#fit a spline better than factor...
-############################
-#add more seasonal terms
-# week.day
-# month.day??
-# week.hour??
-############################
-#do we need to set d1 and data?
-# unless we want to return data
-# it seems unlikely
-############################
-#also we should be able to
-#a lot of this...
-############################
+        ############################
+        #like to look at this again
+        ############################
+        #method 2
+        #fit a spline better than factor...
+        ############################
+        #add more seasonal terms
+        # week.day
+        # month.day??
+        # week.hour??
+        ############################
+        #do we need to set d1 and data?
+        # unless we want to return data
+        # it seems unlikely
+        ############################
+        #also we should be able to
+        #a lot of this...
+        ############################
         if(method==2){
           if("year.day" %in% deseason){
-            d1$year.day <- as.numeric(format(d1$date, "%j"))
-            data$year.day <- as.numeric(format(data$date, "%j"))
             ff <- paste(ff, "+s(year.day)", sep="")
           }
           ####################################
           #this will need better thinking
           ####################################
           if("week.day" %in% deseason){
-            d1$week.day <- as.numeric(format(d1$date, "%w"))
-            data$week.day <- as.numeric(format(data$date, "%w"))
             ff <- paste(ff, "s(week.day, k=5)", sep="")
           }
           if("day.hour" %in% deseason){
-            d1$day.hour <- as.numeric(format(d1$date, "%H"))
-            data$day.hour <- as.numeric(format(data$date, "%H"))
             ff <- paste(ff, "+s(day.hour)", sep="")
           }
         } else{
           #hold for testing...
           if("year.day" %in% deseason){
-            d1$year.day <- as.numeric(format(d1$date, "%j"))
-            data$year.day <- as.numeric(format(data$date, "%j"))
             ff <- paste(ff, "+year.day", sep="")
           }
           if("week.day" %in% deseason){
-            d1$week.day <- as.numeric(format(d1$date, "%w"))
-            data$week.day <- as.numeric(format(data$date, "%w"))
             ff <- paste(ff, "+week.day", sep="")
           }
           if("day.hour" %in% deseason){
-            d1$day.hour <- as.numeric(format(d1$date, "%H"))
-            data$day.hour <- as.numeric(format(data$date, "%H"))
             ff <- paste(ff, "+day.hour", sep="")
           }
         }
@@ -302,10 +256,71 @@ function(data, pollutant, background = NULL,
       ff <- gsub('^[+]','', ff)
       ff <- paste(pollutant, " ~ ", ff, sep="")
       ff <- as.formula(ff)
+
+    } else {
+      ff <- as.formula(paste(pollutant, "~", formula, sep=""))
+      #if(length(formula)==2){
+        ############################
+        #this will error if formula has no y term
+        #and pollutant missing
+        ##########################
+      #  ref <- unique(c(pollutant, ref))
+      #}
     }
-#think about how we do/document this...
-message(paste(as.character(ff)[c(2,1,3)],
-            sep="", collapse = " "))
+
+    ref <- unique(all.vars(ff))
+    if(length(ref[ref %in% c("year.day", "week.day", "day.hour")])>0){
+      ref <- unique(c("date", ref))
+    }
+
+    #if you want model and prediction....
+    d1 <- data[ref[ref %in% names(data)]]  # maybe rethink...
+    d1$..counter <- 1:nrow(d1)             # did
+    d1 <- as.data.frame(na.omit(d1))       # feels messy
+    #build.extra terms if needed
+
+    ############################
+    #like to look at this again
+    ############################
+    #this replaces previous approach
+    #     this does not year.day, etc calculated if you want to use formula...
+    ############################
+    #add more seasonal terms
+    # week.day
+    # month.day??
+    # week.hour??
+    ############################
+
+    if("year.day" %in% ref & !"year.day" %in% data){
+      d1$year.day <- as.numeric(format(d1$date, "%j"))
+      data$year.day <- as.numeric(format(data$date, "%j"))
+    }
+    if("week.day" %in% ref & !"week.day" %in% data){
+      d1$week.day <- as.numeric(format(d1$date, "%w"))
+      data$week.day <- as.numeric(format(data$date, "%w"))
+    }
+    if("day.hour" %in% ref & !"day.hour" %in% data){
+      d1$day.hour <- as.numeric(format(d1$date, "%H"))
+      data$day.hour <- as.numeric(format(data$date, "%H"))
+    }
+
+    temp <- ref[!ref %in% names(data)]
+    ####################
+    #untidy error message
+    ###################
+    if(length(temp)>0){
+        stop(paste("Missing data-series: ", paste(temp, collapse=", "),
+                   "\n", sep=""))
+    }
+
+    ####################
+    #build model using formula
+    ####################
+
+    #think about how we do/document this...
+    message(paste(as.character(ff)[c(2,1,3)],
+              sep="", collapse = " "))
+
     ############################
     #model
     ############################
@@ -315,6 +330,7 @@ message(paste(as.character(ff)[c(2,1,3)],
     temp <- predict.gam(mod)
     ans <- rep(NA, length=nrow(data))
     ans[as.numeric(names(temp))] <- temp
+
     ################################
     #scaling
     ################################
