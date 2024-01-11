@@ -26,6 +26,14 @@ utils::globalVariables(c("end.date", "err", "freq", "my.y",
 #may change if methods change
 ##############################################
 
+aqe_RowNameFix <- function(data){
+  data <- as.data.frame(data)
+  row.names(data) <- 1:nrow(data)
+  data
+}
+
+
+
 aqe_buildBreaks <- function(data, name.pol, ...){
   breaks <- findBreakPoints(data, name.pol, ...)
   x.args <- list(...)

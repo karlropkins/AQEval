@@ -57,7 +57,8 @@ fitNearSiteModel <-
     data <- tidyr::spread(data, "code", pollutant)
     #think I have to do this to make gams work...
     #tibbles names confusing things
-    data <- as.data.frame(data)
+    #data <- as.data.frame(data)
+    data <- aqe_RowNameFix(data)
     names(data) <- make.names(names(data))
     y <- make.names(y)
     x <- make.names(x)
@@ -105,7 +106,7 @@ fitNearSiteModel <-
           form <- paste(y, "~", form, sep="")
           form <- as.formula(form)
           mod <- paste(mod, collapse="+")
-          mod.ans <- gam(form, data = data)
+          mod.ans <- gam(form, data = aqe_RowNameFix(data))
           list(mod=mod, gam=mod.ans, r=summary(mod.ans)$r.sq)
         })
         #reorder mod.ls

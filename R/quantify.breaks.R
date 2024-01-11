@@ -167,6 +167,7 @@ quantBreakPoints <-
 #does breaks default want to be NA
 #some code in next section could move into subfunctions
 ##########################
+    data <- aqe_RowNameFix(data)
     name.pol <- pollutant
     pollutant <- data[, name.pol]
     if(missing(breaks)){
@@ -233,6 +234,7 @@ quantBreakSegments <-
 
     #breaks setup
     #buildBreaks in quantBreakPoints
+    data <- aqe_RowNameFix(data)
     if(missing(breaks)){
       breaks <- aqe_buildBreaks(data, pollutant,...)
     }
@@ -248,7 +250,8 @@ quantBreakSegments <-
     #see optimisation notes
     #######################################
     if(seg.method==1){
-      mod <- aqe_fitBreakSegmentsModel01(data, pollutant, breaks)
+      data <- aqe_RowNameFix(data)
+      mod <- aqe_fitBreakSegmentsModel01(data2, pollutant, breaks)
       data2 <- data[,c("date", pollutant)]
       data2$pred <- rep(NA, nrow(data2))
       data2$err <- data2$pred
@@ -284,6 +287,7 @@ quantBreakSegments <-
       data2 <- data[,c("date", pollutant)]
 #print("fit")
 #################
+      data2 <- aqe_RowNameFix(data2)
       ls.mod <- aqe_fitBreakSegmentsModel02(data2, pollutant, breaks,
                                             seg.seed = seg.seed)
 #print("after.fit")

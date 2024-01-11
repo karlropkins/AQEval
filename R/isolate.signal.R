@@ -156,8 +156,8 @@ function(data, pollutant, background = NULL,
     #make data.frame because tibbles are stopping row.names
     #and we are using row.names to track indices when predicting
     #     maybe also think about different approach to handle this ???
-    data <- as.data.frame(data)
-    row.names(data) <- 1:nrow(data)
+    #     TRYING aqe_RowNameFix
+    data <- aqe_RowNameFix(data)
     if(is.null(formula)){
      #don't need any of this if formula is set!
      #can maybe simplify ???

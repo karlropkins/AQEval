@@ -156,6 +156,7 @@ testBreakPoints <-
   {
     #test identified break points
     #test zero breaks model...
+    data <- aqe_RowNameFix(data)
     mod <- aqe_fitBreakPointsModel(data, pollutant,
                                    breaks=NULL)
     ans <- aqe_makeBreakPointTestReport(mod, 0, NA)
