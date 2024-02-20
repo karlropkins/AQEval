@@ -82,8 +82,7 @@
 #' documentation regarding coding (\code{\link{mgcv}}):
 #'
 #' Wood, S.N. (2017) Generalized Additive Models:
-#' an introduction with R (2nd edition), CRC, DOI:
-#' \doi{10.1201/9781420010404}.
+#' an introduction with R (2nd edition), Chapman and Hall/CRC.
 #'
 #' Regarding \code{isolateContribution}, see:
 #'
@@ -226,11 +225,14 @@ function(data, pollutant, background = NULL,
           if("year.day" %in% deseason){
             ff <- paste(ff, "+s(year.day)", sep="")
           }
+          if("year.week" %in% deseason){
+            ff <- paste(ff, "+s(year.week)", sep="")
+          }
           ####################################
           #this will need better thinking
           ####################################
           if("week.day" %in% deseason){
-            ff <- paste(ff, "s(week.day, k=5)", sep="")
+            ff <- paste(ff, "+s(week.day, k=5)", sep="")
           }
           if("day.hour" %in% deseason){
             ff <- paste(ff, "+s(day.hour)", sep="")
@@ -294,6 +296,10 @@ function(data, pollutant, background = NULL,
     if("year.day" %in% ref & !"year.day" %in% data){
       d1$year.day <- as.numeric(format(d1$date, "%j"))
       data$year.day <- as.numeric(format(data$date, "%j"))
+    }
+    if("year.week" %in% ref & !"year.week" %in% data){
+      d1$year.week <- as.numeric(format(d1$date, "%U"))
+      data$year.week <- as.numeric(format(data$date, "%U"))
     }
     if("week.day" %in% ref & !"week.day" %in% data){
       d1$week.day <- as.numeric(format(d1$date, "%w"))

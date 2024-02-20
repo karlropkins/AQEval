@@ -127,8 +127,7 @@ Wood (2017) for general introduction and package
 documentation regarding coding (\code{\link{mgcv}}):
 
 Wood, S.N. (2017) Generalized Additive Models:
-an introduction with R (2nd edition), CRC, DOI:
-\doi{10.1201/9781420010404}.
+an introduction with R (2nd edition), Chapman and Hall/CRC.
 
 Regarding \code{isolateContribution}, see:
 
