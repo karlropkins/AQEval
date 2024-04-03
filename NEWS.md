@@ -7,7 +7,7 @@
     * __v 0.5.3__ [2023-07-10] added (requested) extra output options for isolate.contribution 
     * __v 0.5.4__ [2024-01-09] isolateContribution update; tibble row.name change 
     * __v 0.5.5__ [2024-01-09] other models; tibble row.name change 
-    * __v 0.5.6__ [2024-02-20] isolateContribution update; week.day fix, year.week added 
+    * __v 0.5.6__ [2024-04-03] isolateContribution update; week.day fix, year.week added 
     
 # AQEval version 0.4
 
