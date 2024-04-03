@@ -49,22 +49,22 @@
 #' subtracts \code{pollutant} variance associated with
 #' factors that may hinder break-point/segment analysis:
 #' \itemize{
-#'  \item{\strong{Background Correction}}{ If applied, this fits
+#'  \item \strong{Background Correction} If applied, this fits
 #'  the supplied \code{background} time-series as a
-#'  spline term: \code{s(background)}.}
-#'  \item{\strong{Seasonality}}{ If applied, this fits regular
+#'  spline term: \code{s(background)}.
+#'  \item \strong{Seasonality} If applied, this fits regular
 #'  frequency terms, e.g. \code{day.hour}, \code{year.day},
 #'  as spline terms, default TRUE is equivalent to
 #'  \code{s(day.hour)} and \code{s(year.day)}. All terms are
-#'  calculated from \code{date} column in \code{data}.}
-#'  \item{\strong{Weather}}{ If applied, this fits time-series of
+#'  calculated from \code{date} column in \code{data}.
+#'  \item \strong{Weather} If applied, this fits time-series of
 #'  identified meteorological measurements, e.g. wind speed
 #'  and direction (\code{ws} and \code{wd} in \code{data}).
 #'  If both \code{ws} and \code{wd} are present these are
 #'  fitted as a tensor term \code{te(ws, wd)}. Other
 #'  \code{deweather}ing terms, if included, are fitted
 #'  as spline term \code{s(term)}. The default \code{TRUE}
-#'  is equivalent to \code{te(ws, wd)}.}
+#'  is equivalent to \code{te(ws, wd)}.
 #' }
 #' Using the supplied arguments, it builds a signal
 #' (\code{\link{mgcv}}) GAM model, calculates,
