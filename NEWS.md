@@ -4,7 +4,6 @@
     * __v 0.5.0__ [2022-07-20] added (requested) event line and label option for in-call plot 
     * __v 0.5.1__ [2023-02-23] citation now generated using citation(auto=meta) (requested)
     * __v 0.5.2__ [2023-02-23] CRAN submission reversion; further citation changes requested for CRAN 
-    CRAN Submission 
     * __v 0.5.3__ [2023-07-10] added (requested) extra output options for isolate.contribution 
     * __v 0.5.4__ [2024-01-09] isolateContribution update; tibble row.name change 
     * __v 0.5.5__ [2024-01-09] other models; tibble row.name change 
