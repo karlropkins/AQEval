@@ -19,15 +19,17 @@ policy interventions.
 
 ## Installation
 
-Get **AQEval** from [CRAN](https://cran.r-project.org/)
+Get the current release version of **AQEval** (v0.5.7) from
+[CRAN](https://cran.r-project.org/)
 ([archive](https://CRAN.R-project.org/package=AQEval)):
 
 ``` r
 install.packages("AQEval")
 ```
 
-The developer’s version **AQEval** is on [GitHub](https://github.com) in
-the [AQEval](https://github.com/karlropkins/AQEval) code archive:
+Or the developer’s version of **AQEval** from
+[GitHub](https://github.com)
+([archive](https://github.com/karlropkins/AQEval)):
 
 ``` r
 # (if you do not have remotes package, install it from CRAN) 
