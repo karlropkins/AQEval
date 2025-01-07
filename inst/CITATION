@@ -1,5 +1,7 @@
 citHeader("To cite 'AQEval' package in publications use:")
 
+citation(auto = meta)
+
 bibentry(bibtype = "article",
          title = "Change Detection of Air Quality Time-Series Using the R Package AQEval",
          journal = "SSRN preprint",
@@ -14,8 +16,6 @@ bibentry(bibtype = "article",
          doi = "10.2139/ssrn.4267722",
 
          textVersion = paste("Ropkins K, Walker A, Philips I, Rushton C, Clark T, Tate J (2022). Change Detection of Air Quality Time-Series Using the R Package AQEval. SSRN preprint: http://dx.doi.org/10.2139/ssrn.4267722"))
-
-citation(auto = meta)
 
 citFooter("Please cite both 'AQEval' and R ",
           "when using 'AQEval'.",
