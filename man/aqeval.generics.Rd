@@ -16,9 +16,10 @@
 object to be printed, plotted, etc.}
 
 \item{...}{additional arguments, typically passed on to next method or
-ignored}
+ignored.}
 }
 \description{
 Generic functions for use with \code{aqe} object class for
 \code{AQEval} outputs.
 }
+\keyword{internal}

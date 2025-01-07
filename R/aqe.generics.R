@@ -7,7 +7,8 @@
 #' @param x the \code{aqe}
 #' object to be printed, plotted, etc.
 #' @param ... additional arguments, typically passed on to next method or
-#' ignored
+#' ignored.
+#' @keywords internal
 
 #############################################
 
