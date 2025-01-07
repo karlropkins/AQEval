@@ -10,7 +10,7 @@
 #' longitude.
 #' @param nmax (numeric) The maximum number of nearest sites
 #' to report, by default 10.
-#' @param ... Other parameters, currently ignored.
+#' @param ... Other parameters, mostly ignored.
 #' @param ref (\code{data.frame} or similar) The look-up table to
 #' use when identifying nearby locations, and expected to
 #' contain latitude, longitude and any required location
@@ -51,14 +51,28 @@
 #############################
 #main function findNearLatLon
 #############################
-#error catchers for?
+
+# should findNearSite be a wrapper for findNearLatLon ???
+
+# think about rename/manage/set data columns local function
+#    aqeval_renameDataColumns?
+
+# better error catchers/messages
+#    for unexported lat long name handler
 #    expected time-series
 #    bad calls, missing time-series
 #    aqeval_... checkPrep?
-#finish documenting
-#    references
-#think about rename/manage/set data columns local function
-#    aqeval_renameDataColumns?
+
+# finish documenting
+#    rename.lat, rename.lon, rename.ref.lat, rename.ref.lon (if they stay?)
+
+# add references
+
+# ref=openair::importMeta(all=TRUE)
+# ref = ref[ref$variable=="NO2" & ref$site_type=="Rural Background", ]
+# findNearLatLon(lat=50, lon=1, ref=ref)
+# names(ref)[names(ref)=="longitude"] <- "ick"
+# findNearLatLon(lat=50, lon=1, ref=ref, rename.ref.lon="ick")
 
 ## #' @references need to reference formula
 ## #' @need to add dont run examples
@@ -73,19 +87,24 @@ findNearLatLon <-
   {
     #find near locations in a reference dataset
     #replaces findNearSite
-    x.args <- list(...)
+    x.args <- loa::listUpdate(list(rename.lat=c("latitude", "lat"),
+                                   rename.lon=c("longitude", "long", "lon"),
+                                   rename.ref.lat=c("latitude", "lat"),
+                                   rename.ref.lon=c("longitude", "long", "lon")),
+                              list(...))
     #if no ref stop
     if(is.null(ref)){
-      stop("findNearLatLon halted, ref not supplied.\n\t(See ?findNearLatLon)", call.=FALSE)
+      stop("findNearLatLon halted, ref not supplied.\n\t(See ?findNearLatLon)",
+           call.=FALSE)
     }
 
     #if data.frame supplied as lat
     #look in this for latitude and longitude
     if(is.data.frame(lat) & is.null(lon)){
       #this assumes lat and long are names
-      lon <- aqe_getXFromData(c("longitude", "long", "lon"),
+      lon <- aqe_getXFromData(x.args$rename.lon,
                               lat)
-      lat <- aqe_getXFromData(c("latitude", "lat"), lat)
+      lat <- aqe_getXFromData(x.args$rename.lat, lat)
     }
 
     #stop if lat and lon not supplied
@@ -109,8 +128,13 @@ findNearLatLon <-
     #setup for haversine calcs
     deg2rad <- function(x) x * (pi/180)
     rad2deg <- function(x) x * (180/pi)
-    lat1 <- ref$latitude
-    lon1 <- ref$longitude
+
+    #lat1 <- ref$latitude
+    lat1 <- aqe_getXFromData(x.args$rename.ref.lat,
+                             ref)
+    #lon1 <- ref$longitude
+    lon1 <- aqe_getXFromData(x.args$rename.ref.lon,
+                             ref)
     lat0 <- rep(lat, length(lat1))
     lon0 <- rep(lon, length(lon1))
 

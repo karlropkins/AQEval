@@ -1,3 +1,8 @@
+# AQEval version 0.6
+
+* Package updates 
+    * __v 0.6.0__ [2024-12-19] added data.table method to calcDateRangeStat 
+ 
 # AQEval version 0.5
 
 * Package updates 

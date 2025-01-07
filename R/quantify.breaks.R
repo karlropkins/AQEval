@@ -106,7 +106,11 @@
 #'
 #' Regarding break-points/segment methods, see:
 #'
-#' Ropkins et al (In Prep).
+#' Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
+#' Tate, J., Change Detection of Air Quality Time-Series Using the
+#' R Package AEQval. Available at SSRN 4267722.
+#' https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
+#' Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 #' @seealso
 #' \code{\link{timeAverage}} in \code{openair},
 #' \code{\link{breakpoints}} in \code{strucchange}, and

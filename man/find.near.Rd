@@ -26,7 +26,7 @@ longitude.}
 \item{nmax}{(numeric) The maximum number of nearest sites
 to report, by default 10.}
 
-\item{...}{Other parameters, currently ignored.}
+\item{...}{Other parameters, mostly ignored.}
 
 \item{ref}{(\code{data.frame} or similar) The look-up table to
 use when identifying nearby locations, and expected to

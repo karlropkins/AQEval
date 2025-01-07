@@ -14,7 +14,8 @@
 #' supplied data except \code{date}.
 #' @param ... extra arguments.
 #' @param method (numeric) Method to use when calculating
-#' statistic.
+#' statistic. Currently 1 (using base R), 2 (using dplyr),
+#' 3 (using data.table), and 4 (using dplyr and purrr)
 #' @param from (various) Start date(s) to subsample from when
 #' calculating statistic, by default end of supplied
 #' \code{data} date range.
@@ -22,7 +23,9 @@
 #' calculating statistic, by default end of supplied
 #' \code{data} date range.
 #' @param stat (function) Statistic to be applied to selected
-#' data, by default \code{mean(pollutant, na.rm=TRUE)}.
+#' data, by default \code{mean(pollutant, na.rm=TRUE)}. NB:
+#' This should be a function that works on vectors in the form
+#' \code{function(x)}.
 #' @param range (character) For \code{calcRollingDateRange},
 #' the range the rolling date windows, by default
 #' \code{'year'} for annual statistic calculations.
@@ -37,6 +40,11 @@
 
 #kr version 0.4 (first packaged) 2020/11/02
 #   version 0.5 2020/12/16
+
+# added openair.like via ...
+#   wd/wd handling like in openair
+#   maybe move forward if keeping
+#   also document properly if keeping
 
 #to think about/do
 ##################################
@@ -55,6 +63,10 @@
 #(maybe try dplyr approach?)
 #' @import lubridate
 
+# ref = seq(as.Date("2001-01-01"), as.Date("2004-01-01"), length.out=100)
+# stat = function(x) { if (is.numeric(x)){ mean(x, na.rm = TRUE) } else { x[1] }}
+# calcDateRangeStat(aq.data, from=ref, to=ref+100, method=4, stat=stat)
+#
 
 #' @rdname calculate.stats
 #' @export
@@ -63,6 +75,14 @@ calcDateRangeStat <-
            stat = NULL, pollutant = NULL,
            ..., method=2){
     #calculates stat for all data in date range
+
+    #setup
+    .xargs <- list(...)
+    .d.cls <- class(data)
+    if(!method %in% 1:4){
+      stop("Unknown method requested", call.=FALSE)
+    }
+
     #to to from
     # currently no sub- grouping
     from <- aqe_prepFromDate(from, data)
@@ -75,14 +95,59 @@ calcDateRangeStat <-
       }
     }
 
+    ###################
+    # openair-like handling of ws/wd if there...
+    ###################
+    #not tested or documented...
+    if(!is.null(.xargs[["openair.like"]])){
+      if(is.logical(.xargs$openair.like)){
+        .xargs$openair.like <- if(.xargs$openair.like){
+          "standard"
+        } else {
+          NULL
+        }
+      }
+    }
+    if(!is.null(.xargs[["openair.like"]])){
+      if ("wd" %in% names(data)) {
+        if (is.numeric(data$wd) && "ws" %in% names(data)) {
+          data$.Uu <- data$ws * sin(2 * pi * data$wd/360)
+          data$.Vv <- data$ws * cos(2 * pi * data$wd/360)
+        }
+        if (is.numeric(data$wd) && !"ws" %in% names(data)) {
+          data$.Uu <- sin(2 * pi * data$wd/360)
+          data$.Vv <- cos(2 * pi * data$wd/360)
+        }
+      }
+    }
+
     test <- if(is.null(pollutant)){
       names(data)[names(data)!="date"]
     } else {
       pollutant
     }
 
-    #method 1 faster than 2/but neither great
+    #base method
     if(method==1){
+      #previous 1 within the t(sapply)... with died with columns were different classes
+      ans <- lapply(1:nrow(dates), function(x){
+        temp <- data[data$date >= dates$start.date[x] & data$date < dates$end.date[x], test]
+        temp <- as.data.frame(lapply(temp, stat))
+        if(nrow(temp)>0){
+          data.frame(start.date=dates$start.date[x],
+                     end.date=dates$end.date[x],
+                     temp)
+        } else {
+          NULL
+        }
+      })
+      df.stat <- do.call(rbind, ans)
+      if(class(data)[1] %in% c("tbl", "tbl_df")){
+        df.stat <- dplyr::as_tibble(df.stat)
+      }
+    }
+    if(method==2){
+      #method 2 dplyr and base::Reduce...
       ans <- lapply(test,
                     function(x){
                       data$.rstat <- data[[x]]
@@ -96,26 +161,72 @@ calcDateRangeStat <-
                       names(df.stat)[names(df.stat)=="rstat"] <- x
                       df.stat
                     })
-      df.stat <- purrr::reduce(ans, dplyr::full_join)
+      df.stat <- Reduce(function(x,y) {dplyr::full_join(x,y, by=c("start.date", "end.date"))},
+                        ans)
     }
-    if(method==2){
+    if(method==3){
+      #data.table
       ans <- lapply(1:nrow(dates), function(x){
         temp <- data[data$date >= dates$start.date[x] & data$date < dates$end.date[x], test]
-        x.df <- sapply(temp,FUN=function(x) stat(x))
-        data.frame(start.date=dates$start.date[x],
-                   end.date=dates$end.date[x],
-                   t(x.df))
+        temp <- data.table::as.data.table(temp)
+        temp <- temp[, (test) := lapply(.SD, stat), .SDcols = test]
+
+        temp <- as.data.frame(lapply(temp, stat))
+        if(nrow(temp)>0){
+          data.frame(start.date=dates$start.date[x],
+                     end.date=dates$end.date[x],
+                     temp)
+        } else {
+          NULL
+        }
       })
-      df.stat <- dplyr::bind_rows(ans)
-      #think about this
-      #or making same class as input?
-      ##df.stat <- dplyr::as_tibble(df.stat)
-      ##eval(parse(text = paste0("as.", class, "(df.stat, ...)")))
+      df.stat <- do.call(rbind, ans)
       if(class(data)[1] %in% c("tbl", "tbl_df")){
         df.stat <- dplyr::as_tibble(df.stat)
       }
     }
+    if(method==4){
+      #method 4, dplyr and purrr::reduce
+      #          gave up trying to pass args to purrr...
+      ans <- lapply(test,
+                    function(x){
+                      data$.rstat <- data[[x]]
+                      #removed pipe from next section of code
+                      #(not sure about trade-offs)
+                      df.stat <- dplyr::group_by(dates, start.date,
+                                                 end.date)
+                      df.stat <- dplyr::summarize(df.stat,
+                                                  rstat = stat(data$.rstat[data$date >= start.date &
+                                                                             data$date < end.date]))
+                      names(df.stat)[names(df.stat)=="rstat"] <- x
+                      df.stat
+                    })
+      df.stat <- suppressMessages(purrr::reduce(ans,  dplyr::full_join))
+    }
+
+    #if openair.like
+    if(is.character(.xargs[["openair.like"]])){
+      ####################
+      #reset of ws/wd handers if there
+      if ("wd" %in% names(df.stat)) {
+        if (is.numeric(df.stat$wd)) {
+          df.stat$wd <- as.vector(atan2(df.stat$.Uu, df.stat$.Vv) * 360/2/pi)
+          ids <- which(df.stat$wd < 0)
+          df.stat$wd[ids] <- df.stat$wd[ids] + 360
+          if ("ws" %in% names(df.stat)) {
+            if("vector.ws" %in% .xargs$openair.like){
+              df.stat$ws <- (df.stat$.Uu^2 + df.stat$.Vv^2)^0.5
+            }
+          }
+        }
+        df.stat <- df.stat[!names(df.stat) %in% c(".Uu", ".Vv")]
+      }
+    }
     #looking for faster ways of doing this...
+
+    if(.d.cls[1] %in% c("tbl", "tbl_df")){
+      df.stat <- dplyr::as_tibble(df.stat)
+    }
     df.stat
   }
 

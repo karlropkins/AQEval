@@ -112,8 +112,8 @@ Please ignore for now.
 aq.data$dswb.no2 <- isolateContribution(aq.data,
                         "no2", background="bg.no2")
 
-#compare at 7 day resolution:
-temp <- openair::timeAverage(aq.data, "7 day")
+#compare at 14 day resolution:
+temp <- openair::timeAverage(aq.data, "14 day")
 
 #without dswb
 quantBreakPoints(temp, "no2", test=FALSE, h=0.1)

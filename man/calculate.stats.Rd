@@ -42,7 +42,9 @@ calculating statistic, by default end of supplied
 \code{data} date range.}
 
 \item{stat}{(function) Statistic to be applied to selected
-data, by default \code{mean(pollutant, na.rm=TRUE)}.}
+data, by default \code{mean(pollutant, na.rm=TRUE)}. NB:
+This should be a function that works on vectors in the form
+\code{function(x)}.}
 
 \item{pollutant}{(character) The name(s) of data-series to
 analyse in \code{data}, by default all columns in
@@ -51,7 +53,8 @@ supplied data except \code{date}.}
 \item{...}{extra arguments.}
 
 \item{method}{(numeric) Method to use when calculating
-statistic.}
+statistic. Currently 1 (using base R), 2 (using dplyr),
+3 (using data.table), and 4 (using dplyr and purrr)}
 
 \item{range}{(character) For \code{calcRollingDateRange},
 the range the rolling date windows, by default

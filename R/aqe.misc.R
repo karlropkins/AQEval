@@ -3,6 +3,7 @@
 #should tidy this...
 #############################################
 #defined globals
+
 #' @importFrom utils capture.output combn flush.console
 #' @importFrom grDevices grey
 #' @importFrom graphics abline lines par points segments
@@ -11,6 +12,8 @@
 #' model.weights pnorm pt qnorm qt quantile residuals runif
 #' sd splinefun summary.glm summary.lm update update.formula
 #' vcov weights
+#' @importFrom data.table as.data.table .SD :=
+
 
 #############################################
 #undefined globals

@@ -45,8 +45,22 @@
 #' and \code{\link{quantBreakSegments}}
 #' @author Karl Ropkins
 #' @references
-#' Ropkins et al (In Prep).
+#' Ropkins, K. and Tate, J.E., 2021. Early observations on the impact of the
+#' COVID-19 lockdown on air quality trends across the UK. Science of the
+#' Total Environment, 754, p.142374.
+#' https://doi.org/10.1016/j.scitotenv.2020.142374
 #'
-#' @docType package
-#' @name AQEval
+#' Ropkins, K., Tate, J.E., Walker, A. and Clark, T., 2022. Measuring the
+#' impact of air quality related interventions. Environmental Science:
+#' Atmospheres, 2(3), pp.500-516. https://doi.org/10.1039/d1ea00073j
+#'
+#' Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
+#' Tate, J., Change Detection of Air Quality Time-Series Using the
+#' R Package AEQval. Available at SSRN 4267722.
+#' https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
+#' Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
+#'
+#' @name AQEval-package
+#' @aliases AQEval
+#' "_PACKAGE"
 NULL
