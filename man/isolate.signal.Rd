@@ -96,7 +96,7 @@ factors that may hinder break-point/segment analysis:
  is equivalent to \code{te(ws, wd)}.
 }
 Using the supplied arguments, it builds a signal
-(\code{\link{mgcv}}) GAM model, calculates,
+(\code{\link[mgcv]{mgcv}}) GAM model, calculates,
 and returns the mean-centred residuals as an
 estimate of the isolated local contribution.
 }
@@ -122,23 +122,27 @@ quantBreakPoints(temp, "no2", test=FALSE, h=0.1)
 quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
 }
 \references{
-Regarding \code{\link{mgcv}} GAM fitting methods, see
+Regarding \code{\link[mgcv]{mgcv}} GAM fitting methods, see
 Wood (2017) for general introduction and package
-documentation regarding coding (\code{\link{mgcv}}):
+documentation regarding coding (\code{\link[mgcv]{mgcv}}):
 
 Wood, S.N. (2017) Generalized Additive Models:
 an introduction with R (2nd edition), Chapman and Hall/CRC.
 
 Regarding \code{isolateContribution}, see:
 
-Ropkins et al (In Prep).
+Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
+Tate, J., Change Detection of Air Quality Time-Series Using the
+R Package AEQval. Available at SSRN 4267722.
+https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
+Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 }
 \seealso{
 Regarding seasonal terms and frequency
 analysis, see also \code{\link{stl}} and
 \code{\link{spectralFrequency}}.
 
-\code{\link{mgcv}}, \code{\link{gam}}.
+\code{\link[mgcv]{mgcv}}, \code{\link[mgcv]{gam}}.
 }
 \author{
 Karl Ropkins

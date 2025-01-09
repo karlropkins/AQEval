@@ -35,7 +35,7 @@
 #' report.
 #' @references
 #' Regarding \code{strucchange} methods see
-#' \code{\link{breakpoints}}, and:
+#' \code{\link[strucchange]{breakpoints}}, and:
 #'
 #' Achim Zeileis, Friedrich Leisch, Kurt Hornik and Christian Kleiber
 #' (2002). strucchange: An R Package for Testing for Structural Change
@@ -53,7 +53,11 @@
 #'
 #' Regarding \code{testBreakPoints}, see:
 #'
-#' Ropkins et al (In Prep).
+#' Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
+#' Tate, J., Change Detection of Air Quality Time-Series Using the
+#' R Package AEQval. Available at SSRN 4267722.
+#' https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
+#' Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 #' @seealso
 #' \code{\link{find.breaks}}.
 

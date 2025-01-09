@@ -71,8 +71,8 @@
 #' @seealso
 #' \code{\link{DateTimeClasses}}
 #'
-#' \code{\link{openair}}: functions \code{\link{importAURN}} and
-#' \code{\link{importKCL}}
+#' \code{\link[openair]{openair}}: functions \code{\link[openair]{importAURN}} and
+#' \code{\link[openair]{importKCL}}
 #'
 #' \code{worldmet}: function \code{importNOAA} (See References)
 #'

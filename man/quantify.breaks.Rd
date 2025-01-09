@@ -200,9 +200,9 @@ https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
 Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 }
 \seealso{
-\code{\link{timeAverage}} in \code{openair},
-\code{\link{breakpoints}} in \code{strucchange}, and
-\code{\link{segmented}} in \code{segmented}.
+\code{\link[openair]{timeAverage}} in \code{openair},
+\code{\link[strucchange]{breakpoints}} in \code{strucchange}, and
+\code{\link[segmented]{segmented}} in \code{segmented}.
 }
 \author{
 Karl Ropkins
