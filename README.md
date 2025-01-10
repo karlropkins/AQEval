@@ -23,7 +23,7 @@ policy interventions.
 
 ## Installation
 
-Get the current release version of **AQEval** (v0.5.7) from
+Get the current release version of **AQEval** from
 [CRAN](https://cran.r-project.org/)
 ([archive](https://CRAN.R-project.org/package=AQEval)):
 

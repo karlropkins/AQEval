@@ -29,7 +29,7 @@ of air quality policy interventions.
 
 ## Installation
 
-Get the current release version of __AQEval__ (v`r available.packages(repos = "https://cran.r-project.org/")["AQEval", "Version"]`) from [CRAN](https://cran.r-project.org/) ([archive](https://CRAN.R-project.org/package=AQEval)):
+Get the current release version of __AQEval__ from [CRAN](https://cran.r-project.org/) ([archive](https://CRAN.R-project.org/package=AQEval)):
 
 ```{r, eval=FALSE}
 install.packages("AQEval")
