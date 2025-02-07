@@ -37,7 +37,7 @@
 #' this allows user to set the signal isolation model formula
 #' directly, but means function arguments \code{background},
 #' \code{deseason} and \code{deweather} will be ignored.
-#' @param{use.bam} (logical) If TRUE, the \code{bam} is used instead of
+#' @param use.bam (logical) If TRUE, the \code{bam} is used instead of
 #' standard \code{gam} to build the model.
 #' @param output output options; currently, \code{'mean'}, \code{'model'},
 #' and \code{'all'}; but please note these are in development and may be
