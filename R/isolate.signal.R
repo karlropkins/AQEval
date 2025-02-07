@@ -37,6 +37,8 @@
 #' this allows user to set the signal isolation model formula
 #' directly, but means function arguments \code{background},
 #' \code{deseason} and \code{deweather} will be ignored.
+#' @param{use.bam} (logical) If TRUE, the \code{bam} is used instead of
+#' standard \code{gam} to build the model.
 #' @param output output options; currently, \code{'mean'}, \code{'model'},
 #' and \code{'all'}; but please note these are in development and may be
 #' subject to change.
@@ -114,6 +116,24 @@
 
 #isolateContribtion function
 ##################################
+
+# doing
+##################################
+
+# testing bam alternative to gam
+#     (following conversations with Dennis...)
+#     doing this via use.bam argument
+#         just switches gam() to bam()
+#         (both used predict.gam...)
+# # test code
+# aq.data$dswb.no2 <- isolateContribution(aq.data, "no2", background="bg.no2")
+# aq.data$dswb.no2b <- isolateContribution(aq.data, "no2", background="bg.no2", use.bam = T)
+# plot(aq.data$dswb.no2, aq.data$dswb.no2b)
+# # end
+#    look a little different... not a lot but still...
+#    need to to check this out further
+
+
 #to do
 ##################################
 #test
@@ -149,6 +169,8 @@ function(data, pollutant, background = NULL,
          deseason = TRUE, deweather = TRUE,
          method = 2, add.term = NULL,
          formula = NULL,
+#testing gam/bam switch
+         use.bam = FALSE,
          output = "mean",
          ...){
 
@@ -191,7 +213,7 @@ function(data, pollutant, background = NULL,
       #make formula
       ff <- ""
       if(!is.null(background)){
-        ff <- paste(ff, "+s(", background, ")")
+        ff <- paste(ff, "+s(", background, ")", sep="")
       }
       if(length(deweather)>0){
         if("wd" %in% deweather & "ws" %in% deweather){
@@ -274,6 +296,7 @@ function(data, pollutant, background = NULL,
       #}
     }
 
+
     ref <- unique(all.vars(ff))
     if(length(ref[ref %in% c("year.day", "week.day", "day.hour")])>0){
       ref <- unique(c("date", ref))
@@ -328,13 +351,20 @@ function(data, pollutant, background = NULL,
     ####################
 
     #think about how we do/document this...
+    ####################
+## maybe add bam/gam if use.bam stays ???
+## also need to think about how to work it into code...
     message(paste(as.character(ff)[c(2,1,3)],
               sep="", collapse = " "))
 
     ############################
     #model
     ############################
-    mod <- gam(ff, data=data)
+    mod <- if(use.bam){
+      bam(ff, data=data)
+    } else {
+      gam(ff, data=data)
+    }
     if("model" %in% output)
       return(mod)
     temp <- predict.gam(mod)

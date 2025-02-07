@@ -2,6 +2,8 @@
 
 * Package updates 
     * __v 0.6.0__ [2024-12-19] added data.table method to calcDateRangeStat 
+    * __v 0.6.0__ [2025-01-09] CRAN update 
+    * __v 0.6.1__ [2025-02-07] added/testing use.bam option to isolateContribution (might not be staying) 
  
 # AQEval version 0.5
 

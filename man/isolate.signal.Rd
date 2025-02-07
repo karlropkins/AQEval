@@ -14,6 +14,7 @@ isolateContribution(
   method = 2,
   add.term = NULL,
   formula = NULL,
+  use.bam = FALSE,
   output = "mean",
   ...
 )
@@ -62,6 +63,9 @@ and \code{'all'}; but please note these are in development and may be
 subject to change.}
 
 \item{...}{other arguments; ignore for now (in development)}
+
+\item{{use.bam}}{(logical) If TRUE, the \code{bam} is used instead of
+standard \code{gam} to build the model.}
 }
 \value{
 \code{isolateContribution} returns a vector of
