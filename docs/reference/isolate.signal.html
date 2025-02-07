@@ -11,7 +11,7 @@ deseasonalisation and/or deweathering."><meta property="og:image" content="https
 
     <a class="navbar-brand me-2" href="../index.html">AQEval</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,7 @@ deseasonalisation and/or deweathering.</p>
 <span>  method <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  add.term <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  formula <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  use.bam <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  output <span class="op">=</span> <span class="st">"mean"</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -130,6 +131,11 @@ subject to change.</p></dd>
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>other arguments; ignore for now (in development)</p></dd>
 
+
+<dt id="arg-use-bam">use.bam<a class="anchor" aria-label="anchor" href="#arg-use-bam"></a></dt>
+<dd><p>(logical) If TRUE, the <code>bam</code> is used instead of
+standard <code>gam</code> to build the model.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -158,7 +164,7 @@ factors that may hinder break-point/segment analysis:</p><ul><li><p><strong>Back
  as spline term <code>s(term)</code>. The default <code>TRUE</code>
  is equivalent to <code>te(ws, wd)</code>.</p></li>
 </ul><p>Using the supplied arguments, it builds a signal
-(<code>mgcv</code>) GAM model, calculates,
+(<code><a href="https://rdrr.io/pkg/mgcv/man/mgcv-package.html" class="external-link">mgcv</a></code>) GAM model, calculates,
 and returns the mean-centred residuals as an
 estimate of the isolated local contribution.</p>
     </div>
@@ -170,20 +176,24 @@ Please ignore for now.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Regarding <code>mgcv</code> GAM fitting methods, see
+    <p>Regarding <code><a href="https://rdrr.io/pkg/mgcv/man/mgcv-package.html" class="external-link">mgcv</a></code> GAM fitting methods, see
 Wood (2017) for general introduction and package
-documentation regarding coding (<code>mgcv</code>):</p>
+documentation regarding coding (<code><a href="https://rdrr.io/pkg/mgcv/man/mgcv-package.html" class="external-link">mgcv</a></code>):</p>
 <p>Wood, S.N. (2017) Generalized Additive Models:
 an introduction with R (2nd edition), Chapman and Hall/CRC.</p>
 <p>Regarding <code>isolateContribution</code>, see:</p>
-<p>Ropkins et al (In Prep).</p>
+<p>Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
+Tate, J., Change Detection of Air Quality Time-Series Using the
+R Package AEQval. Available at SSRN 4267722.
+https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
+Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Regarding seasonal terms and frequency
 analysis, see also <code><a href="https://rdrr.io/r/stats/stl.html" class="external-link">stl</a></code> and
 <code><a href="spectral.analysis.html">spectralFrequency</a></code>.</p>
-<p><code>mgcv</code>, <code>gam</code>.</p></div>
+<p><code><a href="https://rdrr.io/pkg/mgcv/man/mgcv-package.html" class="external-link">mgcv</a></code>, <code><a href="https://rdrr.io/pkg/mgcv/man/gam.html" class="external-link">gam</a></code>.</p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -197,7 +207,7 @@ analysis, see also <code><a href="https://rdrr.io/r/stats/stl.html" class="exter
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">aq.data</span><span class="op">$</span><span class="va">dswb.no2</span> <span class="op">&lt;-</span> <span class="fu">isolateContribution</span><span class="op">(</span><span class="va">aq.data</span>,</span></span>
 <span class="r-in"><span>                        <span class="st">"no2"</span>, background<span class="op">=</span><span class="st">"bg.no2"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> no2 ~ +s(bg.no2) + te(wd, ws) + s(year.day) + s(day.hour)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> no2 ~ s(bg.no2) + te(wd, ws) + s(year.day) + s(day.hour)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">#compare at 14 day resolution:</span></span></span>
 <span class="r-in"><span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu">openair</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/openair/man/timeAverage.html" class="external-link">timeAverage</a></span><span class="op">(</span><span class="va">aq.data</span>, <span class="st">"14 day"</span><span class="op">)</span></span></span>
