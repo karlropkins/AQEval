@@ -104,7 +104,7 @@ using break-points, and then characterising and quantifying ‘regions of change
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:intro"}  
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:intro} 
 
 Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
 trafficked site in central London where a change event (*ca.* 25 $\mu .m^{-3}^ $ ; 31%) is detected between 2003-01-11 
@@ -147,16 +147,16 @@ used in Figures 2 and 3 is provided in the package introduction
 [https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
 Other work using AQEval include:
 
--	Ropkins & Tate (2021; https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
+-	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
   reporting on a multi-species AQEval analysis of the air quality impact of the COVID-19 lockdown 
   in the UK. 
--	Ropkins et al (2022; https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
+-	[Ropkins et al (20220](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
   the use of AQEval to measure the impact of a bus fleet intervention on NO~2~ levels. 
 -	Also Clear Air Zone (CAZ) impact assessment reports include analyses using AQEval, see e.g.: 
-    - CAZ Baseline Study (https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
-    - First Year Report (https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf) 
-    -	… 
-    - Report archive (https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688) 
+    - [CAZ Baseline Study](https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
+    - [First Year Report](https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf) 
+    -	(...) 
+    - [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688) 
 
 # Acknowledgements 
 
@@ -165,7 +165,7 @@ Initial AQEval development was funded by the UK Department for Environment, Food
 of Leeds, Defra and IPSOS Mori, and input from the Defra/Department for Transport Joint Air Quality 
 Unit (JAQU) Technical Independent Review Panel (T-IRP) as part of internal review. The authors also 
 gratefully acknowledge the work of the R core team and their many collaborators in developing and 
-maintaining the open-source statistical language R and associated packages (http://www.r-project.org/).  
+maintaining the open-source statistical language R and associated packages [http://www.r-project.org/](http://www.r-project.org/).  
 
 The views and opinions expressed herein by the authors are their own and do not necessarily reflect those 
 of UK Government or any agency thereof.
