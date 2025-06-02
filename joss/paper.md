@@ -89,7 +89,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 
 1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
-   a first subset of data (or time-series window, TW~0~ in \ref{fig:1} Figure 1a), is selected and a linear 
+   a first subset of data (or time-series window, TW~0~ in \ref{fig_1}a Figure 1a), is selected and a linear 
    regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
    Figure 1a) and a second model build; and so on, until the end of the time-series; then, 
    points of likely change are identified using the F-Stat measure of difference for sequential 
@@ -104,7 +104,7 @@ using break-points, and then characterising and quantifying ‘regions of change
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:1"} 
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig_1"} 
 
 
 Figure 2 \ref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily trafficked 
