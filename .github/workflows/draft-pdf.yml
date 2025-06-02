@@ -1,6 +1,11 @@
 name: Draft PDF
-on: workflow_dispatch
-
+on:
+  workflow_dispatch:
+    paths:
+      - joss/paper.md
+      - joss/paper.bib
+      - joss/assets/figure_1.png
+      - .github/workflows/draft-pdf.yml
 jobs:
   paper:
     runs-on: ubuntu-latest
