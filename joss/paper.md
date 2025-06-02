@@ -36,7 +36,7 @@ bibliography: paper.bib
 
 # Summary
 
-AQEval (Air Quality Evaluation) is an R package of functions for the routine investigation 
+`AQEval` (Air Quality Evaluation) is an `R` package of functions for the routine investigation 
 of discrete changes in air quality time-series, e.g. assessing the impact of interventions 
 and/or pollution events. The main functions use break-point/segmentation (BP/S) methods to 
 detect, characterise and quantify change, while other functions build on these to provide 
@@ -53,31 +53,30 @@ benefits are often hard to measure because of the inherent variability of air qu
 [@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. 
 
 Various methods have been developed to investigate discrete changes in a wide range of time-series 
-[see e.g. @reeves2007review; @truong2020selective], and several R [@r2025r] packages have 
-been developed for their use, e.g. bcp [@erdman2008bcp], changepoint [@killick2016changepoint], 
-segmented [@muggeo2008segmented], and strucchange [@zeileis2002strucchange]. Some have even 
+[see e.g. @reeves2007review; @truong2020selective], and several `R` [@r2025r] packages have 
+been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killick2016changepoint], 
+`segmented` [@muggeo2008segmented], and `strucchange` [@zeileis2002strucchange]. Some have even 
 been applied to the detection of large changes in air quality time-series [@carslaw2006change], 
 and with additional signal isolation to smaller changes [@carslaw2007detecting]. However, 
 those tasked with air quality data analysis, although highly skilled in a wide range of air 
 quality monitoring and assessment activities, are unlike to be able to dedicate sufficient 
 time and funding to the development of in-house expertise required to routinely apply these. 
 
-AQEval was developed to address this skill gap. It aligns the inputs and outputs of a number 
-of statistical methods to provide a one-package option for anyone interested in using R to 
+`AQEval` was developed to address this skill gap. It aligns the inputs and outputs of a number 
+of statistical methods to provide a one-package option for anyone interested in using `R` to 
 routinely detect, characterise and quantify discrete change in air quality data. 
 
-As many 
-air quality professionals already use the R package openair [@carslaw2012openair; @ropkins2012openair] 
-for more conventional analysis and data visualisation, AQEval has also been written using 
-openair coding conventions and function structure to reduce the learning-curve typical 
-associated with learning new software. 
+As many air quality professionals already use the `R` package `openair` 
+[@carslaw2012openair; @ropkins2012openair] for more conventional analysis and data visualisation, 
+`AQEval` has also been written using `openair` coding conventions and function structure to reduce 
+the learning-curve typical associated with learning new software. 
 
 
 # Sources
 
-AQEval is freely available under General Public License (GPL) from conventional on-line R archives: 
+`AQEval` is freely available under General Public License (GPL) from conventional on-line R archives: 
 
--	The latest (stable) release version of AQEval is on the Comprehensive R Archive Network (CRAN) at 
+-	The latest (stable) release version of `AQEval` is on the Comprehensive R Archive Network (CRAN) at 
 [https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval); and, 
 -	The developers’ version and code are publicly available on GitHub at 
 [https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), which can also be 
@@ -87,23 +86,23 @@ used to report issues or suggest changes.
 
 # Analytical Rationale
 
-The AQEval Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points of change’, 
+The `AQEval` Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points of change’, 
 using break-points, and then characterising and quantifying ‘regions of change’ about these as segments:  
 
-1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
+1. Breaks-points are found using the `strucchange` methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
    a first subset of data (or time-series window, TW~0~ in \autoref{fig:1}a), is selected and a linear 
    regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
    \autoref{fig:1}a) and a second model build; and so on, until the end of the time-series; then, 
    points of likely change are identified using the F-Stat measure of difference for sequential 
    models. 
-2. In addition to the standard Bayesian Information Criterion (BIC) testing used by strucchange, 
-   AQEval also checks that all terms associated which each break-point are statistically valid 
+2. In addition to the standard Bayesian Information Criterion (BIC) testing used by `strucchange`, 
+   `AQEval` also checks that all terms associated which each break-point are statistically valid 
    (p<0.05), discarding any combinations generating invalid models. This approach was selected 
    on the basis of simulation testing.
-3. Finally, the segmented methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
+3. Finally, the `segmented` methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
    @muggeo2017interval] are used to extend the break-point to break-segments. Here, the confidence 
-   intervals for the selected break-points are used as the start points when building the segmented 
+   intervals for the selected break-points are used as the start points when building the `segmented` 
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in \autoref{fig:1}b.    
 
@@ -118,8 +117,8 @@ and 2003-02-19, and detected using standard break-point/segment analysis.
 In some cases changes are small or local air inputs are complex, and time-series may require additional 
 pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
 is several years long, a small change may be hidden by seasonally variability in meteorological 
-contributions. AQEval includes Generalized Additive Model (GAM) based methods 
-[based on mgcv, @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
+contributions. `AQEval` includes Generalized Additive Model (GAM) based methods 
+[based on `mgcv`, @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
 By default, these take the form: 
 
 <center>*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*</center>
@@ -145,17 +144,17 @@ observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 2
 
 # Related Outputs 
 
-Detailed descriptions of the AQEval functions, and an extended discussion and analysis of the examples 
-used in Figures \ref{fig:2} and \ref{fig:3} is provided in the package introduction 
-[https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
-Other work using AQEval include:
+Detailed descriptions of the `AQEval` functions, and an extended discussion and analysis of the examples 
+used in Figures \ref{fig:2} and \ref{fig:3} is provided in the 
+[extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
+Other work using `AQEval` include:
 
 -	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
   reporting on a multi-species AQEval analysis of the air quality impact of the COVID-19 lockdown 
   in the UK. 
 -	[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
-  the use of AQEval to measure the impact of a bus fleet intervention on NO~2~ levels. 
--	Also Clear Air Zone (CAZ) impact assessment reports include analyses using AQEval, see e.g.: 
+  the use of `AQEval` to measure the impact of a bus fleet intervention on NO~2~ levels. 
+-	Also Clear Air Zone (CAZ) impact assessment reports include analyses using `AQEval`, see e.g.: 
     - [CAZ Baseline Study](https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
     - [First Year Report](https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf) 
     -	(...) 
@@ -163,7 +162,7 @@ Other work using AQEval include:
 
 # Acknowledgements 
 
-Initial AQEval development was funded by the UK Department for Environment, Food and Rural Affairs 
+Initial `AQEval` development was funded by the UK Department for Environment, Food and Rural Affairs 
 (Defra).  The authors gratefully acknowledge contributions and input from colleagues at University 
 of Leeds, Defra and IPSOS Mori, and input from the Defra/Department for Transport Joint Air Quality 
 Unit (JAQU) Technical Independent Review Panel (T-IRP) as part of internal review. The authors also 
