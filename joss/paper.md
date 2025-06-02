@@ -104,27 +104,26 @@ using break-points, and then characterising and quantifying ‘regions of change
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png)\label{fig:intro}  
-
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:intro"}  
 
 Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
 trafficked site in central London where a change event (*ca.* 25 µg.m-3; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
-![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png)\label{fig_2} 
+![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){label="fig_2"} 
 
 In some cases changes are small or local air inputs are complex, and time-series may require additional 
 pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
 is several years long, a small change may be hidden by seasonally variability in meteorological 
 contributions. AQEval includes Generalized Additive Model (GAM) based methods 
-[based on mgcv; @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
+[based on mgcv, @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
 By default, these take the form: 
 
-$$[pollutant] = s_1(day-of-year) + s_2(hour-of-day) + te_1(wind speed, wind direction)$$
+*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*
 
-$$[pollutant]_isolated_ = ([pollutant] - [pollutant]_predicted_) + mean(pollutant)$$
+*[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)*
 
-Where the investigate pollutant concentration, [pollutant], is modelled as a function of 
+Where the investigate pollutant concentration, *[pollutant]*, is modelled as a function of 
 day-of year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
 tensor (*te~1~*) fit-terms, and the unmodelled component is estimated as the mean-centred residual 
 of this model.
