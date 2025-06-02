@@ -73,20 +73,36 @@ associated with learning new software.
 AQEval is freely available under General Public License (GPL) from conventional on-line R archives: 
 
 -	The latest (stable) release version of AQEval is on the Comprehensive R Archive Network (CRAN) at 
-https://CRAN.R-project.org/package=AQEval; and, 
--	The developers’ version and code are publicly available on GitHub at https://github.com/karlropkins/AQEval, 
-which can also be used to report issues or suggest changes. 
--	The project website is at https://karlropkins.github.io/AQEval/.
+[https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval); and, 
+-	The developers’ version and code are publicly available on GitHub at 
+[https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), which can also be 
+used to report issues or suggest changes. 
+-	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/).
 
 
-## Analytical Rationale
+# Analytical Rationale
 
-The AQEval Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points of change’, using break-points, and then characterising and quantifying ‘regions of change’ about these as segments: 
-1.	Breaks-points are found using the strucchange methods of Zeileis and colleagues (Zeileis et al. 2002, 2003). Here, a rolling-window approach is applied: a first subset of data (or time-series window, TW0 in Figure 1a), is selected and a linear regression model built; the window is then rolled on, typically one measurement (TW1 in Figure 1a) and a second model build; and so on, until the end of the time-series; then, points of likely change are identified using the F-Stat measure of difference for sequential models. 
-2.	In addition to the standard Bayesian Information Criterion (BIC) testing used by strucchange, AQEval also checks that all terms associated which each break-point are statistically valid (p<0.05), discarding any combinations generating invalid models. This approach was selected on the basis of simulation testing.
-3.	Finally, the segmented methods of Muggeo (2003, 2008, 2017) are used to extend the break-point to break-segments. Here, the confidence intervals for the selected break-points are used as the start points when building the segmented model, and final segment ranges are assigned based on random walk testing the regions about these points as illustrated in Figure 1b.    
+The AQEval Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points of change’, 
+using break-points, and then characterising and quantifying ‘regions of change’ about these as segments:  
 
-[insert figure 1 about here]
+1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
+   [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
+   a first subset of data (or time-series window, TW0 in Figure 1a), is selected and a linear 
+   regression model built; the window is then rolled on, typically one measurement (TW1 in 
+   Figure 1a) and a second model build; and so on, until the end of the time-series; then, 
+   points of likely change are identified using the F-Stat measure of difference for sequential 
+   models. 
+2. In addition to the standard Bayesian Information Criterion (BIC) testing used by strucchange, 
+   AQEval also checks that all terms associated which each break-point are statistically valid 
+   (p<0.05), discarding any combinations generating invalid models. This approach was selected 
+   on the basis of simulation testing.
+3. Finally, the segmented methods of Muggeo (2003, 2008, 2017) are used to extend the break-point 
+   to break-segments. Here, the confidence intervals for the selected break-points are used as the 
+   start points when building the segmented model, and final segment ranges are assigned based on 
+   random walk testing the regions about these points as illustrated in Figure 1b.    
+
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png)
+
 
 Figure 2 shows the break-point/segment analysis of an NO2 time-series from a heavily trafficked site in central London where a change event (ca. 25 µg.m-3; 31%) is detected between 2003-01-11 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
