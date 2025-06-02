@@ -43,14 +43,16 @@ detect, characterise and quantify change, while other functions build on these t
 a workflow for those looking to measure smaller changes and/or changes in more complex 
 environments. 
 
+
 # Statement of Need
 
 Authorities responsible for air quality management are typically required to implement and 
 evaluate the air quality interventions they adopt [@bradley2019review]. These interventions 
 are often costly, disruptive and unpopular [@glazener2019transforming], and associated 
 benefits are often hard to measure because of the inherent variability of air quality data 
-[@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. Various 
-methods have been developed to investigate discrete changes in a wide range of time-series 
+[@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. 
+
+Various methods have been developed to investigate discrete changes in a wide range of time-series 
 [see e.g. @reeves2007review; @truong2020selective], and several R [@r2025r] packages have 
 been developed for their use, e.g. bcp [@erdman2008bcp], changepoint [@killick2016changepoint], 
 segmented [@muggeo2008segmented], and strucchange [@zeileis2002strucchange]. Some have even 
@@ -69,6 +71,7 @@ air quality professionals already use the R package openair [@carslaw2012openair
 for more conventional analysis and data visualisation, AQEval has also been written using 
 openair coding conventions and function structure to reduce the learning-curve typical 
 associated with learning new software. 
+
 
 # Sources
 
@@ -107,7 +110,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 $\\mu$g.m^-3^; 31%) is detected between 2003-01-11 
+trafficked site in central London where a change event (*ca.* 25 $\mu$ g.m^-3^; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
@@ -132,10 +135,10 @@ This default correction can also be modified to include other potential confound
 frequency terms (e.g. day-of-week and/or week-of-year), background contributions (by subtraction 
 of local variance associated with trends at near-by site not affected by the investigated change), 
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
-markers for other sources, etc). Figure 3a shows the break-point analysis of NO~2~ from a nearby but 
-less heavily trafficked site where seasonality dominates the time-series, and Figure 3b shows the 
+markers for other sources, etc). \autoref{fig:3}a shows the break-point analysis of NO~2~ from a nearby but 
+less heavily trafficked site where seasonality dominates the time-series, and \autoref{fig:3}b shows the 
 smaller (*ca.* 6.6 µg.m-3; 13%) underlying change-event observed at a similar time to the large change 
-observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-21 compared with 
+observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 2002-12-21 compared with 
 2003-01-11 and 2003-02-19).  
 
 ![AQEval analysis of NO~2~ 1998-2005 time-series at Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}   
