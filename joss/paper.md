@@ -107,7 +107,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:intro"}  
 
 Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 µg.m-3; 31%) is detected between 2003-01-11 
+trafficked site in central London where a change event (*ca.* 25 $$\mu.m^-3^$$; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){label="fig_2"} 
@@ -124,9 +124,9 @@ By default, these take the form:
 *[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)*
 
 Where the investigate pollutant concentration, *[pollutant]*, is modelled as a function of 
-day-of year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
-tensor (*te~1~*) fit-terms, and the unmodelled component is estimated as the mean-centred residual 
-of this model.
+day-of-year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
+tensor (*te~1~*) fit-terms, and the unmodelled component, *[pollutant]~isolated*, is estimated as the 
+mean-centred residual of this model.
   
 This default correction can also be modified to include other potential confounders, e.g. other 
 frequency terms (e.g. day-of-week and/or week-of-year), background contributions (by subtraction 
@@ -134,7 +134,7 @@ of local variance associated with trends at near-by site not affected by the inv
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). Figure 3a shows the break-point analysis of NO~2~ from a nearby but 
 less heavily trafficked site where seasonality dominates the time-series, and Figure 3b shows the 
-smaller (*ca.* 6.6; 13%) underlying change-event observed at a similar time to the large change 
+smaller (*ca.* 6.6 µg.m-3; 13%) underlying change-event observed at a similar time to the large change 
 observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-21 compared with 
 2003-01-11 and 2003-02-19).  
 
