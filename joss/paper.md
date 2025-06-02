@@ -25,13 +25,11 @@ authors:
     - name: James E. Tate
       orcid: 0000-0003-1646-6852
       affiliation: "1"
-
 affiliations:
     - index: 1
       name: Institute for Transport Studies, University of Leeds, Leeds, LS2 9JT, UK
     - index: 2
       name: Joint Air Quality Unit, Department for Transport & Department for Environment, Food and Rural Affairs, Marsham Street London, SW1P 4DF, UK
-
 date: 2 June 2025
 bibliography: paper.bib
 ---
