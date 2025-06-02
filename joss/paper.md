@@ -89,7 +89,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 
 1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
-   a first subset of data (or time-series window, TW~0~ in \ref{fig_1}a Figure 1a), is selected and a linear 
+   a first subset of data (or time-series window, TW~0~ in \autoref{fig_1}a Figure 1a), is selected and a linear 
    regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
    Figure 1a) and a second model build; and so on, until the end of the time-series; then, 
    points of likely change are identified using the F-Stat measure of difference for sequential 
@@ -107,11 +107,11 @@ using break-points, and then characterising and quantifying ‘regions of change
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig_1"} 
 
 
-Figure 2 \ref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily trafficked 
-site in central London where a change event (ca. 25 µg.m-3; 31%) is detected between 2003-01-11 and 
-2003-02-19, and detected using standard break-point/segment analysis. 
+Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
+trafficked site in central London where a change event (*ca* 25 µg.m-3; 31%) is detected between 2003-01-11 
+and 2003-02-19, and detected using standard break-point/segment analysis. 
 
-![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png)\label{fig:2} 
+![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){label="fig_2"} 
 
 In some cases changes are small or local air inputs are complex, and time-series may require additional 
 pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
