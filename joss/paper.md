@@ -117,8 +117,8 @@ In some cases changes are small or local air inputs are complex, and time-series
 pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
 is several years long, a small change may be hidden by seasonally variability in meteorological 
 contributions. AQEval includes Generalized Additive Model (GAM) based methods 
-(based on mgcv; Wood 2017, Wood 2021) to build and subtract such variance. By default, these take the 
-form: 
+[based on mgcv; @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
+By default, these take the form: 
 
 $$[pollutant] = s_1(day-of-year) + s_2(hour-of-day) + te_1(wind speed, wind direction)$$
 
@@ -139,7 +139,7 @@ smaller (*ca.* 6.6; 13%) underlying change-event observed at a similar time to t
 observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-21 compared with 
 2003-01-11 and 2003-02-19).  
 
-[insert figure 3 a and b about here]
+![AQEval analysis of NO~2~ 1998-2005 time-series at Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){label="fig:3"}  
 
 # Related Outputs 
 

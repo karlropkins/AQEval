@@ -6,6 +6,7 @@ on:
       - joss/paper.bib
       - joss/assets/figure_1.png
       - joss/assets/figure_2.png
+      - joss/assets/figure_3.png
       - .github/workflows/draft-pdf.yml
 jobs:
   paper:
