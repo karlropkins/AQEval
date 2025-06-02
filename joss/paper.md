@@ -49,19 +49,34 @@ Authorities responsible for air quality management are typically required to imp
 evaluate the air quality interventions they adopt [@bradley2019review]. These interventions 
 are often costly, disruptive and unpopular [@glazener2019transforming], and associated 
 benefits are often hard to measure because of the inherent variability of air quality data 
-([@kelly2011impact]; [@pearce2011quantifying]; [@jones2012large]; [@grange2019using]). 
-Various methods have been developed to investigate discrete changes in a wide range of 
-time-series (see e.g. Reeves et al, 2007; Truong at al, 2020), and several R (R Core Team, 2020) packages have been developed for their use, e.g. bcp (Erdman & Emerson, 2007), changepoint (Killick et al, 2016), segmented (Muggeo, 2008), and strucchange (Zeileis et al, 2002). Some have even been applied to the detection of large changes in air quality time-series (Carslaw et al, 2006), and with additional signal isolation to smaller changes (Carslaw & Carslaw, 2007). However, those tasked with air quality data analysis, although highly skilled in a wide range of air quality monitoring and assessment activities, are unlike to be able to dedicate sufficient time and funding to the development of in-house expertise required to routinely apply these. 
+[@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. Various 
+methods have been developed to investigate discrete changes in a wide range of time-series 
+[see e.g. @reeves2007review; @truong2020selective], and several R [@r2025r] packages have 
+been developed for their use, e.g. bcp [@erdman2008bcp], changepoint [@killick2016changepoint], 
+segmented [@muggeo2008segmented], and strucchange [@zeileis2002strucchange]. Some have even 
+been applied to the detection of large changes in air quality time-series [@carslaw2006change], 
+and with additional signal isolation to smaller changes [@carslaw2007detecting]. However, 
+those tasked with air quality data analysis, although highly skilled in a wide range of air 
+quality monitoring and assessment activities, are unlike to be able to dedicate sufficient 
+time and funding to the development of in-house expertise required to routinely apply these. 
 
-AQEval was developed to address this skill gap. It aligns the inputs and outputs of a number of statistical methods to provide a one-package option for anyone interested in using R to routinely detect, characterise and quantify discrete change in air quality data. As many air quality professionals already use the R package openair (Carslaw & Ropkins, 2012; Ropkins & Carslaw, 2012) for more conventional analysis and data visualisation, AQEval has also been written using openair coding conventions and function structure to reduce the learning-curve typical associated with learning new software. 
+AQEval was developed to address this skill gap. It aligns the inputs and outputs of a number 
+of statistical methods to provide a one-package option for anyone interested in using R to 
+routinely detect, characterise and quantify discrete change in air quality data. As many 
+air quality professionals already use the R package openair [@carslaw2012openair; @ropkins2012openair] 
+for more conventional analysis and data visualisation, AQEval has also been written using 
+openair coding conventions and function structure to reduce the learning-curve typical 
+associated with learning new software. 
 
-
-## Sources
+# Sources
 
 AQEval is freely available under General Public License (GPL) from conventional on-line R archives: 
-•	The latest (stable) release version of AQEval is on the Comprehensive R Archive Network (CRAN) at https://CRAN.R-project.org/package=AQEval; and, 
-•	The developers’ version and code are publicly available on GitHub at https://github.com/karlropkins/AQEval, which can also be used to report issues or suggest changes. 
-•	The project website is at https://karlropkins.github.io/AQEval/.
+
+-	The latest (stable) release version of AQEval is on the Comprehensive R Archive Network (CRAN) at 
+https://CRAN.R-project.org/package=AQEval; and, 
+-	The developers’ version and code are publicly available on GitHub at https://github.com/karlropkins/AQEval, 
+which can also be used to report issues or suggest changes. 
+-	The project website is at https://karlropkins.github.io/AQEval/.
 
 
 ## Analytical Rationale
