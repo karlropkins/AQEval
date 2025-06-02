@@ -62,7 +62,9 @@ time and funding to the development of in-house expertise required to routinely 
 
 AQEval was developed to address this skill gap. It aligns the inputs and outputs of a number 
 of statistical methods to provide a one-package option for anyone interested in using R to 
-routinely detect, characterise and quantify discrete change in air quality data. As many 
+routinely detect, characterise and quantify discrete change in air quality data. 
+
+As many 
 air quality professionals already use the R package openair [@carslaw2012openair; @ropkins2012openair] 
 for more conventional analysis and data visualisation, AQEval has also been written using 
 openair coding conventions and function structure to reduce the learning-curve typical 
@@ -87,8 +89,8 @@ using break-points, and then characterising and quantifying ‘regions of change
 
 1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
-   a first subset of data (or time-series window, TW0 in Figure 1a), is selected and a linear 
-   regression model built; the window is then rolled on, typically one measurement (TW1 in 
+   a first subset of data (or time-series window, TW~0~ in \ref{fig:1} Figure 1a), is selected and a linear 
+   regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
    Figure 1a) and a second model build; and so on, until the end of the time-series; then, 
    points of likely change are identified using the F-Stat measure of difference for sequential 
    models. 
@@ -96,12 +98,13 @@ using break-points, and then characterising and quantifying ‘regions of change
    AQEval also checks that all terms associated which each break-point are statistically valid 
    (p<0.05), discarding any combinations generating invalid models. This approach was selected 
    on the basis of simulation testing.
-3. Finally, the segmented methods of Muggeo (2003, 2008, 2017) are used to extend the break-point 
-   to break-segments. Here, the confidence intervals for the selected break-points are used as the 
-   start points when building the segmented model, and final segment ranges are assigned based on 
-   random walk testing the regions about these points as illustrated in Figure 1b.    
+3. Finally, the segmented methods of @muggeo2003estimating; @muggeo2008segmented; @muggeo2017interval 
+   are used to extend the break-point to break-segments. Here, the confidence intervals for the 
+   selected break-points are used as the start points when building the segmented model, and final 
+   segment ranges are assigned based on random walk testing the regions about these points as 
+   illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png)
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:1"} 
 
 
 Figure 2 shows the break-point/segment analysis of an NO2 time-series from a heavily trafficked site in central London where a change event (ca. 25 µg.m-3; 31%) is detected between 2003-01-11 and 2003-02-19, and detected using standard break-point/segment analysis. 
