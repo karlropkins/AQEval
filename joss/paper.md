@@ -120,9 +120,9 @@ contributions. AQEval includes Generalized Additive Model (GAM) based methods
 (based on mgcv; Wood 2017, Wood 2021) to build and subtract such variance. By default, these take the 
 form: 
 
-$$[pollutant] = s_1_(day-of-year) + s_2_(hour-of-day) + te_1_(wind speed, wind direction)$$
+[pollutant] = s_1(day-of-year) + s_2(hour-of-day) + te_1(wind speed, wind direction)$$
 
-$$[pollutant]_isolated_ = ([pollutant] - [pollutant]_predicted_) + mean(pollutant)$$
+$$[pollutant]_isolated = ([pollutant] - [pollutant]_predicted) + mean(pollutant)$$
 
 Where the investigate pollutant concentration, [pollutant], is modelled as a function of 
 day-of year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s_2_*) and 
@@ -143,20 +143,32 @@ observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-
 
 # Related Outputs 
 
-Detailed descriptions of the AQEval functions, and an extended discussion and analysis of the examples used in Figures 2 and 3 is provided in the package introduction https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf.  
+Detailed descriptions of the AQEval functions, and an extended discussion and analysis of the examples 
+used in Figures 2 and 3 is provided in the package introduction 
+[https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
 Other work using AQEval include:
-•	Ropkins & Tate (2021; https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article reporting on a multi-species AQEval analysis of the air quality impact of the COVID-19 lockdown in the UK. 
-•	Ropkins et al (2022; https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on the use of AQEval to measure the impact of a bus fleet intervention on NO2 levels. 
-•	Also Clear Air Zone (CAZ) impact assessment reports include analyses using AQEval, see e.g.: 
-o	CAZ Baseline Study (https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf)   
-o	First Year Report (https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf)  
-o	…
-o	Report archive (https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688)  
 
-## Acknowledgements 
+-	Ropkins & Tate (2021; https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
+  reporting on a multi-species AQEval analysis of the air quality impact of the COVID-19 lockdown 
+  in the UK. 
+-	Ropkins et al (2022; https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
+  the use of AQEval to measure the impact of a bus fleet intervention on NO~2~ levels. 
+-	Also Clear Air Zone (CAZ) impact assessment reports include analyses using AQEval, see e.g.: 
+    - CAZ Baseline Study (https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf)   
+    - First Year Report (https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf)  
+    -	…
+    - Report archive (https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688)  
 
-Initial AQEval development was funded by the UK Department for Environment, Food and Rural Affairs (Defra).  The authors gratefully acknowledge contributions and input from colleagues at University of Leeds, Defra and IPSOS Mori, and input from the Defra/Department for Transport Joint Air Quality Unit (JAQU) Technical Independent Review Panel (T-IRP) as part of internal review. The authors also gratefully acknowledge the work of the R core team and their many collaborators in developing and maintaining the open-source statistical language R and associated packages (http://www.r-project.org/).  
+# Acknowledgements 
 
-The views and opinions expressed herein by the authors are their own and do not necessarily reflect those of UK Government or any agency thereof.
+Initial AQEval development was funded by the UK Department for Environment, Food and Rural Affairs 
+(Defra).  The authors gratefully acknowledge contributions and input from colleagues at University 
+of Leeds, Defra and IPSOS Mori, and input from the Defra/Department for Transport Joint Air Quality 
+Unit (JAQU) Technical Independent Review Panel (T-IRP) as part of internal review. The authors also 
+gratefully acknowledge the work of the R core team and their many collaborators in developing and 
+maintaining the open-source statistical language R and associated packages (http://www.r-project.org/).  
+
+The views and opinions expressed herein by the authors are their own and do not necessarily reflect those 
+of UK Government or any agency thereof.
 
 # References
