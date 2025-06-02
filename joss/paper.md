@@ -107,7 +107,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:intro"}  
 
 Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 $$ \mu .m^{-3}^ $$; 31%) is detected between 2003-01-11 
+trafficked site in central London where a change event (*ca.* 25 $\mu .m^{-3}^ $ ; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){label="fig_2"} 
