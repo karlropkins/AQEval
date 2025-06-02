@@ -89,7 +89,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 
 1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
-   a first subset of data (or time-series window, TW~0~ in \autoref{fig:intro} Figure 1a), is selected and a linear 
+   a first subset of data (or time-series window, TW~0~ in \autoref{fig:1}a Figure 1a), is selected and a linear 
    regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
    Figure 1a) and a second model build; and so on, until the end of the time-series; then, 
    points of likely change are identified using the F-Stat measure of difference for sequential 
@@ -104,13 +104,13 @@ using break-points, and then characterising and quantifying ‘regions of change
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:intro} 
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
 Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
 trafficked site in central London where a change event (*ca.* 25 $\mu .m^{-3}^ $ ; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
-![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){label="fig_2"} 
+![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
 
 In some cases changes are small or local air inputs are complex, and time-series may require additional 
 pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
@@ -138,7 +138,7 @@ smaller (*ca.* 6.6 µg.m-3; 13%) underlying change-event observed at a similar t
 observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-21 compared with 
 2003-01-11 and 2003-02-19).  
 
-![AQEval analysis of NO~2~ 1998-2005 time-series at Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){label="fig:3"}  
+![AQEval analysis of NO~2~ 1998-2005 time-series at Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}   
 
 # Related Outputs 
 
