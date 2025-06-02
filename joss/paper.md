@@ -104,7 +104,7 @@ using break-points, and then characterising and quantifying ‘regions of change
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.]{label="fig:1"}(assets/figure_1.png) 
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png)\label{fig:1} 
 
 
 Figure 2 \ref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily trafficked 
@@ -113,16 +113,35 @@ site in central London where a change event (ca. 25 µg.m-3; 31%) is detected be
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png)\label{fig:2} 
 
-In some cases changes are small or local air inputs are complex, and time-series may require additional pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series is several years long, a small change may be hidden by seasonally variability in meteorological contributions. AQEval includes Generalized Additive Model (GAM) based methods (based on mgcv; Wood 2017, Wood 2021) to build and subtract such variance. By default, these take the form: 
+In some cases changes are small or local air inputs are complex, and time-series may require additional 
+pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
+is several years long, a small change may be hidden by seasonally variability in meteorological 
+contributions. AQEval includes Generalized Additive Model (GAM) based methods 
+(based on mgcv; Wood 2017, Wood 2021) to build and subtract such variance. By default, these take the 
+form: 
+
 [pollutant] = s1(day-of-year) + s2(hour-of-day) + te1(wind speed, wind direction)
+
 [pollutant]isolated = ([pollutant] - [pollutant]predicted) + mean(pollutant)
-Where the investigate pollutant concentration, [pollutant], is ideally modelled as a function of day-of year, hour-of-day and wind speed and direction using a combination spline (s1 and s2) and tensor (te1) fit-terms, and the unmodelled component is estimated as the mean-centred residual of this model.
+
+Where the investigate pollutant concentration, [pollutant], is modelled as a function of 
+day-of year, hour-of-day and wind speed and direction using a combination spline (s1 and s2) and 
+tensor (te1) fit-terms, and the unmodelled component is estimated as the mean-centred residual 
+of this model.
   
-This default correction can also be modified to include other potential confounders, e.g. other frequency terms (e.g. day-of-week and/or week-of-year), background contributions (by subtraction of local variance associated with trends at near-by site not affected by the investigated change), or proxies for other local contributors (e.g. other meteorological parameters like air temperature, markers for other sources, etc). Figure 3a shows the break-point analysis of NO2 from a nearby but less heavily trafficked site where seasonality dominates the time-series, and Figure 3b shows the smaller (ca. 6.6; 13%) underlying change-event observed at a similar time to the large change observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-21 compared with 2003-01-11 and 2003-02-19).  
+This default correction can also be modified to include other potential confounders, e.g. other 
+frequency terms (e.g. day-of-week and/or week-of-year), background contributions (by subtraction 
+of local variance associated with trends at near-by site not affected by the investigated change), 
+or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
+markers for other sources, etc). Figure 3a shows the break-point analysis of NO2 from a nearby but 
+less heavily trafficked site where seasonality dominates the time-series, and Figure 3b shows the 
+smaller (ca. 6.6; 13%) underlying change-event observed at a similar time to the large change 
+observed at the more heavily trafficked site in Figure 2 (2002-09-09 to 2002-12-21 compared with 
+2003-01-11 and 2003-02-19).  
 
 [insert figure 3 a and b about here]
 
-## Related Outputs 
+# Related Outputs 
 
 Detailed descriptions of the AQEval functions, and an extended discussion and analysis of the examples used in Figures 2 and 3 is provided in the package introduction https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf.  
 Other work using AQEval include:
