@@ -121,9 +121,11 @@ contributions. `AQEval` includes Generalized Additive Model (GAM) based methods
 [based on `mgcv`, @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
 By default, these take the form: 
 
-<center>*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*</center>
+<div align="center">
+*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*
 
-<center>*[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)*</center>
+*[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)*
+</div>
 
 Where the investigate pollutant concentration, *[pollutant]*, is modelled as a function of 
 day-of-year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
