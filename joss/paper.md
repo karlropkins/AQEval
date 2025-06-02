@@ -104,7 +104,7 @@ using break-points, and then characterising and quantifying ‘regions of change
    model, and final segment ranges are assigned based on random walk testing the regions about these 
    points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png\label{fig:1}) 
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.\label{fig:1}](assets/figure_1.png) 
 
 
 Figure 2 \ref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily trafficked 
