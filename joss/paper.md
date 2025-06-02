@@ -89,9 +89,9 @@ using break-points, and then characterising and quantifying ‘regions of change
 
 1. Breaks-points are found using the strucchange methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
-   a first subset of data (or time-series window, TW~0~ in \autoref{fig:1}a Figure 1a), is selected and a linear 
+   a first subset of data (or time-series window, TW~0~ in \autoref{fig:1}a), is selected and a linear 
    regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
-   Figure 1a) and a second model build; and so on, until the end of the time-series; then, 
+   \autoref{fig:1}a) and a second model build; and so on, until the end of the time-series; then, 
    points of likely change are identified using the F-Stat measure of difference for sequential 
    models. 
 2. In addition to the standard Bayesian Information Criterion (BIC) testing used by strucchange, 
@@ -102,12 +102,12 @@ using break-points, and then characterising and quantifying ‘regions of change
    @muggeo2017interval] are used to extend the break-point to break-segments. Here, the confidence 
    intervals for the selected break-points are used as the start points when building the segmented 
    model, and final segment ranges are assigned based on random walk testing the regions about these 
-   points as illustrated in Figure 1b.    
+   points as illustrated in \autoref{fig:1}b.    
 
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
-Figure 2 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 $\mu .m^{-3}^ $ ; 31%) is detected between 2003-01-11 
+\autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
+trafficked site in central London where a change event (*ca.* 25 $\\mu$g.m^-3^; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
@@ -119,9 +119,9 @@ contributions. AQEval includes Generalized Additive Model (GAM) based methods
 [based on mgcv, @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
 By default, these take the form: 
 
-*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*
+<center>*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*</center>
 
-*[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)*
+<center>*[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)*</center>
 
 Where the investigate pollutant concentration, *[pollutant]*, is modelled as a function of 
 day-of-year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
@@ -150,7 +150,7 @@ Other work using AQEval include:
 -	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
   reporting on a multi-species AQEval analysis of the air quality impact of the COVID-19 lockdown 
   in the UK. 
--	[Ropkins et al (20220](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
+-	[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
   the use of AQEval to measure the impact of a bus fleet intervention on NO~2~ levels. 
 -	Also Clear Air Zone (CAZ) impact assessment reports include analyses using AQEval, see e.g.: 
     - [CAZ Baseline Study](https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
