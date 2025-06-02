@@ -125,8 +125,8 @@ By default, these take the form:
 
 Where the investigate pollutant concentration, *[pollutant]*, is modelled as a function of 
 day-of-year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
-tensor (*te~1~*) fit-terms, and the unmodelled component, *[pollutant]~isolated*, is estimated as the 
-mean-centred residual of this model.
+tensor (*te~1~*) fit-terms, and the unmodelled component, *[pollutant]~isolated~*, is estimated as the 
+mean-centred residual of this model prediction.
   
 This default correction can also be modified to include other potential confounders, e.g. other 
 frequency terms (e.g. day-of-week and/or week-of-year), background contributions (by subtraction 
@@ -153,10 +153,10 @@ Other work using AQEval include:
 -	Ropkins et al (2022; https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
   the use of AQEval to measure the impact of a bus fleet intervention on NO~2~ levels. 
 -	Also Clear Air Zone (CAZ) impact assessment reports include analyses using AQEval, see e.g.: 
-    - CAZ Baseline Study (https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf)   
-    - First Year Report (https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf)  
-    -	…
-    - Report archive (https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688)  
+    - CAZ Baseline Study (https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
+    - First Year Report (https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf) 
+    -	… 
+    - Report archive (https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688) 
 
 # Acknowledgements 
 
