@@ -98,18 +98,20 @@ using break-points, and then characterising and quantifying ‘regions of change
    AQEval also checks that all terms associated which each break-point are statistically valid 
    (p<0.05), discarding any combinations generating invalid models. This approach was selected 
    on the basis of simulation testing.
-3. Finally, the segmented methods of @muggeo2003estimating; @muggeo2008segmented; @muggeo2017interval 
-   are used to extend the break-point to break-segments. Here, the confidence intervals for the 
-   selected break-points are used as the start points when building the segmented model, and final 
-   segment ranges are assigned based on random walk testing the regions about these points as 
-   illustrated in Figure 1b.    
+3. Finally, the segmented methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
+   @muggeo2017interval] are used to extend the break-point to break-segments. Here, the confidence 
+   intervals for the selected break-points are used as the start points when building the segmented 
+   model, and final segment ranges are assigned based on random walk testing the regions about these 
+   points as illustrated in Figure 1b.    
 
-![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){label="fig:1"} 
+![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.]{label="fig:1"}(assets/figure_1.png) 
 
 
-Figure 2 shows the break-point/segment analysis of an NO2 time-series from a heavily trafficked site in central London where a change event (ca. 25 µg.m-3; 31%) is detected between 2003-01-11 and 2003-02-19, and detected using standard break-point/segment analysis. 
+Figure 2 \ref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily trafficked 
+site in central London where a change event (ca. 25 µg.m-3; 31%) is detected between 2003-01-11 and 
+2003-02-19, and detected using standard break-point/segment analysis. 
 
-[insert figure 2 about here]
+![Standard AQEval break-point/segment analysis (graphical output and report) of NO2 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png)\label{fig:2} 
 
 In some cases changes are small or local air inputs are complex, and time-series may require additional pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series is several years long, a small change may be hidden by seasonally variability in meteorological contributions. AQEval includes Generalized Additive Model (GAM) based methods (based on mgcv; Wood 2017, Wood 2021) to build and subtract such variance. By default, these take the form: 
 [pollutant] = s1(day-of-year) + s2(hour-of-day) + te1(wind speed, wind direction)
