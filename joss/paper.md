@@ -36,12 +36,22 @@ bibliography: paper.bib
 
 # Summary
 
-AQEval (Air Quality Evaluation) is an R package of functions for the routine investigation of discrete changes in air quality time-series, e.g. assessing the impact of interventions and/or pollution events. The main functions use break-point/segmentation (BP/S) methods to detect, characterise and quantify change, while other functions build on these to provide a workflow for those looking to measure smaller changes and/or changes in more complex environments. 
-
+AQEval (Air Quality Evaluation) is an R package of functions for the routine investigation 
+of discrete changes in air quality time-series, e.g. assessing the impact of interventions 
+and/or pollution events. The main functions use break-point/segmentation (BP/S) methods to 
+detect, characterise and quantify change, while other functions build on these to provide 
+a workflow for those looking to measure smaller changes and/or changes in more complex 
+environments. 
 
 # Statement of Need
 
-Authorities responsible for air quality management are typically required to implement and evaluate the air quality interventions they adopt (Public Health England, 2019). These interventions are often costly, disruptive and unpopular (Glazener & Khreis, 2019), and associated benefits are often hard to measure because of the inherent variability of air quality data (Kelly et al, 2011; Pearce et al, 2011; Jones et al, 2012; Grange & Carslaw, 2019). Various methods have been developed to investigate discrete changes in a wide range of time-series (see e.g. Reeves et al, 2007; Truong at al, 2020), and several R (R Core Team, 2020) packages have been developed for their use, e.g. bcp (Erdman & Emerson, 2007), changepoint (Killick et al, 2016), segmented (Muggeo, 2008), and strucchange (Zeileis et al, 2002). Some have even been applied to the detection of large changes in air quality time-series (Carslaw et al, 2006), and with additional signal isolation to smaller changes (Carslaw & Carslaw, 2007). However, those tasked with air quality data analysis, although highly skilled in a wide range of air quality monitoring and assessment activities, are unlike to be able to dedicate sufficient time and funding to the development of in-house expertise required to routinely apply these. 
+Authorities responsible for air quality management are typically required to implement and 
+evaluate the air quality interventions they adopt [@bradley2019review]. These interventions 
+are often costly, disruptive and unpopular [@glazener2019transforming], and associated 
+benefits are often hard to measure because of the inherent variability of air quality data 
+([@kelly2011impact]; [@pearce2011quantifying]; [@jones2012large]; [@grange2019using]). 
+Various methods have been developed to investigate discrete changes in a wide range of 
+time-series (see e.g. Reeves et al, 2007; Truong at al, 2020), and several R (R Core Team, 2020) packages have been developed for their use, e.g. bcp (Erdman & Emerson, 2007), changepoint (Killick et al, 2016), segmented (Muggeo, 2008), and strucchange (Zeileis et al, 2002). Some have even been applied to the detection of large changes in air quality time-series (Carslaw et al, 2006), and with additional signal isolation to smaller changes (Carslaw & Carslaw, 2007). However, those tasked with air quality data analysis, although highly skilled in a wide range of air quality monitoring and assessment activities, are unlike to be able to dedicate sufficient time and funding to the development of in-house expertise required to routinely apply these. 
 
 AQEval was developed to address this skill gap. It aligns the inputs and outputs of a number of statistical methods to provide a one-package option for anyone interested in using R to routinely detect, characterise and quantify discrete change in air quality data. As many air quality professionals already use the R package openair (Carslaw & Ropkins, 2012; Ropkins & Carslaw, 2012) for more conventional analysis and data visualisation, AQEval has also been written using openair coding conventions and function structure to reduce the learning-curve typical associated with learning new software. 
 
