@@ -110,7 +110,7 @@ using break-points, and then characterising and quantifying ‘regions of change
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 $\mu$ g.m^-3^; 31%) is detected between 2003-01-11 
+trafficked site in central London where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 2003-01-11 
 and 2003-02-19, and detected using standard break-point/segment analysis. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
@@ -137,7 +137,7 @@ of local variance associated with trends at near-by site not affected by the inv
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). \autoref{fig:3}a shows the break-point analysis of NO~2~ from a nearby but 
 less heavily trafficked site where seasonality dominates the time-series, and \autoref{fig:3}b shows the 
-smaller (*ca.* 6.6 µg.m-3; 13%) underlying change-event observed at a similar time to the large change 
+smaller (*ca.* 6.6 $\mu$g.m^-3^; 13%) underlying change-event observed at a similar time to the large change 
 observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 2002-12-21 compared with 
 2003-01-11 and 2003-02-19).  
 
@@ -146,7 +146,7 @@ observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 2
 # Related Outputs 
 
 Detailed descriptions of the AQEval functions, and an extended discussion and analysis of the examples 
-used in Figures 2 and 3 is provided in the package introduction 
+used in Figures \ref{fig:2} and \ref{fig:3} is provided in the package introduction 
 [https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
 Other work using AQEval include:
 
