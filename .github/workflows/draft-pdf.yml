@@ -2,11 +2,11 @@ name: Draft PDF
 on:
   push:
     paths:
-      - joss/paper.md
-      - joss/paper.bib
-      - joss/assets/figure_1.png
-      - joss/assets/figure_2.png
-      - joss/assets/figure_3.png
+      - joss_paper/paper.md
+      - joss_paper/paper.bib
+      - joss_paper/assets/figure_1.png
+      - joss_paper/assets/figure_2.png
+      - joss_paper/assets/figure_3.png
       - .github/workflows/draft-pdf.yml
 jobs:
   paper:
