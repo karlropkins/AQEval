@@ -115,9 +115,10 @@ Where the investigated pollutant concentration, *[pollutant]*, is modelled as a 
 
 \autoref{fig:3}a shows the break-point analysis of NO~2~ from a nearby but 
 less heavily trafficked site where seasonality dominates the time-series, and \autoref{fig:3}b shows the 
-smaller (*ca.* 6.6 $\mu$g.m^-3^; 13%) underlying change-event observed after signal isolation at a similar 
-time to the large change observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 
-2002-12-21 compared with 2003-01-11 and 2003-02-19).  
+smaller (*ca.* 6.6 $\mu$g.m^-3^; 13%) underlying change-event observed at a similar 
+time to the large change observed at the more heavily trafficked site in \autoref{fig:2} using 
+signal isolation and then break-point/segment analysis (2002-09-09 to 2002-12-21 compared with 
+2003-01-11 and 2003-02-19).  
   
 ![AQEval analysis of NO~2~ 1998-2005 time-series from a roadside site where: (a) standard (ambient air) break-point analysis exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) an underlying change-event is revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}
 
