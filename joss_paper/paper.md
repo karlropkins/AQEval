@@ -84,8 +84,8 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
    a first subset (time-series window TW~0~ in \autoref{fig:1}a) is selected and linear 
    regression modelled; the window advanced (TW~1~ in \autoref{fig:1}a) and a second 
-   model built, and so on through time-series; then, likely points-of-change 
-   are identified by comparing differences between the F-Stat scores to sequential models. 
+   model built, and so on through the time-series; then, likely points-of-change 
+   assigned by comparing the F-Stat scores of sequential models. 
 2. In addition to the standard Bayesian Information Criterion (BIC) testing used by `strucchange`, 
    `AQEval` also checks all individual break-points are statistically valid (p<0.05), and down-scores 
    less likely combinations. 
@@ -94,7 +94,7 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
    intervals for the selected break-points are used as start points, and segments assigned 
    by random walk testing about these points as shown in \autoref{fig:1}b. 
 
-![Break-point/segment scheme: (a) break-point, and (b) segment modelling about the break-points.](assets/figure_1.png){#fig:1} 
+![Break-point/segment scheme: (a) break-point, and (b) segment modelling about break-points.](assets/figure_1.png){#fig:1} 
 
 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a roadside site 
 where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 2003-01-11 and 2003-02-19. 
