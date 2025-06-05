@@ -83,8 +83,8 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
 1. Breaks-points are determined using the `strucchange` methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
    a first subset (time-series window TW~0~ in \autoref{fig:1}a) is selected and linear 
-   regression modelled; the window is then advanced (TW~1~ in \autoref{fig:1}a) and a second 
-   model built, and so on until the end of the time-series; then, likely points-of-change 
+   regression modelled; the window advanced (TW~1~ in \autoref{fig:1}a) and a second 
+   model built, and so on through time-series; then, likely points-of-change 
    are identified by comparing differences between the F-Stat scores to sequential models. 
 2. In addition to the standard Bayesian Information Criterion (BIC) testing used by `strucchange`, 
    `AQEval` also checks all individual break-points are statistically valid (p<0.05), and down-scores 
