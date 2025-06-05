@@ -92,13 +92,12 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
 3. Finally, the `segmented` methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
    @muggeo2017interval] are used to determine regions-of-change about break-points. Here, the confidence 
    intervals for the selected break-points are used as start points, and segments assigned 
-   based on random walk testing about these points as shown in \autoref{fig:1}b. 
+   by random walk testing about these points as shown in \autoref{fig:1}b. 
 
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
-\autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 
-2003-01-11 and 2003-02-19. 
+\autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a roadside site 
+where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 2003-01-11 and 2003-02-19. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of an NO~2~ 1998-2005 time-series from a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
 
