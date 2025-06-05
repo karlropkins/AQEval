@@ -94,7 +94,7 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
    intervals for the selected break-points are used as start points, and segments assigned 
    by random walk testing about these points as shown in \autoref{fig:1}b. 
 
-![Break-point/segment scheme: (a) Break-point, and (b) segment modelling of regions about the break-points.](assets/figure_1.png){#fig:1} 
+![Break-point/segment scheme: (a) break-point, and (b) segment modelling about the break-points.](assets/figure_1.png){#fig:1} 
 
 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a roadside site 
 where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 2003-01-11 and 2003-02-19. 
