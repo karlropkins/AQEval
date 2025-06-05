@@ -90,14 +90,14 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
    `AQEval` also checks all individual break-points are statistically valid (p<0.05), and down-scores 
    less likely combinations. 
 3. Finally, the `segmented` methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
-   @muggeo2017interval] are used to extend the break-point to break-segments. Here, the confidence 
-   intervals for the selected break-points are used as the start points, and regions-of-change assigned 
+   @muggeo2017interval] are used to determine regions-of-change about break-points. Here, the confidence 
+   intervals for the selected break-points are used as start points, and segments assigned 
    based on random walk testing about these points as shown in \autoref{fig:1}b. 
 
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 
+trafficked site where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 
 2003-01-11 and 2003-02-19. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of an NO~2~ 1998-2005 time-series from a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
@@ -108,7 +108,6 @@ Additive Models (GAMs) [using `mgcv` methods, @wood2017generalized; @wood2025gen
 subtract associated variance, by default: 
 
 $$[pollutant] = s_1(day~of~year) + s_2(hour~of~day) + te_1(wind~speed,wind~direction)$$
-
 $$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant)$$
 
 Where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
@@ -123,7 +122,7 @@ time to the large change observed at the more heavily trafficked site in \autore
 2002-12-21 compared with 2003-01-11 and 2003-02-19).  
   
 This default correction can also be modified to include other potential confounders, e.g. other 
-frequency terms (e.g. day-of-week and/or week-of-year), background contributions (as 
+frequency terms (e.g. day of week and/or week of year), background contributions (as 
 local variance associated with trends at near-by site not affected by the investigated change), 
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). 
