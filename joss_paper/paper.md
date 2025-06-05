@@ -113,7 +113,7 @@ subtract associated variance, by default:
 
 $$[pollutant] = s_1(day~of~year) + s_2(hour~of~day) + te_1(wind~speed,wind~direction)$$
 
-$$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant))$$
+$$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant)$$
 
 Where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
 *day of year*, *hour of day* and *wind speed* and *direction* using a combination of spline 
