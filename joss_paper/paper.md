@@ -47,7 +47,7 @@ environments.
 # Statement of Need
 
 Authorities responsible for air quality management are typically required to implement and 
-evaluate the air quality interventions they adopt [@bradley2019review]. These interventions 
+evaluate air quality interventions they adopt [@bradley2019review]. These interventions 
 are often costly, disruptive and unpopular [@glazener2019transforming], and associated 
 benefits are often hard to measure because of the inherent variability of air quality data 
 [@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. 
@@ -59,7 +59,7 @@ been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killi
 been applied to the detection of large changes in air quality time-series [@carslaw2006change], 
 and with additional signal isolation to smaller changes [@carslaw2007detecting]. However, 
 those tasked with air quality data analysis, although highly skilled in a wide range of air 
-quality monitoring and assessment activities, are unlike to be able to dedicate sufficient 
+quality assessment activities, are unlike to be able to dedicate sufficient 
 time and funding to the development of in-house expertise required to routinely apply these. 
 
 `AQEval` was developed to address this skill gap. It aligns the inputs and outputs of a number 
@@ -69,92 +69,88 @@ routinely detect, characterise and quantify discrete change in air quality data.
 As many air quality professionals already use the `R` package `openair` 
 [@carslaw2012openair; @ropkins2012openair] for more conventional analysis and data visualisation, 
 `AQEval` has also been written using `openair` coding conventions and function structure to reduce 
-the learning-curve typical associated with learning new software. 
+the learning-curve typically associated with learning new software. 
 
 
 # Sources
 
-`AQEval` is freely available under General Public License (GPL) from conventional on-line R archives: 
+`AQEval` is freely available under General Public License (GPL) from conventional R archives: 
 
 -	The latest (stable) release version of `AQEval` is on the Comprehensive R Archive Network (CRAN) at 
-[https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval); and, 
+[https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval);  
 -	The developers’ version and code are publicly available on GitHub at 
 [https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), which can also be 
-used to report issues or suggest changes. 
+used to report issues or suggest changes; and 
 -	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/).
 
 
 # Analytical Rationale
 
-The `AQEval` Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points of change’, 
-using break-points, and then characterising and quantifying ‘regions of change’ about these as segments:  
+The `AQEval` Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points-of-change’, 
+using break-points, and then characterising and quantifying ‘regions-of-change’ for these using segments:  
 
 1. Breaks-points are found using the `strucchange` methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
    a first subset of data (or time-series window, TW~0~ in \autoref{fig:1}a), is selected and a linear 
-   regression model built; the window is then rolled on, typically one measurement (TW~1~ in 
+   regression model built; the window is then advanced, typically one measurement (TW~1~ in 
    \autoref{fig:1}a) and a second model build; and so on, until the end of the time-series; then, 
-   points of likely change are identified using the F-Stat measure of difference for sequential 
+   likely points-of-change are identified using the F-Stat measure of difference for sequential 
    models. 
 2. In addition to the standard Bayesian Information Criterion (BIC) testing used by `strucchange`, 
    `AQEval` also checks that all terms associated which each break-point are statistically valid 
-   (p<0.05), discarding any combinations generating invalid models. This approach was selected 
-   on the basis of simulation testing.
+   (p<0.05), down-scores less likely combinations. This approach was selected on the basis of 
+   simulation testing.
 3. Finally, the `segmented` methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
    @muggeo2017interval] are used to extend the break-point to break-segments. Here, the confidence 
-   intervals for the selected break-points are used as the start points when building the `segmented` 
-   model, and final segment ranges are assigned based on random walk testing the regions about these 
+   intervals for the selected break-points are used as the start points for a `segmented` 
+   model, and final segment ranges assigned based on random walk testing the regions about these 
    points as illustrated in \autoref{fig:1}b.    
 
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
 \autoref{fig:2} shows the break-point/segment analysis of an NO~2~ time-series from a heavily 
-trafficked site in central London where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 2003-01-11 
-and 2003-02-19, and detected using standard break-point/segment analysis. 
+trafficked site in central London where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 
+2003-01-11 and 2003-02-19 using standard break-point/segment analysis. 
 
 ![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
 
 In some cases changes are small or local air inputs are complex, and time-series may require additional 
-pre-processing to successfully isolate an obscured change-event. For example, if a studied time-series 
-is several years long, a small change may be hidden by seasonally variability in meteorological 
-contributions. `AQEval` includes Generalized Additive Model (GAM) based methods 
-[based on `mgcv`, @wood2017generalized; @wood2025generalized] to build and subtract such variance. 
-By default, these take the form: 
-
+pre-processing to successfully isolate an obscured change-event. `AQEval` includes Generalized Additive 
+Model (GAM) based methods [based on `mgcv`, @wood2017generalized; @wood2025generalized] to build and 
+subtract associated variance. By default, these take the form: 
 
 <p style="text-align:center;">*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*</p>
 
 <center> *[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)* </center>
 
-Where the investigate pollutant concentration, *[pollutant]*, is modelled as a function of 
+Where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
 day-of-year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
 tensor (*te~1~*) fit-terms, and the unmodelled component, *[pollutant]~isolated~*, is estimated as the 
 mean-centred residual of this model prediction.
   
 This default correction can also be modified to include other potential confounders, e.g. other 
-frequency terms (e.g. day-of-week and/or week-of-year), background contributions (by subtraction 
-of local variance associated with trends at near-by site not affected by the investigated change), 
+frequency terms (e.g. day-of-week and/or week-of-year), background contributions (as 
+local variance associated with trends at near-by site not affected by the investigated change), 
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). \autoref{fig:3}a shows the break-point analysis of NO~2~ from a nearby but 
 less heavily trafficked site where seasonality dominates the time-series, and \autoref{fig:3}b shows the 
-smaller (*ca.* 6.6 $\mu$g.m^-3^; 13%) underlying change-event observed at a similar time to the large change 
-observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 2002-12-21 compared with 
-2003-01-11 and 2003-02-19).  
+smaller (*ca.* 6.6 $\mu$g.m^-3^; 13%) underlying change-event observed after signal isolation at a similar 
+time to the large change observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 
+2002-12-21 compared with 2003-01-11 and 2003-02-19).  
 
-![AQEval analysis of NO~2~ 1998-2005 time-series at Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}   
+![AQEval analysis of NO~2~ 1998-2005 time-series from Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}   
 
 # Related Outputs 
 
-Detailed descriptions of the `AQEval` functions, and an extended discussion and analysis of the examples 
-used in Figures \ref{fig:2} and \ref{fig:3} is provided in the 
+The `AQEval` functions are described, along with worked examples of the code used to generate 
+Figures \ref{fig:2} and \ref{fig:3}, are provided in the 
 [extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
 Other work using `AQEval` include:
 
 -	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
-  reporting on a multi-species AQEval analysis of the air quality impact of the COVID-19 lockdown 
-  in the UK. 
--	[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article reporting on 
-  the use of `AQEval` to measure the impact of a bus fleet intervention on NO~2~ levels. 
+  on the multi-species AQEval analysis of air quality during the UK COVID-19 lockdown. 
+-	[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article on 
+  the use of `AQEval` to measure the NO~2~ impact of bus fleet interventions. 
 -	Also Clear Air Zone (CAZ) impact assessment reports include analyses using `AQEval`, see e.g.: 
     - [CAZ Baseline Study](https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
     - [First Year Report](https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf) 
@@ -164,10 +160,10 @@ Other work using `AQEval` include:
 # Acknowledgements 
 
 Initial `AQEval` development was funded by the UK Department for Environment, Food and Rural Affairs 
-(Defra).  The authors gratefully acknowledge contributions and input from colleagues at University 
-of Leeds, Defra and IPSOS Mori, and input from the Defra/Department for Transport Joint Air Quality 
-Unit (JAQU) Technical Independent Review Panel (T-IRP) as part of internal review. The authors also 
-gratefully acknowledge the work of the R core team and their many collaborators in developing and 
+(Defra). The authors gratefully acknowledge contributions from colleagues at University 
+of Leeds, Defra and IPSOS Mori, and internal review by the Defra/Department for Transport Joint Air Quality 
+Unit (JAQU) Technical Independent Review Panel (T-IRP). The authors also 
+gratefully acknowledge the work of the R core team and collaborators in developing and 
 maintaining the open-source statistical language R and associated packages [http://www.r-project.org/](http://www.r-project.org/).  
 
 The views and opinions expressed herein by the authors are their own and do not necessarily reflect those 
