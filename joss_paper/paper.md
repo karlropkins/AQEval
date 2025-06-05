@@ -37,38 +37,33 @@ bibliography: paper.bib
 # Summary
 
 `AQEval` (Air Quality Evaluation) is an `R` package for the routine investigation 
-of discrete changes in air quality time-series, e.g. assessing the impact of interventions 
-and/or pollution events. The main functions use break-point/segmentation (BP/S) methods to 
-detect, characterise and quantify change, while other functions build on these to provide 
-a workflow for those looking to measure smaller changes and/or changes in more complex 
-environments. 
+of discrete changes in air quality time-series. The main functions use 
+break-point/segmentation (BP/S) methods to detect, characterise and quantify change, 
+while other functions build on these to provide a workflow for those looking to 
+measure smaller changes and/or changes in more complex environments. 
 
 
 # Statement of Need
 
 Authorities responsible for air quality management are typically required to implement and 
 evaluate air quality interventions they adopt [@bradley2019review]. These interventions 
-are often costly, disruptive and unpopular [@glazener2019transforming], and associated 
-benefits are often hard to measure because of the inherent variability of air quality data 
-[@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. 
-
-Various methods have been developed to investigate discrete changes in a wide range of time-series 
-[see e.g. @reeves2007review; @truong2020selective]. Several `R` [@r2025r] packages have 
+are often costly, disruptive and unpopular [@glazener2019transforming], and the inherent 
+variability monitoring data hinders impact assessments 
+[@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. Various methods 
+have been developed to investigate discrete changes in a wide range of time-series 
+[see e.g. @reeves2007review; @truong2020selective] and several `R` [@r2025r] packages have 
 been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killick2016changepoint], 
-`segmented` [@muggeo2008segmented], and `strucchange` [@zeileis2002strucchange], and some have even 
+`segmented` [@muggeo2008segmented], and `strucchange` [@zeileis2002strucchange]. Some have even 
 been applied to air quality time-series, see e.g. [@carslaw2006change, @carslaw2007detecting]. 
-
 However, many of those tasked with air quality policy assessment, although highly skilled in a 
 wide range of monitoring activities, are unlike to be able to dedicate sufficient time and resources 
-to the development of in-house expertise in such specialist procedures. 
-
+to the development of in-house expertise in such specialist analyses. 
 `AQEval` was developed to address this skill gap. It aligns the inputs and outputs of a number 
 of statistical methods to provide a one-package option for anyone interested in using `R` to 
 routinely investigate change in air quality data. 
-
 As many air quality professionals already use the `R` package `openair` 
 [@carslaw2012openair; @ropkins2012openair] for more conventional analysis and data visualisation, 
-`AQEval` has also been written using `openair` coding conventions and function structure to reduce 
+`AQEval` has also been written using `openair` coding conventions to reduce 
 the learning-curve typically associated with learning new software. 
 
 
@@ -109,21 +104,21 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
 trafficked site in central London where a change event (*ca.* 25 $\mu$g.m^-3^; 31%) is detected between 
 2003-01-11 and 2003-02-19. 
 
-![Standard AQEval break-point/segment analysis (graphical output and report) of NO~2~ 1998-2005 time-series analysis from Marylebone Road, a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
+![Standard AQEval break-point/segment analysis (graphical output and report) of an NO~2~ 1998-2005 time-series from a heavily trafficked roadside in the UK.](assets/figure_2.png){#fig:2}  
 
 In some cases changes are small or local air inputs are complex, and time-series may require additional 
 pre-processing to successfully isolate obscured change-events. For these, `AQEval` uses Generalized 
 Additive Models (GAMs) [using `mgcv` methods, @wood2017generalized; @wood2025generalized] to 
 subtract associated variance, by default: 
 
-<p style="text-align:center;">*[pollutant] = s~1~(day-of-year) + s~2~(hour-of-day) + te~1~(wind speed, wind direction)*</p>
+$$[pollutant] = s_1(day~of~year) + s_2(hour~of~day) + te_1(wind~speed,wind~direction)$$
 
-*<center>[pollutant]~isolated~ = ([pollutant] - [pollutant]~predicted~) + mean(pollutant)</center>*
+$$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant))$$
 
 Where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
-day-of-year, hour-of-day and wind speed and direction using a combination spline (*s~1~* and *s~2~*) and 
-tensor (*te~1~*) fit-terms, and the unmodelled component, *[pollutant]~isolated~*, is estimated as the 
-mean-centred residual of this model. 
+*day of year*, *hour of day* and *wind speed* and *direction* using a combination of spline 
+(*s~1~* and *s~2~*) and tensor (*te~1~*) fit-terms, and the unmodelled component, 
+*[pollutant]~isolated~*, is estimated as the mean-centred residual of this model. 
 
 \autoref{fig:3}a shows the break-point analysis of NO~2~ from a nearby but 
 less heavily trafficked site where seasonality dominates the time-series, and \autoref{fig:3}b shows the 
@@ -137,7 +132,7 @@ local variance associated with trends at near-by site not affected by the invest
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). 
 
-![AQEval analysis of NO~2~ 1998-2005 time-series from Ealing Acton Town Hall, a less heavily trafficked roadside site near Marylebone Road: (a) the standard break-point analysis of the ambient time-series exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) shows the underlying change-event revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}   
+![AQEval analysis of NO~2~ 1998-2005 time-series from a roadside site where: (a) standard (ambient air) break-point analysis exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) an underlying change-event is revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}
 
 # Related Outputs 
 
