@@ -105,7 +105,6 @@ In some cases changes are small or local air inputs are complex, and time-series
 pre-processing to successfully isolate obscured change-events. For these, `AQEval` uses Generalized 
 Additive Models (GAMs) [using `mgcv` methods, @wood2017generalized; @wood2025generalized] to 
 subtract associated variance, by default: 
-
 $$[pollutant] = s_1(day~of~year) + s_2(hour~of~day) + te_1(wind~speed,wind~direction)$$
 $$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant)$$
 
@@ -120,13 +119,13 @@ smaller (*ca.* 6.6 $\mu$g.m^-3^; 13%) underlying change-event observed after sig
 time to the large change observed at the more heavily trafficked site in \autoref{fig:2} (2002-09-09 to 
 2002-12-21 compared with 2003-01-11 and 2003-02-19).  
   
+![AQEval analysis of NO~2~ 1998-2005 time-series from a roadside site where: (a) standard (ambient air) break-point analysis exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) an underlying change-event is revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}
+
 This default correction can also be modified to include other potential confounders, e.g. other 
 frequency terms (e.g. day of week and/or week of year), background contributions (as 
 local variance associated with trends at near-by site not affected by the investigated change), 
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). 
-
-![AQEval analysis of NO~2~ 1998-2005 time-series from a roadside site where: (a) standard (ambient air) break-point analysis exhibits a near-regular distribution of breaks typical of a site dominated by seasonal factors; and, (b) an underlying change-event is revealed using signal isolation and then break-point/segment analysis.](assets/figure_3.png){#fig:3}
 
 # Related Outputs 
 
