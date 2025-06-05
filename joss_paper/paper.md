@@ -39,9 +39,8 @@ bibliography: paper.bib
 `AQEval` (Air Quality Evaluation) is an `R` package for the routine investigation 
 of discrete changes in air quality time-series. The main functions use 
 break-point/segmentation (BP/S) methods to detect, characterise and quantify change, 
-while other functions build on these to provide a workflow for those looking to 
-measure smaller changes and/or changes in more complex environments. 
-
+while other functions build on these to provide a workflow to measure smaller changes 
+and/or changes in more complex environments. 
 
 # Statement of Need
 
@@ -57,27 +56,24 @@ been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killi
 been applied to air quality time-series, see e.g. [@carslaw2006change, @carslaw2007detecting]. 
 However, many of those tasked with air quality policy assessment, although highly skilled in a 
 wide range of monitoring activities, are unlike to be able to dedicate sufficient time and resources 
-to the development of in-house expertise in such specialist analyses. 
-`AQEval` was developed to address this skill gap. It aligns the inputs and outputs of a number 
-of statistical methods to provide a one-package option for anyone interested in using `R` to 
-routinely investigate change in air quality data. 
-As many air quality professionals already use the `R` package `openair` 
+to the development of in-house expertise in such specialist analyses. `AQEval` was developed to 
+address this skill gap. It aligns the inputs and outputs of a number of statistical methods to 
+provide a one-package option for anyone interested in using `R` to routinely investigate change 
+in air quality data. As many air quality professionals already use the `R` package `openair` 
 [@carslaw2012openair; @ropkins2012openair] for more conventional analysis and data visualisation, 
-`AQEval` has also been written using `openair` coding conventions to reduce 
-the learning-curve typically associated with learning new software. 
-
+`AQEval` has also been written using `openair` coding conventions to reduce the learning-curve 
+typically associated with learning new software. 
 
 # Sources
 
 `AQEval` is freely available under General Public License (GPL): 
 
 -	The latest (stable) release version of `AQEval` is on the Comprehensive R Archive Network (CRAN) 
-[https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval);  
+[https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval); 
 -	The developers’ version and code are publicly on GitHub 
 [https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), where issues or change 
 requests can also be posted; and 
 -	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/).
-
 
 # Analytical Rationale
 
