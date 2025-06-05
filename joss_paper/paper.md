@@ -53,7 +53,7 @@ have been developed to investigate discrete changes in a wide range of time-seri
 [see e.g. @reeves2007review; @truong2020selective] and several `R` [@r2025r] packages have 
 been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killick2016changepoint], 
 `segmented` [@muggeo2008segmented], and `strucchange` [@zeileis2002strucchange]. Some have even 
-been applied to air quality time-series, see e.g. [@carslaw2006change, @carslaw2007detecting]. 
+been applied to air quality time-series (see e.g. @carslaw2006change, @carslaw2007detecting). 
 However, many of those tasked with air quality policy assessment, although highly skilled in a 
 wide range of monitoring activities, are unlike to be able to dedicate sufficient time and resources 
 to the development of in-house expertise in such specialist analyses. `AQEval` was developed to 
