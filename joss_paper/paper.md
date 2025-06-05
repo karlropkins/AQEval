@@ -92,7 +92,7 @@ testing these and quantifying ‘regions-of-change’ about the most likely:
 3. Finally, the `segmented` methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
    @muggeo2017interval] are used to extend the break-point to break-segments. Here, the confidence 
    intervals for the selected break-points are used as the start points, and regions-of-change assigned 
-   based on random walk testing about these points as illustrated in \autoref{fig:1}b. 
+   based on random walk testing about these points as shown in \autoref{fig:1}b. 
 
 ![The basic break-point/segment scheme: (a) Break-point to identified change-points, and (b) segment modelling of the regions about the break-points to produce break-segments.](assets/figure_1.png){#fig:1} 
 
