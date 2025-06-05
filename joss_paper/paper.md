@@ -130,8 +130,7 @@ markers for other sources, etc).
 # Related Outputs 
 
 The `AQEval` functions are described, along with worked examples of the code used to generate 
-Figures \ref{fig:2} and \ref{fig:3}, in the  
-[extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).  
+Figures \ref{fig:2} and \ref{fig:3}, in the [extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf). 
 Other work using `AQEval` include:
 
 -	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
