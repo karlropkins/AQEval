@@ -18,6 +18,9 @@ navbar:
       - text: "documents"
       - text: "Package Introduction"
         href: articles/AQEval_Intro_Preprint.pdf
+      - text: "Package Installation Testing"
+        href: articles/AQEval_Package_Testing.html
+
 
 home:
   title: R Package
