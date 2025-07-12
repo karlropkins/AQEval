@@ -5,7 +5,8 @@
 ^README\.Rmd$
 ^\.github$
 ^docs$
-^joss$
+^joss_paper$
 ^_pkgdown\.yml$
 ^pkgdown$
+
 

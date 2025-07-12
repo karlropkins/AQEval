@@ -307,9 +307,13 @@ aqe_prepToDate <- function(to=NULL, data){
   }
   if(is.numeric(to)){
     #allowed numeric year
-    to <- paste(to, "-12-31 23:59:59", sep="")
+    to <- paste(to, "-12-31", sep="")
   }
   #assuming character from here
+  #make end of day
+  if(is.character(to)){
+      to <- paste(to, " 23:59:59", sep = "")
+  }
   test <- attributes(data$date)$tzone
   to <- if(is.null(test)){
     as.POSIXct(to, "%Y-%m-%d %H:%M:%S")
