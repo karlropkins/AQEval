@@ -47,8 +47,8 @@ we would appreciate a 'head-up' regardless of the format if you think anything i
 *   We use [roxygen2](https://cran.r-project.org/package=roxygen2), with [Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), 
     for documentation. This we require you to also do.  
 
-*   We currently do NOT use [testthat](https://cran.r-project.org/package=testthat) for unit tests. We would appreciate worked examples demonstrating a code modification 
-    but, please, no testthat.  
+*   We currently use [tinytest](https://cran.r-project.org/package=tinytest) for our unit tests. We would appreciate worked examples demonstrating a code modification 
+    but do not need you to use tinytest.  
 
 ## Code of Conduct
 

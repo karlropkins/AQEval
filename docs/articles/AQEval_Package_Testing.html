@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2025-07-12" />
+<meta name="date" content="2025-07-13" />
 
 <title>AQEval_package_testing.knit</title>
 
@@ -353,7 +353,7 @@ display: none;
 AQEval package installation and testing</div></h1>
 <h4 class="author"><div class="line-block"><br />
 Karl</div></h4>
-<h4 class="date">2025-07-12</h4>
+<h4 class="date">2025-07-13</h4>
 
 </div>
 
@@ -384,9 +384,9 @@ are allowed to install and use any software. So:</p>
 <ul>
 <li>We expect you have confirmed that you have all required
 administrator approvals before installing any new software.</li>
-<li>We also expect you to have read all licences, and their terms and
-conditions, and compile with these, wherever using R and associated
-packages.</li>
+<li>We also expect you to have read all relevant software licences, and
+their terms and conditions, and comply with these, whenever using R and
+associated packages.</li>
 </ul>
 <p>If you have any problems installing or using <strong>AQEval</strong>,
 <a href="https://github.com/karlropkins/AQEval/issues" title="AQEval issues">please get in touch, or post an issue on the
@@ -394,12 +394,12 @@ package repository</a></p>
 </div>
 <div id="r-and-aqeval-installation" class="section level2">
 <h2>R and AQEval Installation</h2>
-<p>If you do not already have <strong>R</strong>, that can be downloaded
+<p>If you do not already have <strong>R</strong>, it can be downloaded
 and installed from <a href="https://cran.r-project.org/">CRAN</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>If you want to use one, there are also a number of <strong>R</strong>
 interfaces you can install to simplify coding, e.g.:</p>
 <ul>
-<li><a href="https://jupyter.org/">JupterLab</a></li>
+<li><a href="https://jupyter.org/">JupyterLab</a></li>
 <li><a href="https://posit.co/download/rstudio-desktop/">RStudio</a></li>
 <li><a href="https://tinn-r.org/en/">Tinn-R</a></li>
 </ul>
@@ -417,15 +417,16 @@ remotes::install_github(&quot;karlropkins/AQEval&quot;) </code></pre>
 </div>
 <div id="package-testing" class="section level2">
 <h2>Package Testing</h2>
-<p>A lot of testing is done when an <strong>R</strong> is put together.
-Both <strong>build</strong> and <strong>check</strong> routines are
-typically run whenever a package is updated. For examples, the
-<strong>check</strong> routines typically require both the code to
-correctly compile and the on-board examples (the examples in help
+<p>A lot of testing is done when an <strong>R</strong> package is put
+together. Both <strong>build</strong> and <strong>check</strong>
+routines are typically run whenever a package is updated. For example,
+the <strong>check</strong> routines typically require both the code to
+install correctly and the on-board examples (the examples in help
 documentation) run both quickly and without error. In addition, if a
-package is coming from CRAN it means that they, acting as a third-party
-party review, have also confirmed these</p>
-<p>However, you, as the user, can also test a package installation.</p>
+package is coming from CRAN it means that they, acting as third-party
+party reviewer, have also confirmed performance using multiple computer
+platforms.</p>
+<p>However, you may also test your local package installation.</p>
 <div id="manual-testing" class="section level3">
 <h3>Manual Testing</h3>
 <p>The simplest to way to both learn how to use <strong>AQEval</strong>
@@ -449,12 +450,15 @@ head(aq.data)</code></pre>
 ## 6 2001-01-01 05:00:00  5.77     NA  7.45  190      9</code></pre>
 <p><strong>aq.data</strong> is a <strong>data.frame</strong> of
 time-series: <strong>date</strong>, the dataset time-stamp; nitrogen
-dioxide <strong>no2</strong>, wind speed <strong>ws</strong>, wind
-direction <strong>wd</strong> and air temperature
-<strong>air_temp</strong> all measured at a roadside air quality
-monitoring station; and, <strong>bg.no2</strong>, the nitrogen dioxide
-levels at a near-by background site.</p>
-<pre class="r"><code># Use openair function timeAverage to convert that from 1-hour to 14-day average 
+dioxide <strong>no2</strong> concentrations, wind speed
+<strong>ws</strong>, wind direction <strong>wd</strong> and air
+temperature <strong>air_temp</strong>, all measured at a roadside air
+quality monitoring station; and, <strong>bg.no2</strong>, nitrogen
+dioxide concentrations at a near-by background site.</p>
+<pre class="r"><code># Use openair function timeAverage to convert that from 1-hour to 14-day average. 
+# (Here, we are after a quick example for package testing, but is standard analyses 
+#  to try a range of averaging period because there will be trade-offs between 
+#  run-time and detection rates...) 
 temp &lt;- openair::timeAverage(aq.data, &quot;14 day&quot;)
 head(temp)</code></pre>
 <pre><code>## # A tibble: 6 × 6
@@ -474,30 +478,30 @@ quantBreakPoints(temp, &quot;no2&quot;, h=0.1, test=FALSE)</code></pre>
 nitrogen dioxide time-series with relatively high levels during the
 winter months of each year. This is typical of a measurement that is
 dominated by a seasonal cycle.</p>
-<p>(You should see similar plot and a record listing the identified
-break-points.)</p>
+<p>(You should see similar plot and a screen report listing the
+identified break-points.)</p>
 <p>If we want to look for other changes that might be obscured by that
 seasonal profile we could try to separate them, e.g. using
 <strong>AQEval</strong> function
 <strong>isolateContribution</strong>:</p>
-<pre class="r"><code># We going back to the 1-hour data and apply isolateContribution 
-# We build a deseasonalisation, deweathering and background 
+<pre class="r"><code># We go back to the 1-hour data and apply isolateContribution 
+# to build a deseasonalisation, deweathering and background 
 # correction (dswb) model. 
 aq.data$dswb.no2 &lt;- isolateContribution(aq.data,
                         &quot;no2&quot;, background=&quot;bg.no2&quot;)</code></pre>
 <pre><code>## no2 ~ s(bg.no2) + te(wd, ws) + s(year.day) + s(day.hour)</code></pre>
-<p>Note, that the report say the model uses a range of parameters
+<p>Note, that the report says that the model uses a range of parameters,
 <strong>bg.no2</strong>, <strong>ws</strong> and <strong>wd</strong>
-from dataset, but also day <strong>year.day</strong>, the day of the
-year and <strong>day.hour</strong>, the hour of the day. These
+from the dataset, but also <strong>year.day</strong>, the day of the
+year, and <strong>day.hour</strong>, the hour of the day. These
 additional terms are calculated from the <strong>date</strong>
 time-series.</p>
 <p>(And, access to <strong>day.hour</strong> is why we went back to
 <strong>aq.data</strong> rather than building model with the 14-day
 version, <strong>temp</strong>…)</p>
 <p>See on-board documentation,
-e.g. <strong>?isolateContribution</strong> for further details, if
-interested in trying out other signal isolation models.</p>
+e.g. <strong>?isolateContribution</strong> for further details, or if
+you are interested in trying out other signal isolation models.</p>
 <pre class="r"><code># convert that to 14-day like before
 temp &lt;- openair::timeAverage(aq.data, &quot;14 day&quot;)</code></pre>
 <pre class="r"><code># and apply quantBreakPoints to the isolated NO2 time-series
@@ -514,33 +518,32 @@ the workflow should be error-free if both <strong>AQEval</strong> and
 <h3>Automatic Testing</h3>
 <p>Manual testing is useful when you are new to a package, but it can be
 time-consuming especially if you want to test multiple minor functions
-in a package. Similarly, if you are updating a package that you are
-already highly familiar with and just want to quickly confirm consistent
+in a package or if you are updating a package that you are already
+highly familiar with and just want to quickly confirm consistent
 function outputs…</p>
 <p>So, <strong>AQEval</strong> also has an on-board automatic testing
 option.</p>
 <p>This uses a package called <a href="https://github.com/markvanderloo/tinytest"><strong>tinytest</strong></a>,
-which is installed alongside <strong>AQEval</strong>, to run a series of
-similar workflows and compare their outputs and expected outcomes.</p>
+installed alongside <strong>AQEval</strong>, to run a series of similar
+workflows and compare their outputs and expected outcomes.</p>
 <p>Probably, the easiest way to use this is to just run the lot:</p>
 <pre class="r"><code>tinytest::test_package(&quot;AQEval&quot;, at_home=TRUE)</code></pre>
-<pre><code>## test_AQEval_calc.stats.R......    4 tests OK 89ms
+<pre><code>## test_AQEval_calc.stats.R......    4 tests OK 0.2s
 ## test_AQEval_data.R............    2 tests OK 0.1s
-## test_AQEval_find.R............    3 tests OK 2ms
-## test_AQEval_isolate.R.........    1 tests OK 0.2s
-## test_AQEval_quant.R...........    6 tests OK 0.7s</code></pre>
-<pre><code>## test_AQEval_spec.R............    2 tests OK 0.3s</code></pre>
-<pre><code>## All ok, 18 results (1.4s)</code></pre>
+## test_AQEval_find.R............    3 tests OK 16ms
+## test_AQEval_isolate.R.........    1 tests OK 0.3s
+## test_AQEval_quant.R...........    6 tests OK 0.8s</code></pre>
+<pre><code>## test_AQEval_spec.R............    2 tests OK 0.5s</code></pre>
+<pre><code>## All ok, 18 results (1.9s)</code></pre>
 <p>(If they are all OK when you run this, we think your installation is
 as well.)</p>
 <p>Obviously, testing, however meticulous, will not catch
 everything.</p>
-<p>Some issues are unexpected. For example, a user may used the software
-in an innovative way the developer had not envisioned or with an new
-type of data.</p>
-<p>But just as easily maybe we missed something when we put together the
-standard test list for <strong>AQEval</strong>, so please feel free to
-<a href="https://github.com/karlropkins/AQEval/issues" title="AQEval issues">get in contact or post an issue</a> if you think
+<p>Some issues are unexpected. For example, a user may use the software
+in an innovative way the developer had not envisioned or use it with an
+new type of data. But just as easily maybe we missed something when we
+put together the standard test list for <strong>AQEval</strong>, so
+please feel free to <a href="https://github.com/karlropkins/AQEval/issues" title="AQEval issues">get in contact or post an issue</a> if you think
 there is anything we have missed or if you are any having problems
 installing <strong>AQEval</strong>.</p>
 </div>
