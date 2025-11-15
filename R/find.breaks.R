@@ -3,7 +3,7 @@
 ############################################
 
 #' @name find.breaks
-#' @aliases findBreakPoints textBreakSegments
+#' @aliases findBreakPoints testBreakPoints
 #' @description Finding and testing break-points in
 #' conventionally formatted air quality data sets.
 #' @param data Data source, typically a \code{data.frame}

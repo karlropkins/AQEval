@@ -3,7 +3,6 @@
 \name{find.breaks}
 \alias{find.breaks}
 \alias{findBreakPoints}
-\alias{textBreakSegments}
 \alias{testBreakPoints}
 \title{find and test break-points}
 \usage{
