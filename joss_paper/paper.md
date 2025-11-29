@@ -140,7 +140,7 @@ Main Functions:
 quantBreakPoints(
   data,               # data source, typically an openair-friendly data.frame
   pollutant,          # name of column containing the time-series to analysed
-  h,                  # the rolling window size, as a proportion of time-series length
+  h,                  # rolling window size, as proportion of time-series length
   ...                 # other arguments 
 )
   
