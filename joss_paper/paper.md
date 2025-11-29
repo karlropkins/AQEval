@@ -30,16 +30,17 @@ affiliations:
       name: Institute for Transport Studies, University of Leeds, Leeds, LS2 9JT, UK
     - index: 2
       name: Joint Air Quality Unit, Department for Transport & Department for Environment, Food and Rural Affairs, Marsham Street London, SW1P 4DF, UK
-date: 2 June 2025
+date: 29 November 2025
 bibliography: paper.bib
 ---
 
 # Summary
 
 `AQEval` (Air Quality Evaluation) is an `R` package for the routine investigation 
-of discrete changes in air quality time-series. The main functions use 
-break-point/segmentation (BP/S) methods to detect, characterise and quantify change, 
-while other functions build on these to provide a workflow to measure smaller changes 
+of discrete changes in air quality time-series. The main functions, `quantBreakPoints` 
+and `quantBreakSegments` use a three-step method to find possible ‘points-of-change’, 
+test these and quantify the most likely or 'regions-of-change' about them, respectively. 
+Other key functions build of these to provide a workflow to measure smaller changes 
 and/or changes in more complex environments. 
 
 # Statement of Need
@@ -59,10 +60,7 @@ wide range of monitoring activities, are unlike to be able to dedicate sufficien
 to the development of in-house expertise in such specialist analyses. `AQEval` was developed to 
 address this skill gap. It aligns the inputs and outputs of a number of statistical methods to 
 provide a one-package option for anyone interested in using `R` to routinely investigate change 
-in air quality data. As many air quality professionals already use the `R` package `openair` 
-[@carslaw2012openair; @ropkins2012openair] for more conventional analysis and data visualisation, 
-`AQEval` has also been written using `openair` coding conventions to reduce the learning-curve 
-typically associated with learning new software. 
+in air quality data.  
 
 # Sources
 
@@ -77,8 +75,7 @@ requests can also be posted; and
 
 # Analytical Rationale
 
-The `AQEval` Break-Point/Segment (BP/S) methods involve three steps: finding possible ‘points-of-change’, 
-testing these and quantifying ‘regions-of-change’ about the most likely:  
+The main steps of the Break-Point/Segment (BP/S) analysis are:   
 
 1. Breaks-points are determined using the `strucchange` methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
@@ -128,10 +125,50 @@ local variance associated with trends at near-by site not affected by the invest
 or proxies for other local contributors (e.g. other meteorological parameters like air temperature, 
 markers for other sources, etc). 
 
+# Data Requirements and Main Functions
+
+As many air quality professionals already use the `R` package `openair` 
+[@carslaw2012openair; @ropkins2012openair] for more conventional analysis and data visualisation, 
+`AQEval` uses `openair` coding syntax and data structures. Most importantly, time-series to be 
+analysed should be provide `data.frame` (or similar), also containing a paired column of 
+`POSIX*` class time-stamps named `date` similar to packaged example data, `aq.data`. 
+
+Main Functions:
+
+```r
+# to quantify Break-Points (as in Figure 3a)
+quantBreakPoints(
+  data,               # data source, typically an openair-friendly data.frame
+  pollutant,          # name of column containing the time-series to analysed
+  h,                  # the rolling window size, as a proportion of time-series length
+  ...                 # other arguments 
+)
+  
+# to quantify Break-Segments (as in Figure 2 and 3b)
+quantBreakPoints(
+  data,               # as above but fits trends to regions about break-points
+  pollutant,          # (see section 3 in Analytical Rationale above)
+  h,                  
+  ...                 
+)
+
+# For signal isolation (as used for Figure 3b)
+isolateContribution(
+  data,               
+  pollutant,
+  ...                 # other arguments allow user to modify the isolation method 
+                      # (see package documentation for further details)
+)
+  
+# findBreakPoints and testBreakPoints can also be used to fine-tune BP/S models
+
+```
+
 # Related Outputs 
 
-The `AQEval` functions are described, along with worked examples of the code used to generate 
-Figures \ref{fig:2} and \ref{fig:3}, in the [extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf). 
+The `AQEval` functions are described in further detail, along with worked examples of 
+the code used to generate Figures \ref{fig:2} and \ref{fig:3}, in the 
+[extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf). 
 Other work using `AQEval` include:
 
 -	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 

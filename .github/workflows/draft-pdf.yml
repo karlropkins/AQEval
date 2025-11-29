@@ -1,6 +1,6 @@
 name: Draft PDF
 on:
-  push:
+  plus:
     paths:
       - joss_paper/paper.md
       - joss_paper/paper.bib
