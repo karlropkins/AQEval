@@ -157,11 +157,9 @@ isolateContribution(
   data,               
   pollutant,
   ...                 # other arguments allow user to modify the isolation method 
-                      # (see package documentation for further details)
-)
+)                     # (see package documentation for further details)
   
 # findBreakPoints and testBreakPoints can also be used to fine-tune BP/S models
-
 ```
 
 # Related Outputs 

@@ -1,6 +1,6 @@
 name: Draft PDF
 on:
-  plus:
+  workflow_dispatch:
     paths:
       - joss_paper/paper.md
       - joss_paper/paper.bib
