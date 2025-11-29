@@ -38,7 +38,7 @@ bibliography: paper.bib
 
 `AQEval` (Air Quality Evaluation) is an `R` package for the routine investigation 
 of discrete changes in air quality time-series. The main functions, `quantBreakPoints` 
-and `quantBreakSegments` use a three-step method to find possible ‘points-of-change’, 
+and `quantBreakSegments`, use a three-step method to find possible ‘points-of-change’, 
 test these and quantify the most likely or 'regions-of-change' about them, respectively. 
 Other key functions build of these to provide a workflow to measure smaller changes 
 and/or changes in more complex environments. 
