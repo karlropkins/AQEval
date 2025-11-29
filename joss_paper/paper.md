@@ -154,7 +154,7 @@ quantBreakPoints(
 
 # For signal isolation (as used for Figure 3b)
 isolateContribution(
-  data,               
+  data,                 
   pollutant,
   ...                 # other arguments allow user to modify the isolation method 
 )                     # (see package documentation for further details)
