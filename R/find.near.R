@@ -52,7 +52,16 @@
 #main function findNearLatLon
 #############################
 
-# should findNearSite be a wrapper for findNearLatLon ???
+# working on
+#######################
+
+# make findNearSite a wrapper of findNearLatLon ???
+#     testing as unexported findNearSite2
+#        NB if that replaces only have to ...site tracks ...LatLon updates
+#           (wont need to update both when changing anything)
+
+# think about
+######################
 
 # think about rename/manage/set data columns local function
 #    aqeval_renameDataColumns?
@@ -65,6 +74,9 @@
 
 # finish documenting
 #    rename.lat, rename.lon, rename.ref.lat, rename.ref.lon (if they stay?)
+#    rm.duplicates
+#
+
 
 # add references
 
@@ -90,7 +102,8 @@ findNearLatLon <-
     x.args <- loa::listUpdate(list(rename.lat=c("latitude", "lat"),
                                    rename.lon=c("longitude", "long", "lon"),
                                    rename.ref.lat=c("latitude", "lat"),
-                                   rename.ref.lon=c("longitude", "long", "lon")),
+                                   rename.ref.lon=c("longitude", "long", "lon"),
+                                   rm.duplicates = FALSE),
                               list(...))
     #if no ref stop
     if(is.null(ref)){
@@ -172,6 +185,26 @@ findNearLatLon <-
     #output in requested scale
     ref$distance <- R * c * sc
     ref <- ref[order(ref$distance),]
+
+    # rm.duplicates?
+    #############################
+    # need to do here
+    #    can only remove duplicates once we have order
+    # NB: not documented
+    #    not sure it is staying...
+    if(is.logical(x.args$rm.duplicates) &&  x.args$rm.duplicates){
+      #remove any duplicated locations...
+      # NB: this will only keep first of any co-located sites...
+      ref <- ref[!duplicated(paste(lat1, lon1)), ]
+    }
+    if(is.character(x.args$rm.duplicates)){
+      # this is altenative based on duplicates in another column of ref
+      #    e.g., the site_id for co-located sites you what to retain as unique
+      .test <- aqe_getXFromData(x.args$rm.duplicates,
+                                ref)
+      ref <- ref[!duplicated(.test), ]
+    }
+
     if(nrow(ref)>nmax)
       ref <- ref[1:nmax,]
     #ref <- ref[,unique(c("code", "site", "distance",
@@ -184,7 +217,7 @@ findNearLatLon <-
 
 
 ## findNearSites is earlier version of findNear...
-## probably going
+## probably going or becoming wrapper for findNearLatLon...
 ## splatted function (first time around)
 
 #' @rdname find.near
@@ -317,6 +350,66 @@ findNearSites <-
   }
 
 
+###################################
+# testing following as replacement
+###################################
+
+findNearSites2 <- function(lat,lon, pollutant = "no2",
+                          site.type = "rural background",
+                          nmax = 10, ...,
+                          ref = NULL, units = "m"){
+  x.args <- list(...)
+  if(is.null(ref)){
+    ref <- importMeta(source="aurn", all=TRUE)
+  }
+  #pollutant
+  if(any(tolower(pollutant)!="all")){
+    ref <- ref[tolower(ref$variable) %in%
+               tolower(pollutant),]
+  }
+  #site.tye
+  if(any(tolower(site.type)!="all")){
+    ref <- ref[tolower(ref$site_type) %in%
+                 tolower(site.type),]
+  }
+  #limit search to date ranges
+  #trickier than you think...
+  #   needs very careful documentation
+  #   also current only works for openair.meta like data...
+  ##################################
+  if("date.range" %in% names(x.args)){
+    ############################
+    #next bit will error if not
+    #formatted correctly
+    ############################
+    #start: max of mins...
+    temp <- as.Date(ref$start_date)
+    t1 <- ifelse(temp > min(as.Date(x.args$date.range),
+                            na.rm=TRUE),
+                 temp,
+                 min(as.Date(x.args$date.range), na.rm=TRUE))
+    #end: min of maxs
+    temp <- as.Date(gsub("ongoing", Sys.Date(), ref$end_date))
+    t2 <- ifelse(temp < max(as.Date(x.args$date.range),
+                            na.rm=TRUE),
+                 temp,
+                 max(as.Date(x.args$date.range), na.rm=TRUE))
+    if("date.overlap" %in% names(x.args)){
+      temp <- strsplit(as.character(x.args$date.overlap), " ")[[1]]
+      if(length(temp)<2)
+        stop("need units if applying date.overlap")
+      ############################
+      #next bit will error if not
+      #formatted correctly
+      t2 <- t2 - as.difftime(as.numeric(temp[1]),
+                             units=temp[2])
+    }
+    ref <- ref[t2>t1,]
+  }
+  # original tracked the source...
+  findNearLatLon(lat=lat, lon=lon, nmax = nmax,
+                 ..., ref = ref, units = units)
+}
 
 
 ####################################
