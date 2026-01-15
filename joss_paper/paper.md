@@ -58,9 +58,9 @@ been applied to air quality time-series (see e.g. @carslaw2006change, @carslaw20
 However, many of those tasked with air quality policy assessment, although highly skilled in a 
 wide range of monitoring activities, are unlike to be able to dedicate sufficient time and resources 
 to the development of in-house expertise in such specialist analyses. `AQEval` was developed to 
-address this skill gap. It aligns the inputs and outputs of a number of statistical methods to 
-provide a one-package option for anyone interested in using `R` to routinely investigate change 
-in air quality data.  
+address this skill gap and published as an open research tool. It aligns the inputs and outputs 
+of a number of statistical methods to provide a one-package option for anyone interested in using 
+`R` to routinely investigate change in air quality data.  
 
 # Sources
 
@@ -72,6 +72,9 @@ in air quality data.
 [https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), where issues or change 
 requests can also be posted; and 
 -	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/).
+
+Code used to generate Figures \ref{fig:2} and \ref{fig:3} are provided in an [extended 
+version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).
 
 # Analytical Rationale
 
@@ -164,19 +167,13 @@ isolateContribution(
 
 # Related Outputs 
 
-The `AQEval` functions are described in further detail, along with worked examples of 
-the code used to generate Figures \ref{fig:2} and \ref{fig:3}, in the 
-[extended package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf). 
-Other work using `AQEval` include:
-
 -	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
   on the multi-species AQEval analysis of air quality during the UK COVID-19 lockdown. 
 -	[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article on 
   the use of `AQEval` to measure the NO~2~ impact of bus fleet interventions. 
 -	Also Clear Air Zone (CAZ) impact assessment reports include analyses using `AQEval`, see e.g.: 
     - [CAZ Baseline Study](https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
-    - [First Year Report](https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf) 
-    -	(...) 
+    - [First Year Report](https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf), etc.
     - [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688) 
 
 # Acknowledgements 
