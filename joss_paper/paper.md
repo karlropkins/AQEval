@@ -70,10 +70,9 @@ of a number of statistical methods to provide a one-package option for anyone in
 [https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval); 
 -	The developers’ version and code are publicly on GitHub 
 [https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), where issues or change 
-requests can also be posted; and 
--	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/).
-
-Code used to generate Figures \ref{fig:2} and \ref{fig:3} are provided in an [extended 
+requests can also be posted; 
+-	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/); and
+- Code for Figures \ref{fig:2} and \ref{fig:3} also provided in an [extended 
 version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).
 
 # Analytical Rationale
