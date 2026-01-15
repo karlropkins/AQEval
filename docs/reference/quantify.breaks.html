@@ -9,7 +9,7 @@ break-segment methods for pollutant time-series"><meta property="og:image" conte
 
     <a class="navbar-brand me-2" href="../index.html">AQEval</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -235,7 +235,7 @@ Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/openair/man/timeAverage.html" class="external-link">timeAverage</a></code> in <code>openair</code>,
+    <div class="dont-index"><p><code><a href="https://openair-project.github.io/openair/reference/timeAverage.html" class="external-link">timeAverage</a></code> in <code>openair</code>,
 <code><a href="https://rdrr.io/pkg/strucchange/man/breakpoints.html" class="external-link">breakpoints</a></code> in <code>strucchange</code>, and
 <code><a href="https://rdrr.io/pkg/segmented/man/segmented.html" class="external-link">segmented</a></code> in <code>segmented</code>.</p></div>
     </div>
@@ -248,7 +248,7 @@ Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#using openair timeAverage to covert 1-hour data to 1-day averages</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu">openair</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/openair/man/timeAverage.html" class="external-link">timeAverage</a></span><span class="op">(</span><span class="va">aq.data</span>, <span class="st">"1 day"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu">openair</span><span class="fu">::</span><span class="fu"><a href="https://openair-project.github.io/openair/reference/timeAverage.html" class="external-link">timeAverage</a></span><span class="op">(</span><span class="va">aq.data</span>, <span class="st">"1 day"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">#break-points</span></span></span>
 <span class="r-in"><span></span></span>
@@ -257,6 +257,8 @@ Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 2002-09-26 (2002-05-24 to 2003-01-08)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 35.93-&gt;47.28;11.35 (32%)</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 28 rows containing missing values or values outside the scale range</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> (`geom_ribbon()`).</span>
 <span class="r-plt img"><img src="quantify.breaks-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">#break-segments</span></span></span>
@@ -273,6 +275,8 @@ Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 2002-10-21 to 2003-12-31 (436)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 46.02-&gt;43.61;-2.406 (-5.23%)</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 28 rows containing missing values or values outside the scale range</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> (`geom_ribbon()`).</span>
 <span class="r-plt img"><img src="quantify.breaks-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">#addition examples (not run)</span></span></span>
@@ -297,7 +301,7 @@ Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
