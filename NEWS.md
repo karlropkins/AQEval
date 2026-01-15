@@ -6,7 +6,8 @@
     * __v 0.6.1__ [2025-02-07] added/testing use.bam option to isolateContribution (might not be staying) 
     * __v 0.6.2__ [2025-07-12] updated to date handling in calcDateRangeStat; added tinytest package testing 
     * __v 0.6.3__ [2025-11-15] find.break typo fixed 
-    * __v 0.6.4__ [2025-12-07] findNearLatLon update; option to remove duplicates in ref
+    * __v 0.6.4__ [2025-12-07] findNearLatLon update; option to remove duplicates in ref 
+    * __v 0.6.5__ [2025-01-15] test update for ggplot class change  
  
 # AQEval version 0.5
 
