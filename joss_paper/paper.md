@@ -83,8 +83,8 @@ The main steps of the Break-Point/Segment (BP/S) analysis are:
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
    a first subset (time-series window TW~0~ in \autoref{fig:1}a) is selected and linear 
    regression modelled; then the window is advanced (TW~1~ in \autoref{fig:1}a) and a second 
-   model built, and so on through the time-series; and finally likely points-of-change 
-   assigned by comparing the F-Stat scores of sequential models. 
+   model built, and so on through the time-series; and, finally, likely points-of-change 
+   are assigned by comparing the F-Stat scores of sequential models. 
 2. In addition to the standard Bayesian Information Criterion (BIC) testing used by `strucchange`, 
    `AQEval` also checks that all individual break-points are statistically valid (p<0.05), and down-scores 
    less likely combinations. 
