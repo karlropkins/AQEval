@@ -47,14 +47,15 @@ remotes::install_local(file.choose()) # and select
 
 ## Background
 
-This package contain beta-testing code being developed as part of an
-on-going project.
+This package contains code developed as part of an on-going project.
 
 ## Contributing
 
-Contributions are very welcome. Please note both contribution guidance
-and code of conduct…
-[Contributions](https://karlropkins.github.io/AQEval/CONTRIBUTING.html)
+Contributions are very welcome. Please check both the [contribution
+guidance](https://karlropkins.github.io/AQEval/CONTRIBUTING.html) and
+[code of
+conduct](https://karlropkins.github.io/AQEval/CODE_OF_CONDUCT.html) when
+contributing.
 
 ## License
 
