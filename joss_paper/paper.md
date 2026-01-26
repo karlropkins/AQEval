@@ -107,7 +107,7 @@ subtract associated variance, by default:
 $$[pollutant] = s_1(day~of~year) + s_2(hour~of~day) + te_1(wind~speed,wind~direction)$$
 $$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant)$$
 
-Where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
+where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
 *day of year*, *hour of day* and *wind speed* and *direction* using a combination of spline 
 (*s~1~* and *s~2~*) and tensor (*te~1~*) fit-terms, and the unmodelled component, 
 *[pollutant]~isolated~*, is estimated as the mean-centred residual of this model. 
@@ -182,7 +182,9 @@ Initial `AQEval` development was funded by the UK Department for Environment, Fo
 of Leeds, Defra and IPSOS Mori, and internal review by the Defra/Department for Transport Joint Air Quality 
 Unit (JAQU) Technical Independent Review Panel (T-IRP). The authors also 
 gratefully acknowledge the work of the R core team and collaborators in developing and 
-maintaining the open-source statistical language R and associated packages [http://www.r-project.org/](http://www.r-project.org/).  
+maintaining the open-source statistical language R and associated packages 
+[http://www.r-project.org/](http://www.r-project.org/), and the help, input and advice of editors and reviewers 
+at [JOSS]( https://joss.theoj.org/).  
 
 The views and opinions expressed herein by the authors are their own and do not necessarily reflect those 
 of UK Government or any agency thereof.
