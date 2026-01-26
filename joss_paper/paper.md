@@ -38,9 +38,9 @@ bibliography: paper.bib
 
 `AQEval` (Air Quality Evaluation) is an `R` package for the routine investigation 
 of discrete changes in air quality time-series. The main functions, `quantBreakPoints` 
-and `quantBreakSegments`, use a three-step method to find possible ‘points-of-change’, 
-test these and quantify the most likely or 'regions-of-change' about them, respectively. 
-Other key functions build of these to provide a workflow to measure smaller changes 
+and `quantBreakSegments`, use a three-step method to find possible 'points-of-change', 
+test these and quantify the most likely 'points-of-change' or 'regions' about them.
+Other key functions build on these to provide a workflow to measure smaller changes 
 and/or changes in more complex environments. 
 
 # Statement of Need
@@ -56,7 +56,7 @@ been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killi
 `segmented` [@muggeo2008segmented], and `strucchange` [@zeileis2002strucchange]. Some have even 
 been applied to air quality time-series (see e.g. @carslaw2006change, @carslaw2007detecting). 
 However, many of those tasked with air quality policy assessment, although highly skilled in a 
-wide range of monitoring activities, are unlike to be able to dedicate sufficient time and resources 
+wide range of monitoring activities, are unlikely to be able to dedicate sufficient time and resources 
 to the development of in-house expertise in such specialist analyses. `AQEval` was developed to 
 address this skill gap and published as an open research tool. It aligns the inputs and outputs 
 of a number of statistical methods to provide a one-package option for anyone interested in using 
@@ -82,11 +82,11 @@ The main steps of the Break-Point/Segment (BP/S) analysis are:
 1. Breaks-points are determined using the `strucchange` methods of Zeileis and colleagues 
    [@zeileis2002strucchange; @zeileis2003testing]. Here, a rolling-window approach is applied: 
    a first subset (time-series window TW~0~ in \autoref{fig:1}a) is selected and linear 
-   regression modelled; the window advanced (TW~1~ in \autoref{fig:1}a) and a second 
-   model built, and so on through the time-series; then, likely points-of-change 
+   regression modelled; then the window is advanced (TW~1~ in \autoref{fig:1}a) and a second 
+   model built, and so on through the time-series; and finally likely points-of-change 
    assigned by comparing the F-Stat scores of sequential models. 
 2. In addition to the standard Bayesian Information Criterion (BIC) testing used by `strucchange`, 
-   `AQEval` also checks all individual break-points are statistically valid (p<0.05), and down-scores 
+   `AQEval` also checks that all individual break-points are statistically valid (p<0.05), and down-scores 
    less likely combinations. 
 3. Finally, the `segmented` methods of Muggeo and colleagues [@muggeo2003estimating; @muggeo2008segmented; 
    @muggeo2017interval] are used to determine regions-of-change about break-points. Here, the confidence 
@@ -107,7 +107,7 @@ subtract associated variance, by default:
 $$[pollutant] = s_1(day~of~year) + s_2(hour~of~day) + te_1(wind~speed,wind~direction)$$
 $$[pollutant]_{isolated} = ([pollutant] - [pollutant]_{predicted}) + mean(pollutant)$$
 
-Where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
+where the investigated pollutant concentration, *[pollutant]*, is modelled as a function of 
 *day of year*, *hour of day* and *wind speed* and *direction* using a combination of spline 
 (*s~1~* and *s~2~*) and tensor (*te~1~*) fit-terms, and the unmodelled component, 
 *[pollutant]~isolated~*, is estimated as the mean-centred residual of this model. 
@@ -147,7 +147,7 @@ quantBreakPoints(
 )
   
 # to quantify Break-Segments (as in Figure 2 and 3b)
-quantBreakPoints(
+quantBreakSegments(
   data,               # as above but fits trends to regions about break-points
   pollutant,          # (see section 3 in Analytical Rationale above)
   h,                  
@@ -182,7 +182,9 @@ Initial `AQEval` development was funded by the UK Department for Environment, Fo
 of Leeds, Defra and IPSOS Mori, and internal review by the Defra/Department for Transport Joint Air Quality 
 Unit (JAQU) Technical Independent Review Panel (T-IRP). The authors also 
 gratefully acknowledge the work of the R core team and collaborators in developing and 
-maintaining the open-source statistical language R and associated packages [http://www.r-project.org/](http://www.r-project.org/).  
+maintaining the open-source statistical language R and associated packages 
+[http://www.r-project.org/](http://www.r-project.org/), and the help, input and advice of editors and reviewers 
+at [JOSS]( https://joss.theoj.org/).  
 
 The views and opinions expressed herein by the authors are their own and do not necessarily reflect those 
 of UK Government or any agency thereof.
