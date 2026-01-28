@@ -62,6 +62,19 @@ address this skill gap and published as an open research tool. It aligns the inp
 of a number of statistical methods to provide a one-package option for anyone interested in using 
 `R` to routinely investigate change in air quality data.  
 
+# Sources and Related Outputs 
+
+- The `AQEval` project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/); 
+- Release version on [CRAN](https://CRAN.R-project.org/package=AQEval), the developers’ version and code on 
+[GitHub](https://github.com/karlropkins/AQEval), where issues or change 
+requests can also be posted; 
+- Code for Figures \ref{fig:2} and \ref{fig:3} also provided in an [extended 
+version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf), 
+and;
+- Other related output include [Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), 
+[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), and work included in UK Clear Air Zone (CAZ) 
+impact assessment reports [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688). 
+
 # Analytical Rationale
 
 The main steps of the Break-Point/Segment (BP/S) analysis are:   
@@ -150,19 +163,6 @@ isolateContribution(
   
 # findBreakPoints and testBreakPoints can also be used to fine-tune BP/S models
 ```
-
-# Sources and Related Outputs 
-
-- The `AQEval` project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/); 
-- Release version on [CRAN](https://CRAN.R-project.org/package=AQEval), the developers’ version and code on 
-[GitHub](https://github.com/karlropkins/AQEval), where issues or change 
-requests can also be posted; 
-- Code for Figures \ref{fig:2} and \ref{fig:3} also provided in an [extended 
-version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf), 
-and;
-- Other related output include [Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), 
-[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), and work included in Uk Clear Air Zone (CAZ) 
-impact assessment reports [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688). 
 
 # Acknowledgements 
 
