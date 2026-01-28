@@ -52,7 +52,7 @@ variability monitoring data hinders impact assessments
 [@kelly2011impact; @pearce2011quantifying; @jones2012large; @grange2019using]. Various methods 
 have been developed to investigate discrete changes in a wide range of time-series 
 [see e.g. @reeves2007review; @truong2020selective] and several `R` [@r2025r] packages have 
-been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killick2016changepoint], 
+been developed for their use, e.g. `bcp` [@erdman2008bcp], `changepoint` [@killick2014changepoint], 
 `segmented` [@muggeo2008segmented], and `strucchange` [@zeileis2002strucchange]. Some have even 
 been applied to air quality time-series (see e.g. @carslaw2006change, @carslaw2007detecting). 
 However, many of those tasked with air quality policy assessment, although highly skilled in a 
@@ -61,19 +61,6 @@ to the development of in-house expertise in such specialist analyses. `AQEval` w
 address this skill gap and published as an open research tool. It aligns the inputs and outputs 
 of a number of statistical methods to provide a one-package option for anyone interested in using 
 `R` to routinely investigate change in air quality data.  
-
-# Sources
-
-`AQEval` is freely available under General Public License (GPL): 
-
--	The latest (stable) release version of `AQEval` is on the Comprehensive R Archive Network (CRAN) 
-[https://CRAN.R-project.org/package=AQEval](https://CRAN.R-project.org/package=AQEval); 
--	The developers’ version and code are publicly on GitHub 
-[https://github.com/karlropkins/AQEval](https://github.com/karlropkins/AQEval), where issues or change 
-requests can also be posted; 
--	The project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/); and
-- Code for Figures \ref{fig:2} and \ref{fig:3} also provided in an [extended 
-version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf).
 
 # Analytical Rationale
 
@@ -164,16 +151,18 @@ isolateContribution(
 # findBreakPoints and testBreakPoints can also be used to fine-tune BP/S models
 ```
 
-# Related Outputs 
+# Sources and Related Outputs 
 
--	[Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), a peer-reviewed article 
-  on the multi-species AQEval analysis of air quality during the UK COVID-19 lockdown. 
--	[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), a peer-reviewed article on 
-  the use of `AQEval` to measure the NO~2~ impact of bus fleet interventions. 
--	Also Clear Air Zone (CAZ) impact assessment reports include analyses using `AQEval`, see e.g.: 
-    - [CAZ Baseline Study](https://www.ipsos.com/sites/default/files/ct/publication/documents/2021-02/15012_localno2plans-baselineresearchfindings.pdf) 
-    - [First Year Report](https://www.ipsos.com/sites/default/files/ct/news/documents/2022-05/local-no2-plans-main-report-may-2022.pdf), etc.
-    - [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688) 
+- The `AQEval` project website is at [https://karlropkins.github.io/AQEval/](https://karlropkins.github.io/AQEval/); 
+- Release version on [CRAN](https://CRAN.R-project.org/package=AQEval), the developers’ version and code on 
+[GitHub](https://github.com/karlropkins/AQEval), where issues or change 
+requests can also be posted; 
+- Code for Figures \ref{fig:2} and \ref{fig:3} also provided in an [extended 
+version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf), 
+and;
+- Other related output include [Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), 
+[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), and work included in Uk Clear Air Zone (CAZ) 
+impact assessment reports [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688). 
 
 # Acknowledgements 
 
