@@ -68,11 +68,10 @@ of a number of statistical methods to provide a one-package option for anyone in
 - Release version on [CRAN](https://CRAN.R-project.org/package=AQEval), the developers’ version and code on 
 [GitHub](https://github.com/karlropkins/AQEval), where issues or change 
 requests can also be posted; 
-- Code for Figures \ref{fig:2} and \ref{fig:3} also provided in an [extended 
-version of this package introduction](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf), 
-and;
-- Other related output include [Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), 
-[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), and work included in UK Clear Air Zone (CAZ) 
+- An [extended version of this paper](https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf),
+including code for Figures \ref{fig:2} and \ref{fig:3}, and;
+- Other related outputs include [Ropkins & Tate (2021)](https://doi.org/10.1016/j.scitotenv.2020.142374), 
+[Ropkins et al (2022)](https://doi.org/10.1039/D1EA00073J), and work in UK Clear Air Zone (CAZ) 
 impact assessment reports [Report archive](https://randd.defra.gov.uk/ProjectDetails?ProjectId=20688). 
 
 # Analytical Rationale
