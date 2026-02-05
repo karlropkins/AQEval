@@ -1,5 +1,5 @@
 ---
-title: 'AQEval: R code for the analysis of discrete change in Air Quality time-series'
+title: 'AQEval: R code for the analysis of discrete change in air quality time-series'
 tags: 
     - R
     - environmental research
