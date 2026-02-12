@@ -10,7 +10,7 @@
 #' or similar, containing data-series to apply function to
 #' and a paired time-stamped data-series, called \code{date}.
 #' @param pollutant Name of time-series, assumed to be
-#' a column in \code{date}.
+#' a column in \code{data}.
 #' @param h (\code{findBreakPoints} only) The data/time window
 #' size to use when looking for breaks in a supplied time-series,
 #' expressed as proportion of time-series (0-1), default 0.15.
