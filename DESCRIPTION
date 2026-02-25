@@ -1,7 +1,7 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.6.8
-Date: 2026-02-12
+Version: 0.6.9
+Date: 2026-02-25
 Description: Developed for use by those tasked with the routine detection, characterisation and
             quantification of discrete changes in air quality time-series, such as identifying the impacts
             of air quality policy interventions. The main functions use signal isolation then

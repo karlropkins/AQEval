@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/karlropkins/AQEval/workflows/R-CMD-check/badge.svg)](https://github.com/karlropkins/AQEval/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/AQEval)](https://CRAN.R-project.org/package=AQEval)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.08839/status.svg)](https://doi.org/10.21105/joss.08839)
 <!-- badges: end -->
 
 R code for Air Quality Evaluation
@@ -25,6 +26,8 @@ R code for Air Quality Evaluation
 __AQEval__ was developed for use by those tasked with the routine detection, characterisation and
 quantification of discrete changes in air quality time-series, such as identifying the impacts
 of air quality policy interventions.
+
+[Introduction Paper in JOSS](https://doi.org/10.21105/joss.08839)
 
 
 ## Installation

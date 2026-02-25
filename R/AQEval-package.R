@@ -55,10 +55,19 @@
 #' Atmospheres, 2(3), pp.500-516. https://doi.org/10.1039/d1ea00073j
 #'
 #' Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
-#' Tate, J., Change Detection of Air Quality Time-Series Using the
+#' Tate, J., 2026. AQEval: R code for the analysis of discrete change in
+#' air quality time-series. Journal of Open Source Software, 11(118), p.8839.
+#' https://doi.org/10.21105/joss.08839
+#'
+#' (also extended version of above with all code examples as pre-print)
+#'
+#' Ropkins, K., Walker, A., Philips, I., Rushton, C., Clark, T. and
+#' Tate, J., pre-print. Change Detection of Air Quality Time-Series Using the
 #' R Package AEQval. Available at SSRN 4267722.
 #' https://ssrn.com/abstract=4267722 or http://dx.doi.org/10.2139/ssrn.4267722
 #' Also at: https://karlropkins.github.io/AQEval/articles/AQEval_Intro_Preprint.pdf
+#'
+#'
 #'
 #' @name AQEval-package
 #' @aliases AQEval

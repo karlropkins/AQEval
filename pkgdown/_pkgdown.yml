@@ -17,6 +17,8 @@ navbar:
       menu:
       - text: "documents"
       - text: "Package Introduction"
+        href: https://doi.org/10.21105/joss.08839
+      - text: "Package Introduction (extended)"
         href: articles/AQEval_Intro_Preprint.pdf
       - text: "Package Installation Testing"
         href: articles/AQEval_Package_Testing.html
