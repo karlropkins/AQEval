@@ -1,7 +1,7 @@
 Package: AQEval
 Title: Air Quality Evaluation
-Version: 0.6.9
-Date: 2026-02-25
+Version: 0.6.10
+Date: 2026-03-01
 Description: Developed for use by those tasked with the routine detection, characterisation and
             quantification of discrete changes in air quality time-series, such as identifying the impacts
             of air quality policy interventions. The main functions use signal isolation then
@@ -16,7 +16,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)
-Imports: openair, dplyr, loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate, purrr, ggtext,
+Imports: openair, dplyr (>= 1.1.0), loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate, purrr, ggtext,
             stats, data.table
 RoxygenNote: 7.3.3
 URL: https://github.com/karlropkins/AQEval, https://karlropkins.github.io/AQEval/

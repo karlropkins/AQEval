@@ -1,6 +1,7 @@
 # AQEval version 0.6
 
 * Package updates 
+    * __v 0.6.10__ [2026-03-01] patching for dplyr summarise issue (hopefully temporarily)
     * __v 0.6.9__ [2026-02-25] doc and web updates (JOSS paper)
     * __v 0.6.8__ [2026-02-12] find.breaks doc update (thanks Dennis)
     * __v 0.6.7__ [2026-01-31] JOSS paper release  

@@ -155,9 +155,17 @@ calcDateRangeStat <-
                       #(not sure about trade-offs)
                       df.stat <- dplyr::group_by(dates, start.date,
                                                  end.date)
-                      df.stat <- dplyr::summarize(df.stat,
+                      ###############################
+                      # replacing summarize with reframe
+                      #     dplyr 1.1+
+                      ##############################
+                      #df.stat <- dplyr::summarize(df.stat,
+                      #                            rstat = stat(data$.rstat[data$date >= start.date &
+                      #                                                       data$date < end.date]))
+                      df.stat <- dplyr::reframe(df.stat,
                                                   rstat = stat(data$.rstat[data$date >= start.date &
                                                                              data$date < end.date]))
+                      ##############################
                       names(df.stat)[names(df.stat)=="rstat"] <- x
                       df.stat
                     })
@@ -195,9 +203,17 @@ calcDateRangeStat <-
                       #(not sure about trade-offs)
                       df.stat <- dplyr::group_by(dates, start.date,
                                                  end.date)
-                      df.stat <- dplyr::summarize(df.stat,
-                                                  rstat = stat(data$.rstat[data$date >= start.date &
-                                                                             data$date < end.date]))
+                      ###############################
+                      # replacing summarize with reframe
+                      #     dplyr 1.1+
+                      ##############################
+                      #df.stat <- dplyr::summarize(df.stat,
+                      #                            rstat = stat(data$.rstat[data$date >= start.date &
+                      #                                                       data$date < end.date]))
+                      df.stat <- dplyr::reframe(df.stat,
+                                                rstat = stat(data$.rstat[data$date >= start.date &
+                                                                           data$date < end.date]))
+                      ##############################
                       names(df.stat)[names(df.stat)=="rstat"] <- x
                       df.stat
                     })
