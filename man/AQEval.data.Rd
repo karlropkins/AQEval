@@ -98,7 +98,7 @@ DOI \doi{10.1016/j.envsoft.2011.09.008}
 Ropkins, K. and D.C. Carslaw (2012), openair-Data
 Analysis Tools for the Air Quality Community. R Journal,
 4(1).
-URL \url{https://journal.r-project.org/archive/2012/RJ-2012-003/RJ-2012-003.pdf}
+URL \url{https://journal.r-project.org/articles/RJ-2012-003/RJ-2012-003.pdf}
 
 Regarding \code{worldmet}, see:
 

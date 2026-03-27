@@ -110,6 +110,8 @@ development and testing work, and retained for now.
 Please ignore for now.
 }
 \examples{
+#(not running to reduce package testspeed)
+\donttest{
 #fitting a simple deseasonalisation, deweathering
 #and background correction (dswb) model to no2:
 
@@ -124,6 +126,7 @@ quantBreakPoints(temp, "no2", test=FALSE, h=0.1)
 
 #with dswb
 quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
+}
 }
 \references{
 Regarding \code{\link[mgcv]{mgcv}} GAM fitting methods, see

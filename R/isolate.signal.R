@@ -96,6 +96,8 @@
 #' @seealso
 #' \code{\link[mgcv]{mgcv}}, \code{\link[mgcv]{gam}}.
 #' @examples
+#' #(not running to reduce package testspeed)
+#' \donttest{
 #' #fitting a simple deseasonalisation, deweathering
 #' #and background correction (dswb) model to no2:
 #'
@@ -110,6 +112,7 @@
 #'
 #' #with dswb
 #' quantBreakPoints(temp, "dswb.no2", test=FALSE, h=0.1)
+#' }
 
 
 
