@@ -255,8 +255,8 @@ quantBreakSegments <-
     #######################################
     if(seg.method==1){
       data <- aqe_RowNameFix(data)
-      mod <- aqe_fitBreakSegmentsModel01(data2, pollutant, breaks)
       data2 <- data[,c("date", pollutant)]
+      mod <- aqe_fitBreakSegmentsModel01(data2, pollutant, breaks)
       data2$pred <- rep(NA, nrow(data2))
       data2$err <- data2$pred
       ans <- predict(mod, se.fit = TRUE)

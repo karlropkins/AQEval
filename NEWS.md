@@ -1,6 +1,7 @@
 # AQEval version 0.6
 
 * Package updates 
+    * __v 0.6.12__ [2026-05-15] quant.breaks code update (thanks Dennis again)
     * __v 0.6.11__ [2026-03-30] documentation/website updates
     * __v 0.6.10__ [2026-03-01] patching for dplyr summarise issue (hopefully temporarily)
     * __v 0.6.9__ [2026-02-25] doc and web updates (JOSS paper)
