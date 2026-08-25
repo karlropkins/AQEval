@@ -19,8 +19,8 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)
 Imports: openair, dplyr (>= 1.1.0), loa, ggplot2, strucchange, segmented, mgcv, tidyr, lubridate, purrr,
-            ggtext, stats, data.table
+            stats, data.table
 RoxygenNote: 7.3.3
 URL: https://github.com/karlropkins/AQEval, https://karlropkins.github.io/AQEval/
 BugReports: https://github.com/karlropkins/AQEval/issues
-Suggests: tinytest
+Suggests: tinytest, ggtext
