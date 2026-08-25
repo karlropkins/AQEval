@@ -106,8 +106,8 @@ aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
     ggplot2::geom_ribbon(ggplot2::aes(fill = "  confidence"),
                          alpha = 0.25) +
     ggplot2::geom_path(ggplot2::aes(y = pred, col = "  trend")) +
-    ggplot2::ylab(aqe_quickText(ylab, auto.text)) +
-    ggplot2::xlab(aqe_quickText(xlab, auto.text)) +
+    ggplot2::ylab(aqe_label(ylab, auto.text)) +
+    ggplot2::xlab(aqe_label(xlab, auto.text)) +
     ggplot2::scale_shape_manual(name="",
                                 values=c(21),
                                 labels=c(scalelabs[1]))+
@@ -132,8 +132,8 @@ aqe_plotQuantBreakPoints <- function(data, name.pol, breaks,
     ggplot2::theme_bw() +
     ggplot2::theme(legend.position="top",
                    legend.spacing.x = ggplot2::unit(0, 'cm'),
-                   axis.title.y = ggtext::element_markdown(),
-                   axis.title.x = ggtext::element_markdown())
+                   axis.title.y = aqe_titleElement(),
+                   axis.title.x = aqe_titleElement())
   if(!is.null(event)){
     #requested intervention marker
     #(not a fan of this)
@@ -446,6 +446,80 @@ aqe_quickText <- function (text, auto.text = TRUE)
   #            ans)
   ans <- gsub("\n", "<br>", ans)
   ans
+}
+
+##############################
+#ggtext is optional
+#aqe_quickText builds html-style markup for ggtext::element_markdown().
+#when ggtext is not installed we render the same labels using unicode
+#sub/superscripts, which plain ggplot2 draws at a uniform font size.
+##############################
+
+aqe_useMarkdown <- function(){
+  requireNamespace("ggtext", quietly = TRUE)
+}
+
+aqe_titleElement <- function(){
+  if(aqe_useMarkdown()){
+    ggtext::element_markdown()
+  } else {
+    ggplot2::element_text()
+  }
+}
+
+aqe_label <- function(text, auto.text = TRUE){
+  ans <- aqe_quickText(text, auto.text)
+  if(aqe_useMarkdown()) ans else aqe_mdToUnicode(ans)
+}
+
+aqe_scriptMap <- function(tag){
+  if(tag == "sub"){
+    c("0"="\u2080", "1"="\u2081", "2"="\u2082", "3"="\u2083",
+      "4"="\u2084", "5"="\u2085", "6"="\u2086", "7"="\u2087",
+      "8"="\u2088", "9"="\u2089", "+"="\u208a", "-"="\u208b",
+      "("="\u208d", ")"="\u208e", "a"="\u2090", "e"="\u2091",
+      "o"="\u2092", "x"="\u2093", "h"="\u2095", "k"="\u2096",
+      "l"="\u2097", "m"="\u2098", "n"="\u2099", "p"="\u209a",
+      "s"="\u209b", "t"="\u209c", "."=".")
+  } else {
+    c("0"="\u2070", "1"="\u00b9", "2"="\u00b2", "3"="\u00b3",
+      "4"="\u2074", "5"="\u2075", "6"="\u2076", "7"="\u2077",
+      "8"="\u2078", "9"="\u2079", "+"="\u207a", "-"="\u207b",
+      "("="\u207d", ")"="\u207e", "n"="\u207f", "o"="\u00b0",
+      "."=".")
+  }
+}
+
+aqe_scriptToUnicode <- function(text, tag){
+  map <- aqe_scriptMap(tag)
+  re <- sprintf("<%s>(.*?)</%s>", tag, tag)
+  vapply(text, function(x){
+    if(is.na(x)) return(x)
+    repeat{
+      m <- regexpr(re, x, perl = TRUE)
+      if(m < 0) break
+      inner <- sub(re, "\\1", regmatches(x, m), perl = TRUE)
+      ch <- strsplit(inner, "")[[1]]
+      #content with no unicode form (PM<sub>coarse</sub>) drops to inline text
+      regmatches(x, m) <- if(length(ch) > 0 && all(ch %in% names(map))){
+        paste(map[ch], collapse = "")
+      } else {
+        inner
+      }
+    }
+    x
+  }, character(1), USE.NAMES = FALSE)
+}
+
+aqe_mdToUnicode <- function(text){
+  if(length(text) < 1) return(text)
+  ans <- as.character(text)
+  ans <- gsub("<br>", "\n", ans, fixed = TRUE)
+  ans <- gsub("&mu;", "\u00b5", ans, fixed = TRUE)
+  ans <- aqe_scriptToUnicode(ans, "sub")
+  ans <- aqe_scriptToUnicode(ans, "sup")
+  #drop any markup we do not have a plain-text rendering for
+  gsub("<[^>]*>", "", ans)
 }
 
 ##############################
